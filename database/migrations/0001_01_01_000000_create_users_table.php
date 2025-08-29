@@ -17,6 +17,12 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            
+            $table->string('phone')->nullable()->index();
+            $table->enum('type', ['gros', 'details'])->default('details')->index();
+            $table->enum('status', ['pending', 'active', 'disabled'])->default('pending')->index();
+            $table->string('address')->nullable();
+            $table->unsignedBigInteger('wilaya_id')->nullable()->index();
             $table->rememberToken();
             $table->timestamps();
         });
