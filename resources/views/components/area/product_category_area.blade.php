@@ -2,22 +2,26 @@
          <section class="tp-product-category pt-60 pb-15">
             <div class="container">
                <div class="row row-cols-xl-5 row-cols-lg-5 row-cols-md-4">
+                  @foreach ($categories as $category)
                   <div class="col">
                      <div class="tp-product-category-item text-center mb-40">
                         <div class="tp-product-category-thumb fix">
-                           <a href="shop-category.html">
-                              <img src="assets/img/product/category/product-cat-1.png" alt="product-category">
+                           <a href="/products?category={{ $category->name }}">
+                              <img src="{{ 'assets/img/product/category/product-cat-1.png' ?? asset($category->image) }}" alt="product-category">
                            </a>
                         </div>
                         <div class="tp-product-category-content">
                            <h3 class="tp-product-category-title">
-                              <a href="shop-category.html">Cuisine</a>
+                              <a href="/products?category={{ $category->name }}"> {{ $category->name }} </a>
                            </h3>
-                           <p>20 Product</p>
+                           <p>{{ $category->count }} product</p>
                         </div>
                      </div>
                   </div>
-                  <div class="col">
+                  @endforeach
+                  
+
+                  {{-- <div class="col">
                      <div class="tp-product-category-item text-center mb-40">
                         <div class="tp-product-category-thumb fix">
                            <a href="shop-category.html">
@@ -76,7 +80,7 @@
                            <p>81 Product</p>
                         </div>
                      </div>
-                  </div>
+                  </div> --}}
                </div>
             </div>
          </section>

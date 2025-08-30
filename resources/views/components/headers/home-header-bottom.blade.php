@@ -372,11 +372,11 @@
                                           <li  class="has-dropdown">
                                              <a href="shop.html" class="mega-menu-title">eCommerce</a>
                                              <ul class="tp-submenu">
-                                                <li><a href="cart.html">Shopping Cart</a></li>
+                                                <li><a href="/cart">Shopping Cart</a></li>
                                                 <li><a href="order.html">Track Your Order</a></li>
-                                                <li><a href="compare.html">Compare</a></li>
-                                                <li><a href="wishlist.html">Wishlist</a></li>
-                                                <li><a href="checkout.html">Checkout</a></li>
+                                                {{-- <li><a href="compare.html">Compare</a></li> --}}
+                                                <li><a href="/wishlist">Wishlist</a></li>
+                                                <li><a href="/checkout">Checkout</a></li>
                                                 <li><a href="profile.html">My account</a></li>
                                              </ul>
                                           </li>
@@ -410,7 +410,7 @@
                                        </ul>
                                     </li>
                                     -->
-                                    <li><a href="contact.html">Contact</a></li>
+                                    <li><a href="/contact">Contact</a></li>
                                  </ul>
                               </nav>
                            </div>
@@ -428,7 +428,7 @@
                               </div>
                               <div class="tp-header-contact-content">
                                  <h5>Hotline:</h5>
-                                 <p><a href="tel:402-763-282-46">+(402) 763 282 46</a></p>
+                                 <p><a href="tel:{{ global_info('contact.phone_primary') }}">{{ global_info('contact.phone_primary') }}</a></p>
                               </div>
                            </div>
                         </div>

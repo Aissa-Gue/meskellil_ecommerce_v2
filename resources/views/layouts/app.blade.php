@@ -13,7 +13,7 @@
 
 
          <!-- Place favicon.ico in the root directory -->
-        <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/img/logo/favicon.png')}}">
+        <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/img/logo/favicon.ico')}}">
 
         <!-- CSS here -->
         <link rel="stylesheet" href="{{asset('assets/css/bootstrap.css')}}">

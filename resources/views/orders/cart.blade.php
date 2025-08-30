@@ -219,7 +219,7 @@
                                 <span>$724</span>
                             </div>
                             <div class="tp-cart-checkout-proceed">
-                                <a href="checkout.html" class="tp-cart-checkout-btn w-100">Proceed to Checkout</a>
+                                <a href="/checkout" class="tp-cart-checkout-btn w-100">Proceed to Checkout</a>
                             </div>
                         </div>
                     </div>

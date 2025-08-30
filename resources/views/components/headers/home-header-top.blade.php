@@ -56,10 +56,10 @@
                                        <a href="profile.html">My Profile</a>
                                     </li>
                                     <li>
-                                       <a href="wishlist.html">Wishlist</a>
+                                       <a href="/wishlist">Wishlist</a>
                                     </li>
                                     <li>
-                                       <a href="cart.html">Cart</a>
+                                       <a href="/cart">Cart</a>
                                     </li>
                                     <li>
                                        <a href="login.html">Logout</a>

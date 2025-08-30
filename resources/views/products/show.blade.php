@@ -674,7 +674,7 @@
                                                                 <div class="tp-product-details-review-input-box">
                                                                     <div class="tp-product-details-review-input">
                                                                         <input name="email" id="email" type="email"
-                                                                               placeholder="shofy@mail.com">
+                                                                            placeholder="example@mail.com">
                                                                     </div>
                                                                     <div class="tp-product-details-review-input-title">
                                                                         <label for="email">Your Email</label>

@@ -33,8 +33,24 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-xl-6 col-lg-8">
+                         
+                         
                         <div class="tp-login-wrapper">
-                            @yield('auth-wrapper')
+                              @yield('auth-wrapper')
+                              
+                              @if (session('status'))
+                                   <div class="alert alert-success mt-3">
+                                        {{ session('status') }}
+                                   </div>
+                              @endif
+                              
+                              @if ($errors->any())
+                                   <div class="alert alert-danger mt-3">
+                                        @foreach ($errors->all() as $error)
+                                             <p class="mb-0">{{ $error }}</p>
+                                        @endforeach
+                                   </div>
+                              @endif
                         </div>
                     </div>
                 </div>
