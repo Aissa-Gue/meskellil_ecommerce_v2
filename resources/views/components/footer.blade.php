@@ -8,19 +8,18 @@
                         <div class="tp-footer-widget footer-col-1 mb-50">
                             <div class="tp-footer-widget-content">
                                 <div class="tp-footer-logo">
-                                    <a href="index.html">
+                                    <a href="/">
                                         <!--<img src="assets/img/logo/logo.svg" alt="logo">-->
-                                        <img src="assets/img/logo/meskellil_logo.png" class="img-fluid" width="120px"
+                                        <img src="{{ global_info('brand.logo.png') }}" class="img-fluid" width="170px"
                                              alt="logo">
                                     </a>
                                 </div>
-                                <p class="tp-footer-desc">We are a team of designers and developers that create high
-                                    quality WordPress</p>
+                                <p class="tp-footer-desc">{{ global_info('brand.slug') }}</p>
                                 <div class="tp-footer-social">
-                                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-                                    <a href="#"><i class="fa-brands fa-vimeo-v"></i></a>
+                                    <a href="{{ global_info('social_media.facebook.url') }}"><i class="fa-brands fa-facebook-f"></i></a>
+                                    <a href="{{ global_info('social_media.instagram.url') }}"><i class="fa-brands fa-instagram"></i></a>
+                                    <a href="{{ global_info('social_media.youtube.url') }}"><i class="fa-brands fa-youtube"></i></a>
+                                    <a href="{{ global_info('social_media.tiktok.url') }}"><i class="fa-brands fa-tiktok"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -32,7 +31,7 @@
                                 <ul>
                                     <li><a href="#">Track Orders</a></li>
                                     <li><a href="#">Shipping</a></li>
-                                    <li><a href="#">Wishlist</a></li>
+                                    <li><a href="/wishlist">Wishlist</a></li>
                                     <li><a href="#">My Account</a></li>
                                     <li><a href="#">Order History</a></li>
                                     <li><a href="#">Returns</a></li>
@@ -61,7 +60,7 @@
                             <div class="tp-footer-widget-content">
                                 <div class="tp-footer-talk mb-20">
                                     <span>Got Questions? Call us</span>
-                                    <h4><a href="tel:670-413-90-762">+670 413 90 762</a></h4>
+                                    <h4><a href="tel:{{ global_info('contact.phone_primary') }}">{{ global_info('contact.phone_primary') }}</a></h4>
                                 </div>
                                 <div class="tp-footer-contact">
                                     <div class="tp-footer-contact-item d-flex align-items-start">
@@ -87,27 +86,48 @@
                                        </span>
                                         </div>
                                         <div class="tp-footer-contact-content">
-                                            <p><a href="mailto:shofy@support.com">shofy@support.com</a></p>
+                                            <p><a href="mailto:{{ global_info('contact.email') }}">{{ global_info('contact.email') }}</a></p>
                                         </div>
                                     </div>
                                     <div class="tp-footer-contact-item d-flex align-items-start">
                                         <div class="tp-footer-contact-icon">
-                                       <span>
-                                          <svg width="17" height="20" viewBox="0 0 17 20" fill="none"
-                                               xmlns="http://www.w3.org/2000/svg">
-                                             <path
-                                                 d="M8.50001 10.9417C9.99877 10.9417 11.2138 9.72668 11.2138 8.22791C11.2138 6.72915 9.99877 5.51416 8.50001 5.51416C7.00124 5.51416 5.78625 6.72915 5.78625 8.22791C5.78625 9.72668 7.00124 10.9417 8.50001 10.9417Z"
-                                                 stroke="currentColor" stroke-width="1.5"/>
-                                             <path
-                                                 d="M1.21115 6.64496C2.92464 -0.887449 14.0841 -0.878751 15.7889 6.65366C16.7891 11.0722 14.0406 14.8123 11.6313 17.126C9.88298 18.8134 7.11704 18.8134 5.36006 17.126C2.95943 14.8123 0.210885 11.0635 1.21115 6.64496Z"
-                                                 stroke="currentColor" stroke-width="1.5"/>
-                                          </svg>
-                                       </span>
+                                            <span>
+                                                <svg width="17" height="20" viewBox="0 0 17 20" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M8.50001 10.9417C9.99877 10.9417 11.2138 9.72668 11.2138 8.22791C11.2138 6.72915 9.99877 5.51416 8.50001 5.51416C7.00124 5.51416 5.78625 6.72915 5.78625 8.22791C5.78625 9.72668 7.00124 10.9417 8.50001 10.9417Z"
+                                                        stroke="currentColor" stroke-width="1.5"/>
+                                                    <path
+                                                        d="M1.21115 6.64496C2.92464 -0.887449 14.0841 -0.878751 15.7889 6.65366C16.7891 11.0722 14.0406 14.8123 11.6313 17.126C9.88298 18.8134 7.11704 18.8134 5.36006 17.126C2.95943 14.8123 0.210885 11.0635 1.21115 6.64496Z"
+                                                        stroke="currentColor" stroke-width="1.5"/>
+                                                </svg>
+                                            </span>
                                         </div>
                                         <div class="tp-footer-contact-content">
                                             <p>
-                                                <a href="https://www.google.com/maps/place/Sleepy+Hollow+Rd,+Gouverneur,+NY+13642,+USA/@44.3304966,-75.4552367,17z/data=!3m1!4b1!4m6!3m5!1s0x4cccddac8972c5eb:0x56286024afff537a!8m2!3d44.3304928!4d-75.453048!16s%2Fg%2F1tdsjdj4"
-                                                   target="_blank">79 Sleepy Hollow St. <br> Jamaica, New York 1432</a>
+                                                <a href="{{ global_info('addresses.location_1.maps_url') }}"
+                                                   target="_blank">{{ global_info('addresses.location_1.address') }}</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="tp-footer-contact-item d-flex align-items-start">
+                                        <div class="tp-footer-contact-icon">
+                                            <span>
+                                                <svg width="17" height="20" viewBox="0 0 17 20" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M8.50001 10.9417C9.99877 10.9417 11.2138 9.72668 11.2138 8.22791C11.2138 6.72915 9.99877 5.51416 8.50001 5.51416C7.00124 5.51416 5.78625 6.72915 5.78625 8.22791C5.78625 9.72668 7.00124 10.9417 8.50001 10.9417Z"
+                                                        stroke="currentColor" stroke-width="1.5"/>
+                                                    <path
+                                                        d="M1.21115 6.64496C2.92464 -0.887449 14.0841 -0.878751 15.7889 6.65366C16.7891 11.0722 14.0406 14.8123 11.6313 17.126C9.88298 18.8134 7.11704 18.8134 5.36006 17.126C2.95943 14.8123 0.210885 11.0635 1.21115 6.64496Z"
+                                                        stroke="currentColor" stroke-width="1.5"/>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <div class="tp-footer-contact-content">
+                                            <p>
+                                                <a href="{{ global_info('addresses.location_2.maps_url') }}"
+                                                   target="_blank">{{ global_info('addresses.location_2.address') }}</a>
                                             </p>
                                         </div>
                                     </div>
@@ -124,16 +144,16 @@
                     <div class="row align-items-center">
                         <div class="col-md-6">
                             <div class="tp-footer-copyright">
-                                <p>© 2023 All Rights Reserved | HTML Template by <a href="index.html">Themepure</a>.</p>
+                                <p>© 2025 All Rights Reserved | <a href="/">{{ global_info('brand.name') }}</a>.</p>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        {{-- <div class="col-md-6">
                             <div class="tp-footer-payment text-md-end">
                                 <p>
                                     <img src="assets/img/footer/footer-pay.png" alt="">
                                 </p>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>

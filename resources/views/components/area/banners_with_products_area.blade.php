@@ -11,12 +11,17 @@
 
                            <div class="tp-product-gadget-categories-list">
                               <ul>
-                                 <li><a href="shop-category.html">Micrscope</a></li>
+                                 
+                                 {{-- <li><a href="shop-category.html">Micrscope</a></li>
                                  <li><a href="shop-category.html">Remote Control</a></li>
                                  <li><a href="shop-category.html">Monitor</a></li>
                                  <li><a href="shop-category.html">Thermometer</a></li>
                                  <li><a href="shop-category.html">Backpack</a></li>
-                                 <li><a href="shop-category.html">Headphones</a></li>
+                                 <li><a href="shop-category.html">Headphones</a></li> --}}
+
+                                 {{-- @foreach ($categories as $category)
+                                    <li><a href="/products?category={{ $category->name }}">{{ $category->name }}</a></li>
+                                 @endforeach --}}
                               </ul>
                            </div>
 

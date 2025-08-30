@@ -23,7 +23,8 @@ class DatabaseSeeder extends Seeder
 
         // --- Users ---
         $users = collect([
-            ['name' => 'Karim Boulanger', 'email' => 'karim@example.com', 'phone' => '0551001100', 'type' => 'details', 'status' => 'active', 'address' => 'Algiers centre', 'wilaya_id' => 16],
+            // ['name' => 'Karim Boulanger', 'email' => 'karim@example.com', 'phone' => '0551001100', 'type' => 'details', 'status' => 'active', 'address' => 'Algiers centre', 'wilaya_id' => 16],
+            ['name' => 'Karim Boulanger', 'email' => 'redouanedaddi316@gmail.com', 'phone' => '0551001100', 'type' => 'details', 'status' => 'active', 'address' => 'Algiers centre', 'wilaya_id' => 16],
             ['name' => 'Saliha Pâtissière', 'email' => 'saliha@example.com', 'phone' => '0552002200', 'type' => 'details', 'status' => 'active', 'address' => 'Oran centre', 'wilaya_id' => 31],
             ['name' => 'Ali Grossiste', 'email' => 'ali@example.com', 'phone' => '0553003300', 'type' => 'gros', 'status' => 'active', 'address' => 'Blida', 'wilaya_id' => 9],
             ['name' => 'Nour Client', 'email' => 'nour@example.com', 'phone' => '0554004400', 'type' => 'details', 'status' => 'pending', 'address' => 'Constantine', 'wilaya_id' => 25],

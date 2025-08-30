@@ -48,7 +48,10 @@ class HomeController extends Controller
             ->limit(8)
             ->get();
 
-        return view('home', compact(['newestProducts', 'bestSellingProducts', 'discountedProducts']));
+        $categories = \App\Models\Category::all();
+        $products=$newestProducts;
+
+        return view('home', compact(['newestProducts', 'bestSellingProducts', 'discountedProducts', 'products', 'categories']));
     }
 
     public function contact()

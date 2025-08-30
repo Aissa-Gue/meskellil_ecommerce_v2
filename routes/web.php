@@ -21,6 +21,19 @@ Route::get('/order-success', [App\Http\Controllers\OrderController::class, 'orde
 
 Route::resource('products', ProductController::class)->only(['index','show']);
 
+// Auth routes
+Route::get('login', [App\Http\Controllers\AuthController::class, 'showLoginForm'])->name('login');
+Route::post('login', [App\Http\Controllers\AuthController::class, 'login']);
+Route::post('logout', [App\Http\Controllers\AuthController::class, 'logout'])->name('logout');
+Route::get('register', [App\Http\Controllers\AuthController::class, 'showRegisterForm'])->name('register');
+Route::post('register', [App\Http\Controllers\AuthController::class, 'register']);
+
+// Password reset routes
+Route::get('forgot-password', [App\Http\Controllers\PasswordController::class, 'showLinkRequestForm'])->name('password.request');
+Route::post('forgot-password', [App\Http\Controllers\PasswordController::class, 'sendResetLinkEmail'])->name('password.email');
+Route::get('reset-password/{token}', [App\Http\Controllers\PasswordController::class, 'showResetForm'])->name('password.reset');
+Route::post('reset-password', [App\Http\Controllers\PasswordController::class, 'reset'])->name('password.update');
+
 //Route::resource('brands', BrandController::class)->only(['index','show','store','update','destroy']);
 //Route::resource('categories', CategoryController::class)->only(['index','show','store','update','destroy']);
 //Route::resource('orders', OrderController::class)->only(['index','show','store','update','destroy']);

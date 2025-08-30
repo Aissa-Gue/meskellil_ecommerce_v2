@@ -8,7 +8,7 @@
                     <div class="col-md-6">
                         <div class="tp-header-info d-flex align-items-center">
                             <div class="tp-header-info-item">
-                                <a href="#">
+                                <a href="{{ global_info('social_media.facebook.url') }}">
                                  <span>
                                     <svg width="8" height="15" viewBox="0 0 8 15" fill="none"
                                          xmlns="http://www.w3.org/2000/svg">
@@ -16,11 +16,11 @@
                                            d="M8 0H5.81818C4.85376 0 3.92883 0.383116 3.24688 1.06507C2.56493 1.74702 2.18182 2.67194 2.18182 3.63636V5.81818H0V8.72727H2.18182V14.5455H5.09091V8.72727H7.27273L8 5.81818H5.09091V3.63636C5.09091 3.44348 5.16753 3.25849 5.30392 3.1221C5.44031 2.98571 5.6253 2.90909 5.81818 2.90909H8V0Z"
                                            fill="currentColor"/>
                                     </svg>
-                                 </span> 7500k Followers
+                                 </span> {{ global_info('social_media.facebook.followers') }} Followers
                                 </a>
                             </div>
                             <div class="tp-header-info-item">
-                                <a href="tel:402-763-282-46">
+                                <a href="tel:{{ global_info('contact.phone_primary') }}">
                                  <span>
                                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
                                          xmlns="http://www.w3.org/2000/svg">
@@ -35,7 +35,7 @@
                                              stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
                                              stroke-linejoin="round"/>
                                     </svg>
-                                 </span> +(402) 763 282 46
+                                 </span> {{ global_info('contact.phone_primary') }}
                                 </a>
                             </div>
                         </div>
@@ -82,10 +82,10 @@
                                             <a href="profile.html">My Profile</a>
                                         </li>
                                         <li>
-                                            <a href="wishlist.html">Wishlist</a>
+                                            <a href="/wishlist">Wishlist</a>
                                         </li>
                                         <li>
-                                            <a href="cart.html">Cart</a>
+                                            <a href="/cart">Cart</a>
                                         </li>
                                         <li>
                                             <a href="login.html">Logout</a>
@@ -106,9 +106,9 @@
                     <div class="row align-items-center">
                         <div class="col-xl-2 col-lg-5 col-md-5 col-sm-4 col-6">
                             <div class="logo">
-                                <a href="index.html">
-                                    <img src="{{ asset('assets/img/logo/meskellil_logo.png') }}" class="img-fluid"
-                                         width="120px" alt="logo">
+                                <a href="/">
+                                    <img src="{{ global_info('brand.logo.png') }}" class="img-fluid"
+                                         width="80px" alt="logo">
                                 </a>
                             </div>
                         </div>
@@ -117,7 +117,7 @@
                                 <nav class="tp-main-menu-content">
                                     <ul>
                                         <li class="has-dropdown has-mega-menu">
-                                            <a href="index.html">Home</a>
+                                            <a href="/">Home</a>
                                             <div class="home-menu tp-submenu tp-mega-menu">
                                                 <div class="row row-cols-1 row-cols-lg-4 row-cols-xl-5">
                                                     <div class="col">
@@ -316,11 +316,11 @@
                                                 <li class="has-dropdown">
                                                     <a href="shop.html" class="mega-menu-title">eCommerce</a>
                                                     <ul class="tp-submenu">
-                                                        <li><a href="cart.html">Shopping Cart</a></li>
+                                                        <li><a href="/cart">Shopping Cart</a></li>
                                                         <li><a href="order.html">Track Your Order</a></li>
-                                                        <li><a href="compare.html">Compare</a></li>
-                                                        <li><a href="wishlist.html">Wishlist</a></li>
-                                                        <li><a href="checkout.html">Checkout</a></li>
+                                                        {{-- <li><a href="compare.html">Compare</a></li> --}}
+                                                        <li><a href="/wishlist">Wishlist</a></li>
+                                                        <li><a href="/checkout">Checkout</a></li>
                                                         <li><a href="profile.html">My account</a></li>
                                                     </ul>
                                                 </li>
@@ -341,7 +341,7 @@
 
                                             </ul>
                                         </li>
-                                        <li><a href="coupon.html">Coupons</a></li>
+                                        {{-- <li><a href="coupon.html">Coupons</a></li>
                                         <li class="has-dropdown">
                                             <a href="blog.html">Blog</a>
                                             <ul class="tp-submenu">
@@ -351,8 +351,8 @@
                                                 <li><a href="blog-details-2.html">Blog Details Full Width</a></li>
                                                 <li><a href="blog-details.html">Blog Details</a></li>
                                             </ul>
-                                        </li>
-                                        <li><a href="contact.html">Contact</a></li>
+                                        </li> --}}
+                                        <li><a href="/contact">Contact</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -645,7 +645,7 @@
                                     </form>
                                 </div>
                                 <div class="tp-header-action d-flex align-items-center ml-30">
-                                    <div class="tp-header-action-item d-none d-lg-block">
+                                    {{-- <div class="tp-header-action-item d-none d-lg-block">
                                         <a href="compare.html" class="tp-header-action-btn">
                                             <svg width="20" height="19" viewBox="0 0 20 19" fill="none"
                                                  xmlns="http://www.w3.org/2000/svg">
@@ -663,9 +663,9 @@
                                                       stroke-linejoin="round"/>
                                             </svg>
                                         </a>
-                                    </div>
+                                    </div> --}}
                                     <div class="tp-header-action-item d-none d-lg-block">
-                                        <a href="wishlist.html" class="tp-header-action-btn">
+                                        <a href="/wishlist" class="tp-header-action-btn">
                                             <svg width="22" height="20" viewBox="0 0 22 20" fill="none"
                                                  xmlns="http://www.w3.org/2000/svg">
                                                 <path fill-rule="evenodd" clip-rule="evenodd"

@@ -87,7 +87,7 @@
 
         //Email Header
 
-        $head = " /// Theme_Pure Shofy HTML \\\ ";
+        $head = " ///  { global_info('brand.name') } HTML \\\ ";
 
 
 

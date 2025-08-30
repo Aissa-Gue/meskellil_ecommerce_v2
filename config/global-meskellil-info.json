@@ -1,0 +1,50 @@
+{
+    "dev_mail": "meskellilecom@gmail.com",
+    "contact": {
+        "email": "meskellil-25@hotmail.com",
+        "phone_primary": "+213660992267",
+        "phone_secondary": "+213550549381",
+        "whatsapp": "https://wa.me/+213660992267",
+        "viber": "viber://chat/?number=%2B213660992267"
+    },
+    "social_media": {
+        "facebook": {
+            "url": "https://web.facebook.com/meskellilemballage",
+            "followers": "79K"
+        },
+        "instagram": {
+            "url": "https://www.instagram.com/mesk_ellil_officiel",
+            "followers": "79K"
+        },
+        "tiktok": {
+            "url": "https://www.tiktok.com/@mesk_ellil_officiel",
+            "followers": "39K"
+        },
+        "youtube": {
+            "url": "https://youtube.com/@meskellilconstantine2838",
+            "followers": null
+        }
+    },
+    "addresses": {
+        "main": "Mesk Ellil - EL Khroub 25000 Constantine, Algeria",
+        "location_1": {
+            "address": "UV7 N=164 Nouvelle ville (Ali Mendjli) - EL Khroub , Constantine",
+            "maps_url": "https://maps.app.goo.gl/G4WCrBQVqEMkRaqf7",
+            "maps_embed_url": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2334.014719770815!2d6.590065274088252!3d36.25947853023888!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12f1712473f7496f%3A0x3e669df7a132086b!2sMesk%20Ellil%20Nouvelle%20Ville!5e1!3m2!1sen!2sdz!4v1756571678941!5m2!1sen!2sdz"
+        },
+        "location_2": {
+            "address": "37 rue Amir Abd el Kader EL Khroub - Constantine",
+            "maps_url": "https://maps.app.goo.gl/xKRKPE6Zzac4yo348",
+            "maps_embed_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3372.114553095487!2d6.692199699999999!3d36.2607938!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12f173c0e8ef1e67%3A0x39cf11ac066af055!2sMesk%20ellil!5e1!3m2!1sen!2sdz!4v1756571494734!5m2!1sen!2sdz"
+        }
+    },
+    "brand": {
+        "name": "MeskEllil",
+        "slug": "EMBALLAGES ET PRODUITS PATISSIERS",
+        "logo": {
+            "svg": "assets/img/logo/meskellil_logo.svg",
+            "png": "assets/img/logo/meskellil_logo.png",
+            "jpg": "assets/img/logo/meskellil_logo.jpg"
+        }
+    }
+}

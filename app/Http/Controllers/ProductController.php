@@ -22,9 +22,10 @@ class ProductController extends Controller
             )
         ]);
 
-        return $products = $productService->getFilteredProducts($request)->paginate(20);
+        $products = $productService->getFilteredProducts($request)->paginate(20);
+        $categories = \App\Models\Category::all();
 
-        return view('products.index', compact('products'));
+        return view('products.index', compact(['products','categories']));
     }
 
     public function show(Product $product)

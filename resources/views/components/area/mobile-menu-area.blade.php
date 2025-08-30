@@ -20,7 +20,7 @@
                </div>
                <div class="col">
                   <div class="tp-mobile-item text-center">
-                     <a href="wishlist.html" class="tp-mobile-item-btn">
+                     <a href="/wishlist" class="tp-mobile-item-btn">
                         <i class="flaticon-love"></i>
                         <span>Wishlist</span>
                      </a>

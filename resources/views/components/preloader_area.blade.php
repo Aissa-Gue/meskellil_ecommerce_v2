@@ -15,9 +15,9 @@
                         </svg>
                     </div>
                     <!--<img src="{{asset('assets/img/logo/preloader/preloader-icon.svg')}}" alt="">-->
-                    <img src="{{asset('assets/img/logo/meskellil_logo.png')}}" alt="" class="img-fluid" width="120px">
+                    <img src="{{ global_info('brand.logo.png') }}" alt="" class="img-fluid" width="120px">
                 </div>
-                <h3 class="tp-preloader-title">MeskEllil</h3>
+                <h3 class="tp-preloader-title">{{ global_info('brand.name') }}</h3>
                 <p class="tp-preloader-subtitle">Loading</p>
             </div>
         </div>

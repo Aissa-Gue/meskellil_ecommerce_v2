@@ -12,9 +12,9 @@
             <div class="offcanvas__content">
                <div class="offcanvas__top mb-70 d-flex justify-content-between align-items-center">
                   <div class="offcanvas__logo logo">
-                     <a href="index.html">
+                     <a href="/">
                         <!--<img src="assets/img/logo/logo.svg" alt="logo">-->
-                        <img src="assets/img/logo/meskellil_logo.png" class="img-fluid" width="120px" alt="logo">
+                        <img src="{{ global_info('brand.logo.png') }}" class="img-fluid" width="80px" alt="logo">
                      </a>
                   </div>
                </div>
@@ -42,7 +42,7 @@
                   </div>
                </div>
                <div class="offcanvas__btn">
-                  <a href="contact.html" class="tp-btn-2 tp-btn-border-2">Contact Us</a>
+                  <a href="/contact" class="tp-btn-2 tp-btn-border-2">Contact Us</a>
                </div>
             </div>
             <div class="offcanvas__bottom">
