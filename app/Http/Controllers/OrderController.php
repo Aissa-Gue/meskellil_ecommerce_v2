@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\QueryFilters\OrderFilters;
 use App\Models\Order;
 use App\Models\OrderProduct;
 use App\Models\Product;
@@ -14,6 +13,27 @@ use Spatie\QueryBuilder\QueryBuilder;
 
 class OrderController extends Controller
 {
+    public function wishlist()
+    {
+        return view('orders.wishlist');
+    }
+
+    public function cart()
+    {
+        return view('orders.cart');
+    }
+
+    public function checkout()
+    {
+        return view('orders.checkout');
+    }
+
+    public function orderSuccess()
+    {
+        return view('orders.order-success');
+    }
+
+    /***************************************************************/
     public function index(Request $request, OrderService $orderService)
     {
         $orders = QueryBuilder::for(Order::with('client', 'items.product'))
