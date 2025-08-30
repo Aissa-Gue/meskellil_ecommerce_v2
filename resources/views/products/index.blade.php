@@ -432,7 +432,7 @@
     <!-- filter offcanvas area end -->
 
     <main>
-        @include('components.breadcrumb2')
+        @include('components.breadcrumb2', $breadcrumbData)
 
         <!-- shop area start -->
         <section class="tp-shop-area pb-120">

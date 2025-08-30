@@ -15,22 +15,98 @@ class OrderController extends Controller
 {
     public function wishlist()
     {
-        return view('orders.wishlist');
+        $breadcrumbData = [
+            'title' => 'Checkout',
+            'bgColor' => '#EFF1F5',
+            'breadcrumbs' => [
+                [
+                    'name' => 'Home',
+                    'url' => route('home')
+                ],
+                [
+                    'name' => 'Shop',
+                    'url' => route('products.index')
+                ],
+                [
+                    'name' => 'Wishlist',
+                    'url' => null // Current page, no URL needed
+                ]
+            ]
+        ];
+
+        return view('orders.wishlist')->with(compact('breadcrumbData'));
     }
 
     public function cart()
     {
-        return view('orders.cart');
+        $breadcrumbData = [
+            'title' => 'Checkout',
+            'bgColor' => '#EFF1F5',
+            'breadcrumbs' => [
+                [
+                    'name' => 'Home',
+                    'url' => route('home')
+                ],
+                [
+                    'name' => 'Shop',
+                    'url' => route('products.index')
+                ],
+                [
+                    'name' => 'Cart',
+                    'url' => null // Current page, no URL needed
+                ]
+            ]
+        ];
+
+        return view('orders.cart')->with(compact('breadcrumbData'));
     }
 
     public function checkout()
     {
-        return view('orders.checkout');
+        $breadcrumbData = [
+            'title' => 'Checkout',
+            'bgColor' => '#EFF1F5',
+            'breadcrumbs' => [
+                [
+                    'name' => 'Home',
+                    'url' => route('home')
+                ],
+                [
+                    'name' => 'Shop',
+                    'url' => route('products.index')
+                ],
+                [
+                    'name' => 'Checkout',
+                    'url' => null // Current page, no URL needed
+                ]
+            ]
+        ];
+
+        return view('orders.checkout')->with(compact('breadcrumbData'));
     }
 
     public function orderSuccess()
     {
-        return view('orders.order-success');
+        $breadcrumbData = [
+            'title' => 'Checkout',
+            'bgColor' => '#EFF1F5',
+            'breadcrumbs' => [
+                [
+                    'name' => 'Home',
+                    'url' => route('home')
+                ],
+                [
+                    'name' => 'Shop',
+                    'url' => route('products.index')
+                ],
+                [
+                    'name' => 'Checkout',
+                    'url' => null // Current page, no URL needed
+                ]
+            ]
+        ];
+
+        return view('orders.order-success')->with(compact('breadcrumbData'));
     }
 
     /***************************************************************/
@@ -64,8 +140,27 @@ class OrderController extends Controller
 
     public function show(Order $order)
     {
+        $breadcrumbData = [
+            'title' => 'Order Details',
+            'bgColor' => '#F8F9FA',
+            'breadcrumbs' => [
+                [
+                    'name' => 'Home',
+                    'url' => route('home')
+                ],
+                [
+                    'name' => 'Orders',
+                    'url' => route('orders.index')
+                ],
+                [
+                    'name' => 'Order #' . $order->id,
+                    'url' => null
+                ]
+            ]
+        ];
+
         $order->load(['client', 'items.product']);
-        return view('orders.show', compact('order'));
+        return view('orders.show', compact('breadcrumbData', 'order'));
     }
 
     public function store(Request $request)

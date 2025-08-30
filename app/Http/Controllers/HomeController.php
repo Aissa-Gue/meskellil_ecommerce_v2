@@ -53,7 +53,26 @@ class HomeController extends Controller
 
     public function contact()
     {
-        return view('contact');
+        $breadcrumbData = [
+            'title' => 'Checkout',
+            'bgColor' => '#EFF1F5',
+            'breadcrumbs' => [
+                [
+                    'name' => 'Home',
+                    'url' => route('home')
+                ],
+                [
+                    'name' => 'Shop',
+                    'url' => route('products.index')
+                ],
+                [
+                    'name' => 'Checkout',
+                    'url' => null // Current page, no URL needed
+                ]
+            ]
+        ];
+
+        return view('contact')->with(compact('breadcrumbData'));
     }
 
 }

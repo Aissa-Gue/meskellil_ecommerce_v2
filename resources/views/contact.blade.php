@@ -10,7 +10,7 @@
 
 
     <main>
-        @include('components.breadcrumb2')
+        @include('components.breadcrumb2', $breadcrumbData)
 
 
 

@@ -12,6 +12,25 @@ class ProductController extends Controller
 {
     public function index(Request $request, ProductService $productService)
     {
+        $breadcrumbData = [
+            'title' => 'Checkout',
+            'bgColor' => '#EFF1F5',
+            'breadcrumbs' => [
+                [
+                    'name' => 'Home',
+                    'url' => route('home')
+                ],
+                [
+                    'name' => 'Shop',
+                    'url' => route('products.index')
+                ],
+                [
+                    'name' => 'List Products',
+                    'url' => null // Current page, no URL needed
+                ]
+            ]
+        ];
+
         // Merge backend filters with request filters
         $request->merge([
             'filter' => array_merge(
@@ -24,13 +43,31 @@ class ProductController extends Controller
 
         return $products = $productService->getFilteredProducts($request)->paginate(20);
 
-        return view('products.index', compact('products'));
+        return view('products.index', compact('breadcrumbData','products'));
     }
 
     public function show(Product $product)
     {
+        $breadcrumbData = [
+            'title' => $product->name,
+            'breadcrumbs' => [
+                [
+                    'name' => 'Home',
+                    'url' => route('home')
+                ],
+                [
+                    'name' => 'Shop',
+                    'url' => route('products.index')
+                ],
+                [
+                    'name' => $product->name,
+                    'url' => null
+                ]
+            ]
+        ];
+
         $product->load(['brand:id,name','category:id,name']);
-        return view('products.show', compact('product'));
+        return view('products.show', compact('breadcrumbData','product'));
     }
 
      public function store(Request $request)
