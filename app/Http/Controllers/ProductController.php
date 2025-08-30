@@ -61,7 +61,7 @@ class ProductController extends Controller
             'brand_id' => 'nullable|exists:brands,id',
             'category_id' => 'nullable|exists:categories,id',
             'use_case' => 'nullable|string|max:255',
-            'details' => 'nullable|string',
+            'description' => 'nullable|string',
             'caracteristics' => 'nullable|array',
             'reference' => 'nullable|string|max:255',
             'price1' => 'nullable|numeric|min:0',

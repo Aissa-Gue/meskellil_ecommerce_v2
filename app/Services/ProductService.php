@@ -18,7 +18,7 @@ class ProductService
                 'name',
                 AllowedFilter::exact('size'),
                 'use_case',
-                'details',
+                'description',
                 'characteristics',
 
                 AllowedFilter::exact('reference'),

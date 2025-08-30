@@ -12,13 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('products', function (Blueprint $table) {
-              $table->id();
+            $table->id();
             $table->string('name')->index();
             $table->string('size')->nullable()->index();
             $table->foreignId('brand_id')->nullable()->constrained()->nullOnDelete();
             $table->foreignId('category_id')->nullable()->constrained()->nullOnDelete();
             $table->string('use_case')->nullable()->index();
-            $table->text('details')->nullable();
+            $table->text('description')->nullable();
             $table->json('caracteristics')->nullable();  // store structured attributes as JSON
             $table->string('reference')->nullable()->index();
 
