@@ -51,4 +51,9 @@ class HomeController extends Controller
         return view('home', compact(['newestProducts', 'bestSellingProducts', 'discountedProducts']));
     }
 
+    public function contact()
+    {
+        return view('contact');
+    }
+
 }
