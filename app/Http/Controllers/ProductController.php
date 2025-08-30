@@ -12,6 +12,25 @@ class ProductController extends Controller
 {
     public function index(Request $request, ProductService $productService)
     {
+        $breadcrumbData = [
+            'title' => 'Checkout',
+            'bgColor' => '#EFF1F5',
+            'breadcrumbs' => [
+                [
+                    'name' => 'Home',
+                    'url' => route('home')
+                ],
+                [
+                    'name' => 'Shop',
+                    'url' => route('products.index')
+                ],
+                [
+                    'name' => 'List Products',
+                    'url' => null // Current page, no URL needed
+                ]
+            ]
+        ];
+
         // Merge backend filters with request filters
         $request->merge([
             'filter' => array_merge(
@@ -25,13 +44,31 @@ class ProductController extends Controller
         $products = $productService->getFilteredProducts($request)->paginate(20);
         $categories = \App\Models\Category::all();
 
-        return view('products.index', compact(['products','categories']));
+        return view('products.index', compact(['breadcrumbData','products','categories']));
     }
 
     public function show(Product $product)
     {
+        $breadcrumbData = [
+            'title' => $product->name,
+            'breadcrumbs' => [
+                [
+                    'name' => 'Home',
+                    'url' => route('home')
+                ],
+                [
+                    'name' => 'Shop',
+                    'url' => route('products.index')
+                ],
+                [
+                    'name' => $product->name,
+                    'url' => null
+                ]
+            ]
+        ];
+
         $product->load(['brand:id,name','category:id,name']);
-        return view('products.show', compact('product'));
+        return view('products.show', compact('breadcrumbData','product'));
     }
 
      public function store(Request $request)
@@ -62,7 +99,7 @@ class ProductController extends Controller
             'brand_id' => 'nullable|exists:brands,id',
             'category_id' => 'nullable|exists:categories,id',
             'use_case' => 'nullable|string|max:255',
-            'details' => 'nullable|string',
+            'description' => 'nullable|string',
             'caracteristics' => 'nullable|array',
             'reference' => 'nullable|string|max:255',
             'price1' => 'nullable|numeric|min:0',

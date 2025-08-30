@@ -10,7 +10,7 @@
 
 
     <main>
-        @include('components.breadcrumb-area')
+        @include('components.breadcrumb2', $breadcrumbData)
 
         <!-- checkout area start -->
         <section class="tp-checkout-area pb-120" data-bg-color="#EFF1F5">

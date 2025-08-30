@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('client_id')->nullable()->constrained('users')->nullOnDelete();
             $table->string('client_name')->nullable();
             $table->string('client_phone')->nullable()->index();
-            $table->unsignedSmallInteger('wilaya_id')->nullable()->index();
+            $table->foreignId('commune_id')->constrained();
 
             $table->enum('payment_status', ['full_paid', 'partial_paid', 'pending'])->default('pending')->index();
             $table->enum('payment_method', ['cash', 'ccp', 'bank_transfer'])->default('cash')->index();

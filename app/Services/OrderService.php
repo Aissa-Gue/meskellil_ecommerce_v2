@@ -19,7 +19,7 @@ class OrderService
                 AllowedFilter::exact('client_id'),
                 'client_name',
                 'client_phone',
-                AllowedFilter::exact('wilaya_id'),
+                AllowedFilter::exact('commune_id'),
                 AllowedFilter::exact('payment_status'),
                 AllowedFilter::exact('payment_method'),
                 AllowedFilter::exact('is_verified'),
@@ -42,7 +42,7 @@ class OrderService
             ])
             ->allowedSorts([
                 'client_name',
-                'wilaya_id',
+                'commune_id',
                 'total_price',
                 'payment_status',
                 'payment_method',
@@ -50,6 +50,6 @@ class OrderService
                 'order_status',
                 'created_at',
             ])
-            ->allowedIncludes(['client', 'items']); // relationships
+            ->allowedIncludes(['client','commune', 'items']); // relationships
     }
 }
