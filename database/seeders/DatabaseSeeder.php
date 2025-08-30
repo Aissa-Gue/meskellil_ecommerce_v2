@@ -23,11 +23,11 @@ class DatabaseSeeder extends Seeder
 
         // --- Users ---
         $users = collect([
-            ['name' => 'Karim Boulanger', 'email' => 'karim@example.com', 'phone' => '0551001100', 'type' => 'details', 'status' => 'active', 'address' => 'Algiers centre', 'wilaya_id' => 16],
-            ['name' => 'Saliha Pâtissière', 'email' => 'saliha@example.com', 'phone' => '0552002200', 'type' => 'details', 'status' => 'active', 'address' => 'Oran centre', 'wilaya_id' => 31],
-            ['name' => 'Ali Grossiste', 'email' => 'ali@example.com', 'phone' => '0553003300', 'type' => 'gros', 'status' => 'active', 'address' => 'Blida', 'wilaya_id' => 9],
-            ['name' => 'Nour Client', 'email' => 'nour@example.com', 'phone' => '0554004400', 'type' => 'details', 'status' => 'pending', 'address' => 'Constantine', 'wilaya_id' => 25],
-            ['name' => 'Rachid Client', 'email' => 'rachid@example.com', 'phone' => '0555005500', 'type' => 'details', 'status' => 'disabled', 'address' => 'Setif', 'wilaya_id' => 19],
+            ['name' => 'Karim Boulanger', 'email' => 'karim@example.com', 'phone' => '0551001100', 'type' => 'details', 'status' => 'active', 'address' => 'Algiers centre', 'commune_id' => 16],
+            ['name' => 'Saliha Pâtissière', 'email' => 'saliha@example.com', 'phone' => '0552002200', 'type' => 'details', 'status' => 'active', 'address' => 'Oran centre', 'commune_id' => 31],
+            ['name' => 'Ali Grossiste', 'email' => 'ali@example.com', 'phone' => '0553003300', 'type' => 'gros', 'status' => 'active', 'address' => 'Blida', 'commune_id' => 9],
+            ['name' => 'Nour Client', 'email' => 'nour@example.com', 'phone' => '0554004400', 'type' => 'details', 'status' => 'pending', 'address' => 'Constantine', 'commune_id' => 25],
+            ['name' => 'Rachid Client', 'email' => 'rachid@example.com', 'phone' => '0555005500', 'type' => 'details', 'status' => 'disabled', 'address' => 'Setif', 'commune_id' => 19],
         ])->map(fn($u) => User::create(array_merge($u, [
             'password' => Hash::make('password'),
         ])));
@@ -63,9 +63,9 @@ class DatabaseSeeder extends Seeder
 
         // --- Orders ---
         $orders = collect([
-            ['client_id' => $users[3]->id, 'client_name' => 'Nour Client', 'client_phone' => '0554004400', 'wilaya_id' => 25, 'payment_status' => 'pending', 'payment_method' => 'cash', 'is_verified' => false, 'order_status' => 'pending', 'total_price' => 2500, 'notes' => 'Deliver in the morning'],
-            ['client_id' => $users[4]->id, 'client_name' => 'Rachid Client', 'client_phone' => '0555005500', 'wilaya_id' => 19, 'payment_status' => 'full_paid', 'payment_method' => 'bank_transfer', 'is_verified' => true, 'order_status' => 'confirmed', 'total_price' => 1800, 'notes' => 'Urgent order'],
-            ['client_id' => null, 'client_name' => 'Guest Client', 'client_phone' => '0556006600', 'wilaya_id' => 16, 'payment_status' => 'partial_paid', 'payment_method' => 'ccp', 'is_verified' => false, 'order_status' => 'processing', 'total_price' => 2000, 'notes' => null],
+            ['client_id' => $users[3]->id, 'client_name' => 'Nour Client', 'client_phone' => '0554004400', 'commune_id' => 25, 'payment_status' => 'pending', 'payment_method' => 'cash', 'is_verified' => false, 'order_status' => 'pending', 'total_price' => 2500, 'notes' => 'Deliver in the morning'],
+            ['client_id' => $users[4]->id, 'client_name' => 'Rachid Client', 'client_phone' => '0555005500', 'commune_id' => 19, 'payment_status' => 'full_paid', 'payment_method' => 'bank_transfer', 'is_verified' => true, 'order_status' => 'confirmed', 'total_price' => 1800, 'notes' => 'Urgent order'],
+            ['client_id' => null, 'client_name' => 'Guest Client', 'client_phone' => '0556006600', 'commune_id' => 16, 'payment_status' => 'partial_paid', 'payment_method' => 'ccp', 'is_verified' => false, 'order_status' => 'processing', 'total_price' => 2000, 'notes' => null],
         ])->map(fn($o) => Order::create($o));
 
         // --- Order Products ---
