@@ -49,9 +49,20 @@ class HomeController extends Controller
             ->get();
 
         $categories = \App\Models\Category::all();
-        $products=$newestProducts;
+        $products = $newestProducts;
 
-        return view('home', compact(['newestProducts', 'bestSellingProducts', 'discountedProducts', 'products', 'categories']));
+        // Get products by category for featured categories
+        $featuredCategories = $categories->take(3); // Show first 3 categories
+        $categoryProducts = [];
+
+        foreach ($featuredCategories as $category) {
+            $categoryProducts[$category->id] = \App\Models\Product::where('category_id', $category->id)
+                ->where('is_active', true)
+                ->limit(4)
+                ->get();
+        }
+
+        return view('home', compact(['newestProducts', 'bestSellingProducts', 'discountedProducts', 'products', 'categories', 'categoryProducts']));
     }
 
     public function contact()
@@ -77,5 +88,4 @@ class HomeController extends Controller
 
         return view('contact')->with(compact('breadcrumbData'));
     }
-
 }

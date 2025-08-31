@@ -18,6 +18,7 @@ return new class extends Migration
             $table->boolean('is_active')->default(true)->index();
             $table->timestamps();
             $table->unique(['name', 'parent_id']);
+            $table->string('image')->nullable();
         });
     }
 

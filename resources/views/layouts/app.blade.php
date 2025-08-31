@@ -39,32 +39,31 @@
     </head>
     <body>
         <!--[if lte IE 9]>
-      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-      <![endif]-->
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
 
 
-      @include('components.preloader_area')
-      @include('components.back-to-top-btn')
+        @include('components.preloader_area')
+        @include('components.back-to-top-btn')
 
-    @yield('content')
-
-    @include('components.footer')
-    <!-- JS here -->
-      <script src="{{asset('assets/js/vendor/jquery.js')}}"></script>
-      <script src="{{asset('assets/js/vendor/waypoints.js')}}"></script>
-      <script src="{{asset('assets/js/bootstrap-bundle.js')}}"></script>
-      <script src="{{asset('assets/js/meanmenu.js')}}"></script>
-      <script src="{{asset('assets/js/swiper-bundle.js')}}"></script>
-      <script src="{{asset('assets/js/slick.js')}}"></script>
-      <script src="{{asset('assets/js/range-slider.js')}}"></script>
-      <script src="{{asset('assets/js/magnific-popup.js')}}"></script>
-      <script src="{{asset('assets/js/nice-select.js')}}"></script>
-      <script src="{{asset('assets/js/purecounter.js')}}"></script>
-      <script src="{{asset('assets/js/countdown.js')}}"></script>
-      <script src="{{asset('assets/js/wow.js')}}"></script>
-      <script src="{{asset('assets/js/isotope-pkgd.js')}}"></script>
-      <script src="{{asset('assets/js/imagesloaded-pkgd.js')}}"></script>
-      <script src="{{asset('assets/js/ajax-form.js')}}"></script>
-      <script src="{{asset('assets/js/main.js')}}"></script>
+        @yield('content')
+        
+        <!-- JS here -->
+        <script src="{{asset('assets/js/vendor/jquery.js')}}"></script>
+        <script src="{{asset('assets/js/vendor/waypoints.js')}}"></script>
+        <script src="{{asset('assets/js/bootstrap-bundle.js')}}"></script>
+        <script src="{{asset('assets/js/meanmenu.js')}}"></script>
+        <script src="{{asset('assets/js/swiper-bundle.js')}}"></script>
+        <script src="{{asset('assets/js/slick.js')}}"></script>
+        <script src="{{asset('assets/js/range-slider.js')}}"></script>
+        <script src="{{asset('assets/js/magnific-popup.js')}}"></script>
+        <script src="{{asset('assets/js/nice-select.js')}}"></script>
+        <script src="{{asset('assets/js/purecounter.js')}}"></script>
+        <script src="{{asset('assets/js/countdown.js')}}"></script>
+        <script src="{{asset('assets/js/wow.js')}}"></script>
+        <script src="{{asset('assets/js/isotope-pkgd.js')}}"></script>
+        <script src="{{asset('assets/js/imagesloaded-pkgd.js')}}"></script>
+        <script src="{{asset('assets/js/ajax-form.js')}}"></script>
+        <script src="{{asset('assets/js/main.js')}}"></script>
     </body>
 </html>

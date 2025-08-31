@@ -2,12 +2,14 @@
          <section class="tp-product-category pt-60 pb-15">
             <div class="container">
                <div class="row row-cols-xl-5 row-cols-lg-5 row-cols-md-4">
-                  @foreach ($categories as $category)
+                  @foreach ($categories->take(5) as $category)
                   <div class="col">
                      <div class="tp-product-category-item text-center mb-40">
                         <div class="tp-product-category-thumb fix">
                            <a href="/products?category={{ $category->name }}">
-                              <img src="{{ 'assets/img/product/category/product-cat-1.png' ?? asset($category->image) }}" alt="product-category">
+                              <img src="{{ asset($category->image) ?? 'assets/img/product/category/product-cat-1.png' }}"
+                               width="150"
+                               alt="product-category">
                            </a>
                         </div>
                         <div class="tp-product-category-content">

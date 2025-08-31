@@ -270,4 +270,5 @@
         <!-- checkout area end -->
     </main>
 
+    @include('components.footer')
 @endsection

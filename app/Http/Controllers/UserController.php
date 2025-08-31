@@ -22,6 +22,11 @@ class UserController extends Controller
         return view('users.show', compact('user'));
     }
 
+    public function profile(User $user)
+    {
+        return view('users.profile', compact('user'));
+    }
+
     public function store(Request $request)
     {
         $data = $request->validate([

@@ -19,7 +19,14 @@ Route::get('/wishlist', [App\Http\Controllers\OrderController::class, 'wishlist'
 Route::get('/checkout', [App\Http\Controllers\OrderController::class, 'checkout'])->name('checkout');
 Route::get('/order-success', [App\Http\Controllers\OrderController::class, 'order-success'])->name('order-success');
 
-Route::resource('products', ProductController::class)->only(['index','show']);
+Route::resource('products', ProductController::class)->only(['index', 'show']);
+Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
+Route::get('/api/products/{product}/quick-view', [ProductController::class, 'quickView'])->name('products.quick-view');
+
+// Category-based product routes
+Route::get('/category/{category}/products', [ProductController::class, 'showByCategory'])->name('products.by-category');
+Route::get('/api/category/{category}/products', [ProductController::class, 'getCategoryProducts'])->name('api.category.products');
 
 // Auth routes
 Route::get('login', [App\Http\Controllers\AuthController::class, 'showLoginForm'])->name('login');
@@ -37,4 +44,11 @@ Route::post('reset-password', [App\Http\Controllers\PasswordController::class, '
 //Route::resource('brands', BrandController::class)->only(['index','show','store','update','destroy']);
 //Route::resource('categories', CategoryController::class)->only(['index','show','store','update','destroy']);
 //Route::resource('orders', OrderController::class)->only(['index','show','store','update','destroy']);
-//Route::resource('users', UserController::class)->only(['index','show']);
+// Route::resource('users', UserController::class)->only(['index','show']);
+
+Route::get('profile', [UserController::class, 'profile'])->name('profile.show');
+
+// route that catches any get request
+Route::get('{any}', function () {
+    return view('404');
+})->where('any', '.*');

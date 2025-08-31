@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Category;
 use App\Services\ProductService;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Collection;
@@ -41,10 +42,13 @@ class ProductController extends Controller
             )
         ]);
 
+        // Get products with filters
         $products = $productService->getFilteredProducts($request)->paginate(20);
-        $categories = \App\Models\Category::all();
 
-        return view('products.index', compact(['breadcrumbData','products','categories']));
+        // Get categories with product counts
+        $categories = Category::withCount('products')->get();
+
+        return view('products.index', compact('products', 'categories', 'breadcrumbData'));
     }
 
     public function show(Product $product)
@@ -67,11 +71,86 @@ class ProductController extends Controller
             ]
         ];
 
-        $product->load(['brand:id,name','category:id,name']);
-        return view('products.show', compact('breadcrumbData','product'));
+        // Load relationships
+        $product->load(['brand:id,name', 'category:id,name']);
+
+        // Get related products from the same category
+        $relatedProducts = Product::where('category_id', $product->category_id)
+            ->where('id', '!=', $product->id)
+            ->where('is_active', true)
+            ->limit(8)
+            ->get();
+        return view('products.show', compact('product', 'relatedProducts', 'breadcrumbData'));
     }
 
-     public function store(Request $request)
+    public function showByCategory(Category $category)
+    {
+        $breadcrumbData = [
+            'title' => $category->name,
+            'breadcrumbs' => [
+                [
+                    'name' => 'Home',
+                    'url' => route('home')
+                ],
+                [
+                    'name' => 'Shop',
+                    'url' => route('products.index')
+                ],
+                [
+                    'name' => $category->name,
+                    'url' => null
+                ]
+            ]
+        ];
+
+        // Get products from the specific category
+        $products = Product::where('category_id', $category->id)
+            ->where('is_active', true)
+            ->paginate(20);
+
+        return view('products.category', compact('category', 'products', 'breadcrumbData'));
+    }
+
+    public function getCategoryProducts(Category $category)
+    {
+        // Get products from the specific category for API/component usage
+        $products = Product::where('category_id', $category->id)
+            ->where('is_active', true)
+            ->limit(8)
+            ->get();
+
+        return response()->json([
+            'category' => $category,
+            'products' => $products
+        ]);
+    }
+
+    public function quickView(Product $product)
+    {
+        // Load relationships for quick view
+        $product->load(['brand:id,name', 'category:id,name']);
+
+        // Return JSON response for the modal
+        return response()->json([
+            'id' => $product->id,
+            'name' => $product->name,
+            'description' => $product->description,
+            'main_price' => $product->main_price,
+            'discounted_price' => $product->discounted_price,
+            'has_discount' => $product->has_discount,
+            'discount' => $product->discount,
+            'stock' => $product->stock,
+            'size' => $product->size,
+            'main_image' => $product->main_image,
+            'images' => $product->images,
+            'category' => $product->category,
+            'brand' => $product->brand,
+            'is_new' => $product->is_new,
+            'is_active' => $product->is_active,
+        ]);
+    }
+
+    public function store(Request $request)
     {
         $data = $this->validated($request);
         $product = Product::create($data);

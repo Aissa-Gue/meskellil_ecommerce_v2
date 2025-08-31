@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Builder;
 
 class Category extends Model
 {
-      protected $fillable = ['name', 'parent_id', 'is_active'];
+    protected $fillable = ['name', 'parent_id', 'is_active', 'image'];
 
     public function parent() {
         return $this->belongsTo(Category::class, 'parent_id');
@@ -21,7 +21,13 @@ class Category extends Model
         return $this->hasMany(Product::class);
     }
 
-      /* Scopes */
+    // Accessor to add URL prefix to image
+    public function getImageAttribute($value)
+    {
+        return $value ? asset('storage/' . $value) : null;
+    }
+
+    /* Scopes */
     public function scopeActive(Builder $q): Builder {
         return $q->where('is_active', true);
     }

@@ -519,7 +519,7 @@
                                     </div>
                                 </div>
                             </div>
-                            {{-- <!-- product rating -->
+                            <!-- product rating -->
                             <div class="tp-shop-widget mb-50">
                                 <h3 class="tp-shop-widget-title">Top Rated Products</h3>
 
@@ -712,52 +712,49 @@
                                                          fill="currentColor"/>
                                                 </svg>
                                              </span>
-                                                        <span>
-                                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
-                                                     xmlns="http://www.w3.org/2000/svg">
-                                                   <path d="M6 0L7.854 3.756L12 4.362L9 7.284L9.708 11.412L6 9.462L2.292 11.412L3 7.284L0 4.362L4.146 3.756L6 0Z"
-                                                         fill="currentColor"/>
-                                                </svg>
-                                             </span>
-                                                        <span>
-                                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
-                                                     xmlns="http://www.w3.org/2000/svg">
-                                                   <path d="M6 0L7.854 3.756L12 4.362L9 7.284L9.708 11.412L6 9.462L2.292 11.412L3 7.284L0 4.362L4.146 3.756L6 0Z"
-                                                         fill="currentColor"/>
-                                                </svg>
-                                             </span>
-                                                        <span>
-                                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
-                                                     xmlns="http://www.w3.org/2000/svg">
-                                                   <path d="M6 0L7.854 3.756L12 4.362L9 7.284L9.708 11.412L6 9.462L2.292 11.412L3 7.284L0 4.362L4.146 3.756L6 0Z"
-                                                         fill="currentColor"/>
-                                                </svg>
-                                             </span>
-                                                        <span>
-                                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
-                                                     xmlns="http://www.w3.org/2000/svg">
-                                                   <path d="M6 0L7.854 3.756L12 4.362L9 7.284L9.708 11.412L6 9.462L2.292 11.412L3 7.284L0 4.362L4.146 3.756L6 0Z"
-                                                         fill="currentColor"/>
-                                                </svg>
-                                             </span>
-                                                    </div>
-                                                    <div class="tp-shop-widget-product-rating-number">
-                                                        <span>(4.8)</span>
-                                                    </div>
-                                                </div>
-                                                <h4 class="tp-shop-widget-product-title">
-                                                    <a href="product-details.html">Minimal Backpack.</a>
-                                                </h4>
-                                                <div class="tp-shop-widget-product-price-wrapper">
-                                                    <span class="tp-shop-widget-product-price">$165.00</span>
-                                                </div>
-                                            </div>
+                                            <span>
+                                               <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                  <path d="M6 0L7.854 3.756L12 4.362L9 7.284L9.708 11.412L6 9.462L2.292 11.412L3 7.284L0 4.362L4.146 3.756L6 0Z"
+                                                        fill="currentColor"/>
+                                               </svg>
+                                            </span>
+                                            <span>
+                                               <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                  <path d="M6 0L7.854 3.756L12 4.362L9 7.284L9.708 11.412L6 9.462L2.292 11.412L3 7.284L0 4.362L4.146 3.756L6 0Z"
+                                                        fill="currentColor"/>
+                                               </svg>
+                                            </span>
+                                            <span>
+                                               <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                  <path d="M6 0L7.854 3.756L12 4.362L9 7.284L9.708 11.412L6 9.462L2.292 11.412L3 7.284L0 4.362L4.146 3.756L6 0Z"
+                                                        fill="currentColor"/>
+                                               </svg>
+                                            </span>
+                                            <span>
+                                               <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                  <path d="M6 0L7.854 3.756L12 4.362L9 7.284L9.708 11.412L6 9.462L2.292 11.412L3 7.284L0 4.362L4.146 3.756L6 0Z"
+                                                        fill="currentColor"/>
+                                               </svg>
+                                            </span>
+                                        </div>
+                                        <div class="tp-shop-widget-product-rating-number">
+                                            <span>(4.8)</span>
                                         </div>
                                     </div>
+                                    <h4 class="tp-shop-widget-product-title">
+                                        <a href="product-details.html">Minimal Backpack.</a>
+                                    </h4>
+                                    <div class="tp-shop-widget-product-price-wrapper">
+                                        <span class="tp-shop-widget-product-price">$165.00</span>
+                                    </div>
                                 </div>
-                            </div> --}}
-                            
+                            </div>
                         </div>
+                    </div>
                     </div>
                     <div class="col-xl-9 col-lg-8">
                         <div class="tp-shop-main-wrapper">
@@ -866,14 +863,28 @@
                                             <div class="col-xl-4 col-md-6 col-sm-6 infinite-item">
                                                 <div class="tp-product-item-2 mb-40">
                                                     <div class="tp-product-thumb-2 p-relative z-index-1 fix w-img">
-                                                        <a href="product-details.html">
-                                                            <img src="assets/img/product/2/prodcut-1.jpg" alt="">
+                                                        <a href="{{ route('products.show', $product) }}">
+                                                            <img src="{{ asset($product->main_image) }}" alt="{{ $product->name }}">
                                                         </a>
+
+                                                        <!-- product badges -->
+                                                        @if($product->has_discount)
+                                                        <div class="tp-product-badge">
+                                                            <span class="product-offer">-{{ $product->discount }}%</span>
+                                                        </div>
+                                                        @endif
+                                                        @if($product->is_new)
+                                                        <div class="tp-product-badge">
+                                                            <span class="product-hot">New</span>
+                                                        </div>
+                                                        @endif
+
                                                         <!-- product action -->
                                                         <div class="tp-product-action-2 tp-product-action-blackStyle">
                                                             <div class="tp-product-action-item-2 d-flex flex-column">
                                                                 <button type="button"
-                                                                        class="tp-product-action-btn-2 tp-product-add-cart-btn">
+                                                                        class="tp-product-action-btn-2 tp-product-add-cart-btn"
+                                                                        {{ $product->stock <= 0 ? 'disabled' : '' }}>
                                                                     <svg width="17" height="17" viewBox="0 0 17 17"
                                                                          fill="none" xmlns="http://www.w3.org/2000/svg">
                                                                         <path fill-rule="evenodd" clip-rule="evenodd"
@@ -895,12 +906,15 @@
                                                                               d="M13.9692 15.3092C13.874 15.3092 13.7958 15.3874 13.7958 15.4835C13.7966 15.6781 14.1451 15.6764 14.1443 15.4835C14.1443 15.3874 14.0652 15.3092 13.9692 15.3092ZM13.969 16.5815C13.3621 16.5815 12.8691 16.0884 12.8691 15.4826C12.8691 14.8767 13.3621 14.3845 13.969 14.3845C14.5768 14.3845 15.0706 14.8767 15.0706 15.4826C15.0706 16.0884 14.5768 16.5815 13.969 16.5815Z"
                                                                               fill="currentColor"/>
                                                                     </svg>
-                                                                    <span class="tp-product-tooltip tp-product-tooltip-right">Add to Cart</span>
+                                                                    <span class="tp-product-tooltip tp-product-tooltip-right">
+                                                                        {{ $product->stock > 0 ? 'Add to Cart' : 'Out of Stock' }}
+                                                                    </span>
                                                                 </button>
                                                                 <button type="button"
                                                                         class="tp-product-action-btn-2 tp-product-quick-view-btn"
                                                                         data-bs-toggle="modal"
-                                                                        data-bs-target="#producQuickViewModal">
+                                                                        data-bs-target="#producQuickViewModal"
+                                                                        data-product-id="{{ $product->id }}">
                                                                     <svg width="18" height="15" viewBox="0 0 18 15"
                                                                          fill="none" xmlns="http://www.w3.org/2000/svg">
                                                                         <path fill-rule="evenodd" clip-rule="evenodd"
@@ -917,7 +931,7 @@
                                                                     <svg width="18" height="18" viewBox="0 0 18 18"
                                                                          fill="none" xmlns="http://www.w3.org/2000/svg">
                                                                         <path fill-rule="evenodd" clip-rule="evenodd"
-                                                                              d="M1.60355 7.98635C2.83622 11.8048 7.7062 14.8923 9.0004 15.6565C10.299 14.8844 15.2042 11.7628 16.3973 7.98985C17.1806 5.55102 16.4535 2.46177 13.5644 1.53473C12.1647 1.08741 10.532 1.35966 9.40484 2.22804C9.16921 2.40837 8.84214 2.41187 8.60476 2.23329C7.41078 1.33952 5.85105 1.07778 4.42936 1.53473C1.54465 2.4609 0.820172 5.55014 1.60355 7.98635ZM9.00138 17.0711C8.89236 17.0711 8.78421 17.0448 8.68574 16.9914C8.41055 16.8417 1.92808 13.2841 0.348132 8.3872C0.347252 8.3872 0.347252 8.38633 0.347252 8.38633C-0.644504 5.30321 0.459792 1.42874 4.02502 0.284605C5.69904 -0.254635 7.52342 -0.0174044 8.99874 0.909632C10.4283 0.00973263 12.3275 -0.238878 13.9681 0.284605C17.5368 1.43049 18.6446 5.30408 17.6538 8.38633C16.1248 13.2272 9.59485 16.8382 9.3179 16.9896C9.21943 17.0439 9.1104 17.0711 9.00138 17.0711Z"
+                                                                              d="M1.60355 7.98635C2.83622 11.8048 7.7062 14.8923 9.0004 15.6565C10.299 14.8844 15.2042 11.7628 16.3973 7.98985C17.1806 5.55102 16.4535 2.46177 13.5644 1.53473C12.1647 1.08741 10.532 1.35966 9.40484 2.22804C9.16921 2.40837 8.84214 2.41187 8.60476 2.23329C7.41078 1.33952 5.87505 1.07778 4.42936 1.53473C1.54465 2.4609 0.820172 5.55014 1.60355 7.98635ZM9.00138 17.0711C8.89236 17.0711 8.78421 17.0448 8.68574 16.9914C8.41055 16.8417 1.92808 13.2841 0.348132 8.3872C0.347252 8.3872 0.347252 8.38633 0.347252 8.38633C-0.644504 5.30321 0.459792 1.42874 4.02502 0.284605C5.69904 -0.254635 7.52342 -0.0174044 8.99874 0.909632C10.4283 0.00973263 12.3275 -0.238878 13.9681 0.284605C17.5368 1.43049 18.6446 5.30408 17.6538 8.38633C16.1248 13.2272 9.59485 16.8382 9.3179 16.9896C9.21943 17.0439 9.1104 17.0711 9.00138 17.0711Z"
                                                                               fill="currentColor"/>
                                                                         <path fill-rule="evenodd" clip-rule="evenodd"
                                                                               d="M14.203 6.67473C13.8627 6.67473 13.5743 6.41474 13.5462 6.07159C13.4882 5.35202 13.0046 4.7445 12.3162 4.52302C11.9689 4.41097 11.779 4.04068 11.8906 3.69666C12.0041 3.35175 12.3724 3.16442 12.7206 3.27297C13.919 3.65901 14.7586 4.71561 14.8615 5.96479C14.8905 6.32632 14.6206 6.64322 14.2575 6.6721C14.239 6.67385 14.2214 6.67473 14.203 6.67473Z"
@@ -925,39 +939,15 @@
                                                                     </svg>
                                                                     <span class="tp-product-tooltip tp-product-tooltip-right">Add To Wishlist</span>
                                                                 </button>
-                                                                <button type="button"
-                                                                        class="tp-product-action-btn-2 tp-product-add-to-compare-btn">
-                                                                    <svg width="15" height="15" viewBox="0 0 15 15"
-                                                                         fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                        <path d="M11.4144 6.16828L14 3.58412L11.4144 1"
-                                                                              stroke="currentColor" stroke-width="1.5"
-                                                                              stroke-linecap="round"
-                                                                              stroke-linejoin="round"/>
-                                                                        <path d="M1.48883 3.58374L14 3.58374"
-                                                                              stroke="currentColor" stroke-width="1.5"
-                                                                              stroke-linecap="round"
-                                                                              stroke-linejoin="round"/>
-                                                                        <path d="M4.07446 8.32153L1.48884 10.9057L4.07446 13.4898"
-                                                                              stroke="currentColor" stroke-width="1.5"
-                                                                              stroke-linecap="round"
-                                                                              stroke-linejoin="round"/>
-                                                                        <path d="M14 10.9058H1.48883"
-                                                                              stroke="currentColor" stroke-width="1.5"
-                                                                              stroke-linecap="round"
-                                                                              stroke-linejoin="round"/>
-                                                                    </svg>
-                                                                    <span class="tp-product-tooltip tp-product-tooltip-right">Add To Compare</span>
-                                                                </button>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="tp-product-content-2 pt-15">
                                                         <div class="tp-product-tag-2">
-                                                            <a href="#">Whitetails Store</a>
+                                                            <a href="#">{{ $product->category->name ?? 'Uncategorized' }}</a>
                                                         </div>
                                                         <h3 class="tp-product-title-2">
-                                                            <a href="product-details.html">Whitetails Women's Open
-                                                                Sky</a>
+                                                            <a href="{{ route('products.show', $product) }}">{{ $product->name }}</a>
                                                         </h3>
                                                         <div class="tp-product-rating-icon tp-product-rating-icon-2">
                                                             <span><i class="fa-solid fa-star"></i></span>
@@ -967,8 +957,12 @@
                                                             <span><i class="fa-solid fa-star"></i></span>
                                                         </div>
                                                         <div class="tp-product-price-wrapper-2">
-                                                            <span class="tp-product-price-2 new-price">$340.00</span>
-                                                            <span class="tp-product-price-2 old-price">$475.00</span>
+                                                            @if($product->has_discount)
+                                                                <span class="tp-product-price-2 new-price">${{ number_format($product->discounted_price, 2) }}</span>
+                                                                <span class="tp-product-price-2 old-price">${{ number_format($product->main_price, 2) }}</span>
+                                                            @else
+                                                                <span class="tp-product-price-2 new-price">${{ number_format($product->main_price, 2) }}</span>
+                                                            @endif
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1016,7 +1010,7 @@
                                                                              xmlns="http://www.w3.org/2000/svg">
                                                                             <path fill-rule="evenodd"
                                                                                   clip-rule="evenodd"
-                                                                                  d="M1.60355 7.98635C2.83622 11.8048 7.7062 14.8923 9.0004 15.6565C10.299 14.8844 15.2042 11.7628 16.3973 7.98985C17.1806 5.55102 16.4535 2.46177 13.5644 1.53473C12.1647 1.08741 10.532 1.35966 9.40484 2.22804C9.16921 2.40837 8.84214 2.41187 8.60476 2.23329C7.41078 1.33952 5.85105 1.07778 4.42936 1.53473C1.54465 2.4609 0.820172 5.55014 1.60355 7.98635ZM9.00138 17.0711C8.89236 17.0711 8.78421 17.0448 8.68574 16.9914C8.41055 16.8417 1.92808 13.2841 0.348132 8.3872C0.347252 8.3872 0.347252 8.38633 0.347252 8.38633C-0.644504 5.30321 0.459792 1.42874 4.02502 0.284605C5.69904 -0.254635 7.52342 -0.0174044 8.99874 0.909632C10.4283 0.00973263 12.3275 -0.238878 13.9681 0.284605C17.5368 1.43049 18.6446 5.30408 17.6538 8.38633C16.1248 13.2272 9.59485 16.8382 9.3179 16.9896C9.21943 17.0439 9.1104 17.0711 9.00138 17.0711Z"
+                                                                                  d="M1.60355 7.98635C2.83622 11.8048 7.7062 14.8923 9.0004 15.6565C10.299 14.8844 15.2042 11.7628 16.3973 7.98985C17.1806 5.55102 16.4535 2.46177 13.5644 1.53473C12.1647 1.08741 10.532 1.35966 9.40484 2.22804C9.16921 2.40837 8.84214 2.41187 8.60476 2.23329C7.41078 1.33952 5.87505 1.07778 4.42936 1.53473C1.54465 2.4609 0.820172 5.55014 1.60355 7.98635ZM9.00138 17.0711C8.89236 17.0711 8.78421 17.0448 8.68574 16.9914C8.41055 16.8417 1.92808 13.2841 0.348132 8.3872C0.347252 8.3872 0.347252 8.38633 0.347252 8.38633C-0.644504 5.30321 0.459792 1.42874 4.02502 0.284605C5.69904 -0.254635 7.52342 -0.0174044 8.99874 0.909632C10.4283 0.00973263 12.3275 -0.238878 13.9681 0.284605C17.5368 1.43049 18.6446 5.30408 17.6538 8.38633C16.1248 13.2272 9.59485 16.8382 9.3179 16.9896C9.21943 17.0439 9.1104 17.0711 9.00138 17.0711Z"
                                                                                   fill="currentColor"/>
                                                                             <path fill-rule="evenodd"
                                                                                   clip-rule="evenodd"
@@ -1024,34 +1018,6 @@
                                                                                   fill="currentColor"/>
                                                                         </svg>
                                                                         <span class="tp-product-tooltip tp-product-tooltip-right">Add To Wishlist</span>
-                                                                    </button>
-                                                                    <button type="button"
-                                                                            class="tp-product-action-btn-2 tp-product-add-to-compare-btn">
-                                                                        <svg width="15" height="15" viewBox="0 0 15 15"
-                                                                             fill="none"
-                                                                             xmlns="http://www.w3.org/2000/svg">
-                                                                            <path d="M11.4144 6.16828L14 3.58412L11.4144 1"
-                                                                                  stroke="currentColor"
-                                                                                  stroke-width="1.5"
-                                                                                  stroke-linecap="round"
-                                                                                  stroke-linejoin="round"/>
-                                                                            <path d="M1.48883 3.58374L14 3.58374"
-                                                                                  stroke="currentColor"
-                                                                                  stroke-width="1.5"
-                                                                                  stroke-linecap="round"
-                                                                                  stroke-linejoin="round"/>
-                                                                            <path d="M4.07446 8.32153L1.48884 10.9057L4.07446 13.4898"
-                                                                                  stroke="currentColor"
-                                                                                  stroke-width="1.5"
-                                                                                  stroke-linecap="round"
-                                                                                  stroke-linejoin="round"/>
-                                                                            <path d="M14 10.9058H1.48883"
-                                                                                  stroke="currentColor"
-                                                                                  stroke-width="1.5"
-                                                                                  stroke-linecap="round"
-                                                                                  stroke-linejoin="round"/>
-                                                                        </svg>
-                                                                        <span class="tp-product-tooltip tp-product-tooltip-right">Add To Compare</span>
                                                                     </button>
                                                                 </div>
                                                             </div>
@@ -1122,7 +1088,7 @@
                                                                              xmlns="http://www.w3.org/2000/svg">
                                                                             <path fill-rule="evenodd"
                                                                                   clip-rule="evenodd"
-                                                                                  d="M1.60355 7.98635C2.83622 11.8048 7.7062 14.8923 9.0004 15.6565C10.299 14.8844 15.2042 11.7628 16.3973 7.98985C17.1806 5.55102 16.4535 2.46177 13.5644 1.53473C12.1647 1.08741 10.532 1.35966 9.40484 2.22804C9.16921 2.40837 8.84214 2.41187 8.60476 2.23329C7.41078 1.33952 5.85105 1.07778 4.42936 1.53473C1.54465 2.4609 0.820172 5.55014 1.60355 7.98635ZM9.00138 17.0711C8.89236 17.0711 8.78421 17.0448 8.68574 16.9914C8.41055 16.8417 1.92808 13.2841 0.348132 8.3872C0.347252 8.3872 0.347252 8.38633 0.347252 8.38633C-0.644504 5.30321 0.459792 1.42874 4.02502 0.284605C5.69904 -0.254635 7.52342 -0.0174044 8.99874 0.909632C10.4283 0.00973263 12.3275 -0.238878 13.9681 0.284605C17.5368 1.43049 18.6446 5.30408 17.6538 8.38633C16.1248 13.2272 9.59485 16.8382 9.3179 16.9896C9.21943 17.0439 9.1104 17.0711 9.00138 17.0711Z"
+                                                                                  d="M1.60355 7.98635C2.83622 11.8048 7.7062 14.8923 9.0004 15.6565C10.299 14.8844 15.2042 11.7628 16.3973 7.98985C17.1806 5.55102 16.4535 2.46177 13.5644 1.53473C12.1647 1.08741 10.532 1.35966 9.40484 2.22804C9.16921 2.40837 8.84214 2.41187 8.60476 2.23329C7.41078 1.33952 5.87505 1.07778 4.42936 1.53473C1.54465 2.4609 0.820172 5.55014 1.60355 7.98635ZM9.00138 17.0711C8.89236 17.0711 8.78421 17.0448 8.68574 16.9914C8.41055 16.8417 1.92808 13.2841 0.348132 8.3872C0.347252 8.3872 0.347252 8.38633 0.347252 8.38633C-0.644504 5.30321 0.459792 1.42874 4.02502 0.284605C5.69904 -0.254635 7.52342 -0.0174044 8.99874 0.909632C10.4283 0.00973263 12.3275 -0.238878 13.9681 0.284605C17.5368 1.43049 18.6446 5.30408 17.6538 8.38633C16.1248 13.2272 9.59485 16.8382 9.3179 16.9896C9.21943 17.0439 9.1104 17.0711 9.00138 17.0711Z"
                                                                                   fill="currentColor"/>
                                                                             <path fill-rule="evenodd"
                                                                                   clip-rule="evenodd"
@@ -1130,34 +1096,6 @@
                                                                                   fill="currentColor"/>
                                                                         </svg>
                                                                         <span class="tp-product-tooltip tp-product-tooltip-right">Add To Wishlist</span>
-                                                                    </button>
-                                                                    <button type="button"
-                                                                            class="tp-product-action-btn-2 tp-product-add-to-compare-btn">
-                                                                        <svg width="15" height="15" viewBox="0 0 15 15"
-                                                                             fill="none"
-                                                                             xmlns="http://www.w3.org/2000/svg">
-                                                                            <path d="M11.4144 6.16828L14 3.58412L11.4144 1"
-                                                                                  stroke="currentColor"
-                                                                                  stroke-width="1.5"
-                                                                                  stroke-linecap="round"
-                                                                                  stroke-linejoin="round"/>
-                                                                            <path d="M1.48883 3.58374L14 3.58374"
-                                                                                  stroke="currentColor"
-                                                                                  stroke-width="1.5"
-                                                                                  stroke-linecap="round"
-                                                                                  stroke-linejoin="round"/>
-                                                                            <path d="M4.07446 8.32153L1.48884 10.9057L4.07446 13.4898"
-                                                                                  stroke="currentColor"
-                                                                                  stroke-width="1.5"
-                                                                                  stroke-linecap="round"
-                                                                                  stroke-linejoin="round"/>
-                                                                            <path d="M14 10.9058H1.48883"
-                                                                                  stroke="currentColor"
-                                                                                  stroke-width="1.5"
-                                                                                  stroke-linecap="round"
-                                                                                  stroke-linejoin="round"/>
-                                                                        </svg>
-                                                                        <span class="tp-product-tooltip tp-product-tooltip-right">Add To Compare</span>
                                                                     </button>
                                                                 </div>
                                                             </div>
@@ -1228,7 +1166,7 @@
                                                                              xmlns="http://www.w3.org/2000/svg">
                                                                             <path fill-rule="evenodd"
                                                                                   clip-rule="evenodd"
-                                                                                  d="M1.60355 7.98635C2.83622 11.8048 7.7062 14.8923 9.0004 15.6565C10.299 14.8844 15.2042 11.7628 16.3973 7.98985C17.1806 5.55102 16.4535 2.46177 13.5644 1.53473C12.1647 1.08741 10.532 1.35966 9.40484 2.22804C9.16921 2.40837 8.84214 2.41187 8.60476 2.23329C7.41078 1.33952 5.85105 1.07778 4.42936 1.53473C1.54465 2.4609 0.820172 5.55014 1.60355 7.98635ZM9.00138 17.0711C8.89236 17.0711 8.78421 17.0448 8.68574 16.9914C8.41055 16.8417 1.92808 13.2841 0.348132 8.3872C0.347252 8.3872 0.347252 8.38633 0.347252 8.38633C-0.644504 5.30321 0.459792 1.42874 4.02502 0.284605C5.69904 -0.254635 7.52342 -0.0174044 8.99874 0.909632C10.4283 0.00973263 12.3275 -0.238878 13.9681 0.284605C17.5368 1.43049 18.6446 5.30408 17.6538 8.38633C16.1248 13.2272 9.59485 16.8382 9.3179 16.9896C9.21943 17.0439 9.1104 17.0711 9.00138 17.0711Z"
+                                                                                  d="M1.60355 7.98635C2.83622 11.8048 7.7062 14.8923 9.0004 15.6565C10.299 14.8844 15.2042 11.7628 16.3973 7.98985C17.1806 5.55102 16.4535 2.46177 13.5644 1.53473C12.1647 1.08741 10.532 1.35966 9.40484 2.22804C9.16921 2.40837 8.84214 2.41187 8.60476 2.23329C7.41078 1.33952 5.87505 1.07778 4.42936 1.53473C1.54465 2.4609 0.820172 5.55014 1.60355 7.98635ZM9.00138 17.0711C8.89236 17.0711 8.78421 17.0448 8.68574 16.9914C8.41055 16.8417 1.92808 13.2841 0.348132 8.3872C0.347252 8.3872 0.347252 8.38633 0.347252 8.38633C-0.644504 5.30321 0.459792 1.42874 4.02502 0.284605C5.69904 -0.254635 7.52342 -0.0174044 8.99874 0.909632C10.4283 0.00973263 12.3275 -0.238878 13.9681 0.284605C17.5368 1.43049 18.6446 5.30408 17.6538 8.38633C16.1248 13.2272 9.59485 16.8382 9.3179 16.9896C9.21943 17.0439 9.1104 17.0711 9.00138 17.0711Z"
                                                                                   fill="currentColor"/>
                                                                             <path fill-rule="evenodd"
                                                                                   clip-rule="evenodd"
@@ -1236,34 +1174,6 @@
                                                                                   fill="currentColor"/>
                                                                         </svg>
                                                                         <span class="tp-product-tooltip tp-product-tooltip-right">Add To Wishlist</span>
-                                                                    </button>
-                                                                    <button type="button"
-                                                                            class="tp-product-action-btn-2 tp-product-add-to-compare-btn">
-                                                                        <svg width="15" height="15" viewBox="0 0 15 15"
-                                                                             fill="none"
-                                                                             xmlns="http://www.w3.org/2000/svg">
-                                                                            <path d="M11.4144 6.16828L14 3.58412L11.4144 1"
-                                                                                  stroke="currentColor"
-                                                                                  stroke-width="1.5"
-                                                                                  stroke-linecap="round"
-                                                                                  stroke-linejoin="round"/>
-                                                                            <path d="M1.48883 3.58374L14 3.58374"
-                                                                                  stroke="currentColor"
-                                                                                  stroke-width="1.5"
-                                                                                  stroke-linecap="round"
-                                                                                  stroke-linejoin="round"/>
-                                                                            <path d="M4.07446 8.32153L1.48884 10.9057L4.07446 13.4898"
-                                                                                  stroke="currentColor"
-                                                                                  stroke-width="1.5"
-                                                                                  stroke-linecap="round"
-                                                                                  stroke-linejoin="round"/>
-                                                                            <path d="M14 10.9058H1.48883"
-                                                                                  stroke="currentColor"
-                                                                                  stroke-width="1.5"
-                                                                                  stroke-linecap="round"
-                                                                                  stroke-linejoin="round"/>
-                                                                        </svg>
-                                                                        <span class="tp-product-tooltip tp-product-tooltip-right">Add To Compare</span>
                                                                     </button>
                                                                 </div>
                                                             </div>
@@ -1333,7 +1243,7 @@
                                                                              xmlns="http://www.w3.org/2000/svg">
                                                                             <path fill-rule="evenodd"
                                                                                   clip-rule="evenodd"
-                                                                                  d="M1.60355 7.98635C2.83622 11.8048 7.7062 14.8923 9.0004 15.6565C10.299 14.8844 15.2042 11.7628 16.3973 7.98985C17.1806 5.55102 16.4535 2.46177 13.5644 1.53473C12.1647 1.08741 10.532 1.35966 9.40484 2.22804C9.16921 2.40837 8.84214 2.41187 8.60476 2.23329C7.41078 1.33952 5.85105 1.07778 4.42936 1.53473C1.54465 2.4609 0.820172 5.55014 1.60355 7.98635ZM9.00138 17.0711C8.89236 17.0711 8.78421 17.0448 8.68574 16.9914C8.41055 16.8417 1.92808 13.2841 0.348132 8.3872C0.347252 8.3872 0.347252 8.38633 0.347252 8.38633C-0.644504 5.30321 0.459792 1.42874 4.02502 0.284605C5.69904 -0.254635 7.52342 -0.0174044 8.99874 0.909632C10.4283 0.00973263 12.3275 -0.238878 13.9681 0.284605C17.5368 1.43049 18.6446 5.30408 17.6538 8.38633C16.1248 13.2272 9.59485 16.8382 9.3179 16.9896C9.21943 17.0439 9.1104 17.0711 9.00138 17.0711Z"
+                                                                                  d="M1.60355 7.98635C2.83622 11.8048 7.7062 14.8923 9.0004 15.6565C10.299 14.8844 15.2042 11.7628 16.3973 7.98985C17.1806 5.55102 16.4535 2.46177 13.5644 1.53473C12.1647 1.08741 10.532 1.35966 9.40484 2.22804C9.16921 2.40837 8.84214 2.41187 8.60476 2.23329C7.41078 1.33952 5.87505 1.07778 4.42936 1.53473C1.54465 2.4609 0.820172 5.55014 1.60355 7.98635ZM9.00138 17.0711C8.89236 17.0711 8.78421 17.0448 8.68574 16.9914C8.41055 16.8417 1.92808 13.2841 0.348132 8.3872C0.347252 8.3872 0.347252 8.38633 0.347252 8.38633C-0.644504 5.30321 0.459792 1.42874 4.02502 0.284605C5.69904 -0.254635 7.52342 -0.0174044 8.99874 0.909632C10.4283 0.00973263 12.3275 -0.238878 13.9681 0.284605C17.5368 1.43049 18.6446 5.30408 17.6538 8.38633C16.1248 13.2272 9.59485 16.8382 9.3179 16.9896C9.21943 17.0439 9.1104 17.0711 9.00138 17.0711Z"
                                                                                   fill="currentColor"/>
                                                                             <path fill-rule="evenodd"
                                                                                   clip-rule="evenodd"
@@ -1341,34 +1251,6 @@
                                                                                   fill="currentColor"/>
                                                                         </svg>
                                                                         <span class="tp-product-tooltip tp-product-tooltip-right">Add To Wishlist</span>
-                                                                    </button>
-                                                                    <button type="button"
-                                                                            class="tp-product-action-btn-2 tp-product-add-to-compare-btn">
-                                                                        <svg width="15" height="15" viewBox="0 0 15 15"
-                                                                             fill="none"
-                                                                             xmlns="http://www.w3.org/2000/svg">
-                                                                            <path d="M11.4144 6.16828L14 3.58412L11.4144 1"
-                                                                                  stroke="currentColor"
-                                                                                  stroke-width="1.5"
-                                                                                  stroke-linecap="round"
-                                                                                  stroke-linejoin="round"/>
-                                                                            <path d="M1.48883 3.58374L14 3.58374"
-                                                                                  stroke="currentColor"
-                                                                                  stroke-width="1.5"
-                                                                                  stroke-linecap="round"
-                                                                                  stroke-linejoin="round"/>
-                                                                            <path d="M4.07446 8.32153L1.48884 10.9057L4.07446 13.4898"
-                                                                                  stroke="currentColor"
-                                                                                  stroke-width="1.5"
-                                                                                  stroke-linecap="round"
-                                                                                  stroke-linejoin="round"/>
-                                                                            <path d="M14 10.9058H1.48883"
-                                                                                  stroke="currentColor"
-                                                                                  stroke-width="1.5"
-                                                                                  stroke-linecap="round"
-                                                                                  stroke-linejoin="round"/>
-                                                                        </svg>
-                                                                        <span class="tp-product-tooltip tp-product-tooltip-right">Add To Compare</span>
                                                                     </button>
                                                                 </div>
                                                             </div>
@@ -1381,7 +1263,7 @@
                                                                 </div>
                                                                 <h3 class="tp-product-title-2">
                                                                     <a href="product-details.html">Tommy Hilfiger
-                                                                        Women’s Jaden</a>
+                                                                        Women's Jaden</a>
                                                                 </h3>
                                                                 <div class="tp-product-rating-icon tp-product-rating-icon-2">
                                                                     <span><i class="fa-solid fa-star"></i></span>
@@ -1439,7 +1321,7 @@
                                                                              xmlns="http://www.w3.org/2000/svg">
                                                                             <path fill-rule="evenodd"
                                                                                   clip-rule="evenodd"
-                                                                                  d="M1.60355 7.98635C2.83622 11.8048 7.7062 14.8923 9.0004 15.6565C10.299 14.8844 15.2042 11.7628 16.3973 7.98985C17.1806 5.55102 16.4535 2.46177 13.5644 1.53473C12.1647 1.08741 10.532 1.35966 9.40484 2.22804C9.16921 2.40837 8.84214 2.41187 8.60476 2.23329C7.41078 1.33952 5.85105 1.07778 4.42936 1.53473C1.54465 2.4609 0.820172 5.55014 1.60355 7.98635ZM9.00138 17.0711C8.89236 17.0711 8.78421 17.0448 8.68574 16.9914C8.41055 16.8417 1.92808 13.2841 0.348132 8.3872C0.347252 8.3872 0.347252 8.38633 0.347252 8.38633C-0.644504 5.30321 0.459792 1.42874 4.02502 0.284605C5.69904 -0.254635 7.52342 -0.0174044 8.99874 0.909632C10.4283 0.00973263 12.3275 -0.238878 13.9681 0.284605C17.5368 1.43049 18.6446 5.30408 17.6538 8.38633C16.1248 13.2272 9.59485 16.8382 9.3179 16.9896C9.21943 17.0439 9.1104 17.0711 9.00138 17.0711Z"
+                                                                                  d="M1.60355 7.98635C2.83622 11.8048 7.7062 14.8923 9.0004 15.6565C10.299 14.8844 15.2042 11.7628 16.3973 7.98985C17.1806 5.55102 16.4535 2.46177 13.5644 1.53473C12.1647 1.08741 10.532 1.35966 9.40484 2.22804C9.16921 2.40837 8.84214 2.41187 8.60476 2.23329C7.41078 1.33952 5.87505 1.07778 4.42936 1.53473C1.54465 2.4609 0.820172 5.55014 1.60355 7.98635ZM9.00138 17.0711C8.89236 17.0711 8.78421 17.0448 8.68574 16.9914C8.41055 16.8417 1.92808 13.2841 0.348132 8.3872C0.347252 8.3872 0.347252 8.38633 0.347252 8.38633C-0.644504 5.30321 0.459792 1.42874 4.02502 0.284605C5.69904 -0.254635 7.52342 -0.0174044 8.99874 0.909632C10.4283 0.00973263 12.3275 -0.238878 13.9681 0.284605C17.5368 1.43049 18.6446 5.30408 17.6538 8.38633C16.1248 13.2272 9.59485 16.8382 9.3179 16.9896C9.21943 17.0439 9.1104 17.0711 9.00138 17.0711Z"
                                                                                   fill="currentColor"/>
                                                                             <path fill-rule="evenodd"
                                                                                   clip-rule="evenodd"
@@ -1447,34 +1329,6 @@
                                                                                   fill="currentColor"/>
                                                                         </svg>
                                                                         <span class="tp-product-tooltip tp-product-tooltip-right">Add To Wishlist</span>
-                                                                    </button>
-                                                                    <button type="button"
-                                                                            class="tp-product-action-btn-2 tp-product-add-to-compare-btn">
-                                                                        <svg width="15" height="15" viewBox="0 0 15 15"
-                                                                             fill="none"
-                                                                             xmlns="http://www.w3.org/2000/svg">
-                                                                            <path d="M11.4144 6.16828L14 3.58412L11.4144 1"
-                                                                                  stroke="currentColor"
-                                                                                  stroke-width="1.5"
-                                                                                  stroke-linecap="round"
-                                                                                  stroke-linejoin="round"/>
-                                                                            <path d="M1.48883 3.58374L14 3.58374"
-                                                                                  stroke="currentColor"
-                                                                                  stroke-width="1.5"
-                                                                                  stroke-linecap="round"
-                                                                                  stroke-linejoin="round"/>
-                                                                            <path d="M4.07446 8.32153L1.48884 10.9057L4.07446 13.4898"
-                                                                                  stroke="currentColor"
-                                                                                  stroke-width="1.5"
-                                                                                  stroke-linecap="round"
-                                                                                  stroke-linejoin="round"/>
-                                                                            <path d="M14 10.9058H1.48883"
-                                                                                  stroke="currentColor"
-                                                                                  stroke-width="1.5"
-                                                                                  stroke-linecap="round"
-                                                                                  stroke-linejoin="round"/>
-                                                                        </svg>
-                                                                        <span class="tp-product-tooltip tp-product-tooltip-right">Add To Compare</span>
                                                                     </button>
                                                                 </div>
                                                             </div>
@@ -1544,7 +1398,7 @@
                                                                              xmlns="http://www.w3.org/2000/svg">
                                                                             <path fill-rule="evenodd"
                                                                                   clip-rule="evenodd"
-                                                                                  d="M1.60355 7.98635C2.83622 11.8048 7.7062 14.8923 9.0004 15.6565C10.299 14.8844 15.2042 11.7628 16.3973 7.98985C17.1806 5.55102 16.4535 2.46177 13.5644 1.53473C12.1647 1.08741 10.532 1.35966 9.40484 2.22804C9.16921 2.40837 8.84214 2.41187 8.60476 2.23329C7.41078 1.33952 5.85105 1.07778 4.42936 1.53473C1.54465 2.4609 0.820172 5.55014 1.60355 7.98635ZM9.00138 17.0711C8.89236 17.0711 8.78421 17.0448 8.68574 16.9914C8.41055 16.8417 1.92808 13.2841 0.348132 8.3872C0.347252 8.3872 0.347252 8.38633 0.347252 8.38633C-0.644504 5.30321 0.459792 1.42874 4.02502 0.284605C5.69904 -0.254635 7.52342 -0.0174044 8.99874 0.909632C10.4283 0.00973263 12.3275 -0.238878 13.9681 0.284605C17.5368 1.43049 18.6446 5.30408 17.6538 8.38633C16.1248 13.2272 9.59485 16.8382 9.3179 16.9896C9.21943 17.0439 9.1104 17.0711 9.00138 17.0711Z"
+                                                                                  d="M1.60355 7.98635C2.83622 11.8048 7.7062 14.8923 9.0004 15.6565C10.299 14.8844 15.2042 11.7628 16.3973 7.98985C17.1806 5.55102 16.4535 2.46177 13.5644 1.53473C12.1647 1.08741 10.532 1.35966 9.40484 2.22804C9.16921 2.40837 8.84214 2.41187 8.60476 2.23329C7.41078 1.33952 5.87505 1.07778 4.42936 1.53473C1.54465 2.4609 0.820172 5.55014 1.60355 7.98635ZM9.00138 17.0711C8.89236 17.0711 8.78421 17.0448 8.68574 16.9914C8.41055 16.8417 1.92808 13.2841 0.348132 8.3872C0.347252 8.3872 0.347252 8.38633 0.347252 8.38633C-0.644504 5.30321 0.459792 1.42874 4.02502 0.284605C5.69904 -0.254635 7.52342 -0.0174044 8.99874 0.909632C10.4283 0.00973263 12.3275 -0.238878 13.9681 0.284605C17.5368 1.43049 18.6446 5.30408 17.6538 8.38633C16.1248 13.2272 9.59485 16.8382 9.3179 16.9896C9.21943 17.0439 9.1104 17.0711 9.00138 17.0711Z"
                                                                                   fill="currentColor"/>
                                                                             <path fill-rule="evenodd"
                                                                                   clip-rule="evenodd"
@@ -1553,7 +1407,7 @@
                                                                         </svg>
                                                                         <span class="tp-product-tooltip tp-product-tooltip-right">Add To Wishlist</span>
                                                                     </button>
-                                                                    <button type="button"
+                                                                    {{-- <button type="button"
                                                                             class="tp-product-action-btn-2 tp-product-add-to-compare-btn">
                                                                         <svg width="15" height="15" viewBox="0 0 15 15"
                                                                              fill="none"
@@ -1580,7 +1434,7 @@
                                                                                   stroke-linejoin="round"/>
                                                                         </svg>
                                                                         <span class="tp-product-tooltip tp-product-tooltip-right">Add To Compare</span>
-                                                                    </button>
+                                                                    </button> --}}
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1650,7 +1504,7 @@
                                                                              xmlns="http://www.w3.org/2000/svg">
                                                                             <path fill-rule="evenodd"
                                                                                   clip-rule="evenodd"
-                                                                                  d="M1.60355 7.98635C2.83622 11.8048 7.7062 14.8923 9.0004 15.6565C10.299 14.8844 15.2042 11.7628 16.3973 7.98985C17.1806 5.55102 16.4535 2.46177 13.5644 1.53473C12.1647 1.08741 10.532 1.35966 9.40484 2.22804C9.16921 2.40837 8.84214 2.41187 8.60476 2.23329C7.41078 1.33952 5.85105 1.07778 4.42936 1.53473C1.54465 2.4609 0.820172 5.55014 1.60355 7.98635ZM9.00138 17.0711C8.89236 17.0711 8.78421 17.0448 8.68574 16.9914C8.41055 16.8417 1.92808 13.2841 0.348132 8.3872C0.347252 8.3872 0.347252 8.38633 0.347252 8.38633C-0.644504 5.30321 0.459792 1.42874 4.02502 0.284605C5.69904 -0.254635 7.52342 -0.0174044 8.99874 0.909632C10.4283 0.00973263 12.3275 -0.238878 13.9681 0.284605C17.5368 1.43049 18.6446 5.30408 17.6538 8.38633C16.1248 13.2272 9.59485 16.8382 9.3179 16.9896C9.21943 17.0439 9.1104 17.0711 9.00138 17.0711Z"
+                                                                                  d="M1.60355 7.98635C2.83622 11.8048 7.7062 14.8923 9.0004 15.6565C10.299 14.8844 15.2042 11.7628 16.3973 7.98985C17.1806 5.55102 16.4535 2.46177 13.5644 1.53473C12.1647 1.08741 10.532 1.35966 9.40484 2.22804C9.16921 2.40837 8.84214 2.41187 8.60476 2.23329C7.41078 1.33952 5.87505 1.07778 4.42936 1.53473C1.54465 2.4609 0.820172 5.55014 1.60355 7.98635ZM9.00138 17.0711C8.89236 17.0711 8.78421 17.0448 8.68574 16.9914C8.41055 16.8417 1.92808 13.2841 0.348132 8.3872C0.347252 8.3872 0.347252 8.38633 0.347252 8.38633C-0.644504 5.30321 0.459792 1.42874 4.02502 0.284605C5.69904 -0.254635 7.52342 -0.0174044 8.99874 0.909632C10.4283 0.00973263 12.3275 -0.238878 13.9681 0.284605C17.5368 1.43049 18.6446 5.30408 17.6538 8.38633C16.1248 13.2272 9.59485 16.8382 9.3179 16.9896C9.21943 17.0439 9.1104 17.0711 9.00138 17.0711Z"
                                                                                   fill="currentColor"/>
                                                                             <path fill-rule="evenodd"
                                                                                   clip-rule="evenodd"
@@ -1659,7 +1513,7 @@
                                                                         </svg>
                                                                         <span class="tp-product-tooltip tp-product-tooltip-right">Add To Wishlist</span>
                                                                     </button>
-                                                                    <button type="button"
+                                                                    {{-- <button type="button"
                                                                             class="tp-product-action-btn-2 tp-product-add-to-compare-btn">
                                                                         <svg width="15" height="15" viewBox="0 0 15 15"
                                                                              fill="none"
@@ -1686,7 +1540,7 @@
                                                                                   stroke-linejoin="round"/>
                                                                         </svg>
                                                                         <span class="tp-product-tooltip tp-product-tooltip-right">Add To Compare</span>
-                                                                    </button>
+                                                                    </button> --}}
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1756,7 +1610,7 @@
                                                                              xmlns="http://www.w3.org/2000/svg">
                                                                             <path fill-rule="evenodd"
                                                                                   clip-rule="evenodd"
-                                                                                  d="M1.60355 7.98635C2.83622 11.8048 7.7062 14.8923 9.0004 15.6565C10.299 14.8844 15.2042 11.7628 16.3973 7.98985C17.1806 5.55102 16.4535 2.46177 13.5644 1.53473C12.1647 1.08741 10.532 1.35966 9.40484 2.22804C9.16921 2.40837 8.84214 2.41187 8.60476 2.23329C7.41078 1.33952 5.85105 1.07778 4.42936 1.53473C1.54465 2.4609 0.820172 5.55014 1.60355 7.98635ZM9.00138 17.0711C8.89236 17.0711 8.78421 17.0448 8.68574 16.9914C8.41055 16.8417 1.92808 13.2841 0.348132 8.3872C0.347252 8.3872 0.347252 8.38633 0.347252 8.38633C-0.644504 5.30321 0.459792 1.42874 4.02502 0.284605C5.69904 -0.254635 7.52342 -0.0174044 8.99874 0.909632C10.4283 0.00973263 12.3275 -0.238878 13.9681 0.284605C17.5368 1.43049 18.6446 5.30408 17.6538 8.38633C16.1248 13.2272 9.59485 16.8382 9.3179 16.9896C9.21943 17.0439 9.1104 17.0711 9.00138 17.0711Z"
+                                                                                  d="M1.60355 7.98635C2.83622 11.8048 7.7062 14.8923 9.0004 15.6565C10.299 14.8844 15.2042 11.7628 16.3973 7.98985C17.1806 5.55102 16.4535 2.46177 13.5644 1.53473C12.1647 1.08741 10.532 1.35966 9.40484 2.22804C9.16921 2.40837 8.84214 2.41187 8.60476 2.23329C7.41078 1.33952 5.87505 1.07778 4.42936 1.53473C1.54465 2.4609 0.820172 5.55014 1.60355 7.98635ZM9.00138 17.0711C8.89236 17.0711 8.78421 17.0448 8.68574 16.9914C8.41055 16.8417 1.92808 13.2841 0.348132 8.3872C0.347252 8.3872 0.347252 8.38633 0.347252 8.38633C-0.644504 5.30321 0.459792 1.42874 4.02502 0.284605C5.69904 -0.254635 7.52342 -0.0174044 8.99874 0.909632C10.4283 0.00973263 12.3275 -0.238878 13.9681 0.284605C17.5368 1.43049 18.6446 5.30408 17.6538 8.38633C16.1248 13.2272 9.59485 16.8382 9.3179 16.9896C9.21943 17.0439 9.1104 17.0711 9.00138 17.0711Z"
                                                                                   fill="currentColor"/>
                                                                             <path fill-rule="evenodd"
                                                                                   clip-rule="evenodd"
@@ -1765,7 +1619,7 @@
                                                                         </svg>
                                                                         <span class="tp-product-tooltip tp-product-tooltip-right">Add To Wishlist</span>
                                                                     </button>
-                                                                    <button type="button"
+                                                                    {{-- <button type="button"
                                                                             class="tp-product-action-btn-2 tp-product-add-to-compare-btn">
                                                                         <svg width="15" height="15" viewBox="0 0 15 15"
                                                                              fill="none"
@@ -1792,7 +1646,7 @@
                                                                                   stroke-linejoin="round"/>
                                                                         </svg>
                                                                         <span class="tp-product-tooltip tp-product-tooltip-right">Add To Compare</span>
-                                                                    </button>
+                                                                    </button> --}}
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1887,4 +1741,5 @@
         <!-- shop area end -->
     </main>
 
+    @include('components.footer')
 @endsection

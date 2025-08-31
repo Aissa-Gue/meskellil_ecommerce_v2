@@ -32,4 +32,5 @@
         @include('components.product-quick-view-modal')
     </main>
 
+    @include('components.footer')
 @endsection

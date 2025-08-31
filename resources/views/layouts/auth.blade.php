@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-    @include('components.area.off-canvas-area')
+    {{-- @include('components.area.off-canvas-area')
     @include('components.area.mobile-menu-area')
     @include('components.search-area')
     @include('components.area.cart-mini-area')
-    @include('components.area.general-header-area')
+    @include('components.area.general-header-area') --}}
     
     <main>
         <!-- breadcrumb area start -->
@@ -58,4 +58,6 @@
         </section>
         <!-- login area end -->
     </main>
+
+    {{-- @include('components.footer') --}}
 @endsection

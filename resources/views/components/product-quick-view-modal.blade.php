@@ -6,53 +6,23 @@
              <div class="tp-product-details-thumb-wrapper tp-tab d-sm-flex">
                 <nav>
                    <div class="nav nav-tabs flex-sm-column " id="productDetailsNavThumb" role="tablist">
-                      <button class="nav-link active" id="nav-1-tab" data-bs-toggle="tab" data-bs-target="#nav-1" type="button" role="tab" aria-controls="nav-1" aria-selected="true">
-                         <img src="assets/img/product/details/nav/product-details-nav-1.jpg" alt="">
-                      </button>
-                      <button class="nav-link" id="nav-2-tab" data-bs-toggle="tab" data-bs-target="#nav-2" type="button" role="tab" aria-controls="nav-2" aria-selected="false">
-                         <img src="assets/img/product/details/nav/product-details-nav-2.jpg" alt="">
-                      </button>
-                      <button class="nav-link" id="nav-3-tab" data-bs-toggle="tab" data-bs-target="#nav-3" type="button" role="tab" aria-controls="nav-3" aria-selected="false">
-                         <img src="assets/img/product/details/nav/product-details-nav-3.jpg" alt="">
-                      </button>
-                      <button class="nav-link" id="nav-4-tab" data-bs-toggle="tab" data-bs-target="#nav-4" type="button" role="tab" aria-controls="nav-4" aria-selected="false">
-                         <img src="assets/img/product/details/nav/product-details-nav-4.jpg" alt="">
-                      </button>
+                      <!-- Dynamic product images will be loaded here -->
                    </div>
                 </nav>
                 <div class="tab-content m-img" id="productDetailsNavContent">
-                   <div class="tab-pane fade show active" id="nav-1" role="tabpanel" aria-labelledby="nav-1-tab" tabindex="0">
-                      <div class="tp-product-details-nav-main-thumb">
-                         <img src="assets/img/product/details/main/product-details-main-1.jpg" alt="">
-                      </div>
-                   </div>
-                   <div class="tab-pane fade" id="nav-2" role="tabpanel" aria-labelledby="nav-2-tab" tabindex="0">
-                      <div class="tp-product-details-nav-main-thumb">
-                         <img src="assets/img/product/details/main/product-details-main-2.jpg" alt="">
-                      </div>
-                   </div>
-                   <div class="tab-pane fade" id="nav-3" role="tabpanel" aria-labelledby="nav-3-tab" tabindex="0">
-                      <div class="tp-product-details-nav-main-thumb">
-                         <img src="assets/img/product/details/main/product-details-main-3.jpg" alt="">
-                      </div>
-                   </div>
-                   <div class="tab-pane fade" id="nav-4" role="tabpanel" aria-labelledby="nav-4-tab" tabindex="0">
-                      <div class="tp-product-details-nav-main-thumb">
-                         <img src="assets/img/product/details/main/product-details-main-4.jpg" alt="">
-                      </div>
-                   </div>
-                 </div>
+                   <!-- Dynamic product image content will be loaded here -->
+                </div>
              </div>
              <div class="tp-product-details-wrapper">
                 <div class="tp-product-details-category">
-                   <span>Computers & Tablets</span>
+                   <span id="quick-view-category">Loading...</span>
                 </div>
-                <h3 class="tp-product-details-title">Samsung galaxy A8 tablet</h3>
+                <h3 class="tp-product-details-title" id="quick-view-title">Loading...</h3>
 
                 <!-- inventory details -->
                 <div class="tp-product-details-inventory d-flex align-items-center mb-10">
                    <div class="tp-product-details-stock mb-10">
-                      <span>In Stock</span>
+                      <span id="quick-view-stock">Loading...</span>
                    </div>
                    <div class="tp-product-details-rating-wrapper d-flex align-items-center mb-10">
                       <div class="tp-product-details-rating">
@@ -63,42 +33,20 @@
                          <span><i class="fa-solid fa-star"></i></span>
                       </div>
                       <div class="tp-product-details-reviews">
-                         <span>(36 Reviews)</span>
+                         <span>(0 Reviews)</span>
                       </div>
                    </div>
                 </div>
-                <p>A Screen Everyone Will Love: Whether your family is streaming or video chatting with friends tablet A8... <span>See more</span></p>
+                <p id="quick-view-description">Loading...</p>
 
                 <!-- price -->
-                <div class="tp-product-details-price-wrapper mb-20">
-                   <span class="tp-product-details-price old-price">$320.00</span>
-                   <span class="tp-product-details-price new-price">$236.00</span>
+                <div class="tp-product-details-price-wrapper mb-20" id="quick-view-price">
+                   <!-- Dynamic pricing will be loaded here -->
                 </div>
 
                 <!-- variations -->
-                <div class="tp-product-details-variation">
-                   <!-- single item -->
-                   <div class="tp-product-details-variation-item">
-                      <h4 class="tp-product-details-variation-title">Color :</h4>
-                      <div class="tp-product-details-variation-list">
-                         <button type="button" class="color tp-color-variation-btn" >
-                            <span data-bg-color="#F8B655"></span>
-                            <span class="tp-color-variation-tootltip">Yellow</span>
-                         </button>
-                         <button type="button" class="color tp-color-variation-btn active" >
-                            <span data-bg-color="#CBCBCB"></span>
-                            <span class="tp-color-variation-tootltip">Gray</span>
-                         </button>
-                         <button type="button" class="color tp-color-variation-btn" >
-                            <span data-bg-color="#494E52"></span>
-                            <span class="tp-color-variation-tootltip">Black</span>
-                         </button>
-                         <button type="button" class="color tp-color-variation-btn" >
-                            <span data-bg-color="#B4505A"></span>
-                            <span class="tp-color-variation-tootltip">Brown</span>
-                         </button>
-                      </div>
-                   </div>
+                <div class="tp-product-details-variation" id="quick-view-variations">
+                   <!-- Dynamic variations will be loaded here -->
                 </div>
 
                 <!-- actions -->
@@ -122,21 +70,12 @@
                          </div>
                       </div>
                       <div class="tp-product-details-add-to-cart mb-15 w-100">
-                         <button class="tp-product-details-add-to-cart-btn w-100">Add To Cart</button>
+                         <button class="tp-product-details-add-to-cart-btn w-100" id="quick-view-add-to-cart">Loading...</button>
                       </div>
                    </div>
-                   <button class="tp-product-details-buy-now-btn w-100">Buy Now</button>
+                   <button class="tp-product-details-buy-now-btn w-100" id="quick-view-buy-now">Loading...</button>
                 </div>
                 <div class="tp-product-details-action-sm">
-                   <button type="button" class="tp-product-details-action-sm-btn">
-                      <svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                         <path d="M1 3.16431H10.8622C12.0451 3.16431 12.9999 4.08839 12.9999 5.23315V7.52268" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                         <path d="M3.25177 0.985168L1 3.16433L3.25177 5.34354" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                         <path d="M12.9999 12.5983H3.13775C1.95486 12.5983 1 11.6742 1 10.5295V8.23993" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                         <path d="M10.748 14.7774L12.9998 12.5983L10.748 10.4191" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                      </svg>
-                      Compare
-                   </button>
                    <button type="button" class="tp-product-details-action-sm-btn">
                       <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                          <path fill-rule="evenodd" clip-rule="evenodd" d="M2.33541 7.54172C3.36263 10.6766 7.42094 13.2113 8.49945 13.8387C9.58162 13.2048 13.6692 10.6421 14.6635 7.5446C15.3163 5.54239 14.7104 3.00621 12.3028 2.24514C11.1364 1.8779 9.77578 2.1014 8.83648 2.81432C8.64012 2.96237 8.36757 2.96524 8.16974 2.81863C7.17476 2.08487 5.87499 1.86999 4.69024 2.24514C2.28632 3.00549 1.68259 5.54167 2.33541 7.54172ZM8.50115 15C8.4103 15 8.32018 14.9784 8.23812 14.9346C8.00879 14.8117 2.60674 11.891 1.29011 7.87081C1.28938 7.87081 1.28938 7.8701 1.28938 7.8701C0.462913 5.33895 1.38316 2.15812 4.35418 1.21882C5.7492 0.776121 7.26952 0.97088 8.49895 1.73195C9.69029 0.993159 11.2729 0.789057 12.6401 1.21882C15.614 2.15956 16.5372 5.33966 15.7115 7.8701C14.4373 11.8443 8.99571 14.8088 8.76492 14.9332C8.68286 14.9777 8.592 15 8.50115 15Z" fill="currentColor"/>
@@ -146,15 +85,164 @@
                       </svg>
                       Add Wishlist
                    </button>
-                   <button type="button" class="tp-product-details-action-sm-btn">
-                      <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                         <path d="M8.575 12.6927C8.775 12.6927 8.94375 12.6249 9.08125 12.4895C9.21875 12.354 9.2875 12.1878 9.2875 11.9907C9.2875 11.7937 9.21875 11.6275 9.08125 11.492C8.94375 11.3565 8.775 11.2888 8.575 11.2888C8.375 11.2888 8.20625 11.3565 8.06875 11.492C7.93125 11.6275 7.8625 11.7937 7.8625 11.9907C7.8625 12.1878 7.93125 12.354 8.06875 12.4895C8.20625 12.6249 8.375 12.6927 8.575 12.6927ZM8.55625 5.0638C8.98125 5.0638 9.325 5.17771 9.5875 5.40553C9.85 5.63335 9.98125 5.92582 9.98125 6.28294C9.98125 6.52924 9.90625 6.77245 9.75625 7.01258C9.60625 7.25272 9.3625 7.5144 9.025 7.79763C8.7 8.08087 8.44063 8.3795 8.24688 8.69352C8.05313 9.00754 7.95625 9.29385 7.95625 9.55246C7.95625 9.68792 8.00938 9.79567 8.11563 9.87572C8.22188 9.95576 8.34375 9.99578 8.48125 9.99578C8.63125 9.99578 8.75625 9.94653 8.85625 9.84801C8.95625 9.74949 9.01875 9.62635 9.04375 9.47857C9.08125 9.23228 9.16562 9.0137 9.29688 8.82282C9.42813 8.63195 9.63125 8.42568 9.90625 8.20402C10.2812 7.89615 10.5531 7.58829 10.7219 7.28042C10.8906 6.97256 10.975 6.62775 10.975 6.246C10.975 5.59333 10.7594 5.06996 10.3281 4.67589C9.89688 4.28183 9.325 4.0848 8.6125 4.0848C8.1375 4.0848 7.7 4.17716 7.3 4.36187C6.9 4.54659 6.56875 4.81751 6.30625 5.17463C6.20625 5.31009 6.16563 5.44863 6.18438 5.59025C6.20313 5.73187 6.2625 5.83962 6.3625 5.91351C6.5 6.01202 6.64688 6.04281 6.80313 6.00587C6.95937 5.96892 7.0875 5.88272 7.1875 5.74726C7.35 5.5256 7.54688 5.35627 7.77813 5.23929C8.00938 5.1223 8.26875 5.0638 8.55625 5.0638ZM8.5 15.7775C7.45 15.7775 6.46875 15.5897 5.55625 15.2141C4.64375 14.8385 3.85 14.3182 3.175 13.6532C2.5 12.9882 1.96875 12.2062 1.58125 11.3073C1.19375 10.4083 1 9.43547 1 8.38873C1 7.35431 1.19375 6.38762 1.58125 5.48866C1.96875 4.58969 2.5 3.80772 3.175 3.14273C3.85 2.47775 4.64375 1.95438 5.55625 1.57263C6.46875 1.19088 7.45 1 8.5 1C9.5375 1 10.5125 1.19088 11.425 1.57263C12.3375 1.95438 13.1313 2.47775 13.8063 3.14273C14.4813 3.80772 15.0156 4.58969 15.4094 5.48866C15.8031 6.38762 16 7.35431 16 8.38873C16 9.43547 15.8031 10.4083 15.4094 11.3073C15.0156 12.2062 14.4813 12.9882 13.8063 13.6532C13.1313 14.3182 12.3375 14.8385 11.425 15.2141C10.5125 15.5897 9.5375 15.7775 8.5 15.7775ZM8.5 14.6692C10.2625 14.6692 11.7656 14.0534 13.0094 12.822C14.2531 11.5905 14.875 10.1128 14.875 8.38873C14.875 6.6647 14.2531 5.18695 13.0094 3.95549C11.7656 2.72404 10.2625 2.10831 8.5 2.10831C6.7125 2.10831 5.20312 2.72404 3.97188 3.95549C2.74063 5.18695 2.125 6.6647 2.125 8.38873C2.125 10.1128 2.74063 11.5905 3.97188 12.822C5.20312 14.0534 6.7125 14.6692 8.5 14.6692Z" fill="currentColor" stroke="currentColor" stroke-width="0.3"/>
-                      </svg>
-                      Ask a question
-                   </button>
                 </div>
              </div>
           </div>
        </div>
     </div>
  </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Handle quick view modal opening
+    const quickViewButtons = document.querySelectorAll('.tp-product-quick-view-btn');
+
+    quickViewButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const productId = this.getAttribute('data-product-id');
+            if (productId) {
+                loadProductQuickView(productId);
+            }
+        });
+    });
+
+    function loadProductQuickView(productId) {
+        // Show loading state
+        document.getElementById('quick-view-title').textContent = 'Loading...';
+        document.getElementById('quick-view-category').textContent = 'Loading...';
+        document.getElementById('quick-view-stock').textContent = 'Loading...';
+        document.getElementById('quick-view-description').textContent = 'Loading...';
+        document.getElementById('quick-view-price').innerHTML = 'Loading...';
+        document.getElementById('quick-view-variations').innerHTML = 'Loading...';
+        document.getElementById('quick-view-add-to-cart').textContent = 'Loading...';
+        document.getElementById('quick-view-buy-now').textContent = 'Loading...';
+
+        // Fetch product data
+        fetch(`/api/products/${productId}/quick-view`)
+            .then(response => response.json())
+            .then(product => {
+                updateQuickViewModal(product);
+            })
+            .catch(error => {
+                console.error('Error loading product:', error);
+                // Show error state
+                document.getElementById('quick-view-title').textContent = 'Error loading product';
+                document.getElementById('quick-view-category').textContent = 'Error';
+                document.getElementById('quick-view-stock').textContent = 'Error';
+                document.getElementById('quick-view-description').textContent = 'Failed to load product information.';
+            });
+    }
+
+    function updateQuickViewModal(product) {
+        // Update basic information
+        document.getElementById('quick-view-title').textContent = product.name;
+        document.getElementById('quick-view-category').textContent = product.category?.name || 'Uncategorized';
+        document.getElementById('quick-view-stock').textContent = product.stock > 0 ? 'In Stock' : 'Out of Stock';
+        document.getElementById('quick-view-stock').className = product.stock > 0 ? 'tp-product-details-stock mb-10 text-success' : 'tp-product-details-stock mb-10 text-danger';
+
+        // Update description
+        const description = product.description ?
+            (product.description.length > 100 ?
+                product.description.substring(0, 100) + '... <span>See more</span>' :
+                product.description) :
+            'No description available';
+        document.getElementById('quick-view-description').innerHTML = description;
+
+        // Update pricing
+        let priceHtml = '';
+        if (product.has_discount) {
+            priceHtml = `
+                <span class="tp-product-details-price old-price">$${parseFloat(product.main_price).toFixed(2)}</span>
+                <span class="tp-product-details-price new-price">$${parseFloat(product.discounted_price).toFixed(2)}</span>
+            `;
+        } else {
+            priceHtml = `<span class="tp-product-details-price new-price">$${parseFloat(product.main_price).toFixed(2)}</span>`;
+        }
+        document.getElementById('quick-view-price').innerHTML = priceHtml;
+
+        // Update variations
+        let variationsHtml = '';
+        if (product.size) {
+            variationsHtml = `
+                <div class="tp-product-details-variation-item">
+                    <h4 class="tp-product-details-variation-title">Size :</h4>
+                    <div class="tp-product-details-variation-list">
+                        <button type="button" class="color tp-color-variation-btn active">
+                            <span>${product.size}</span>
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+        document.getElementById('quick-view-variations').innerHTML = variationsHtml;
+
+        // Update action buttons
+        const isInStock = product.stock > 0;
+        document.getElementById('quick-view-add-to-cart').textContent = isInStock ? 'Add To Cart' : 'Out of Stock';
+        document.getElementById('quick-view-add-to-cart').disabled = !isInStock;
+        document.getElementById('quick-view-buy-now').textContent = isInStock ? 'Buy Now' : 'Out of Stock';
+        document.getElementById('quick-view-buy-now').disabled = !isInStock;
+
+        // Update images
+        updateQuickViewImages(product);
+    }
+
+    function updateQuickViewImages(product) {
+        const navContainer = document.getElementById('productDetailsNavThumb');
+        const contentContainer = document.getElementById('productDetailsNavContent');
+
+        // Clear existing content
+        navContainer.innerHTML = '';
+        contentContainer.innerHTML = '';
+
+        // Get product images
+        const images = product.images || [];
+        if (images.length === 0) {
+            // Add default image
+            images.push(product.main_image || 'assets/img/product/default-product.jpg');
+        }
+
+        // Create navigation tabs
+        images.forEach((image, index) => {
+            const isActive = index === 0;
+
+            // Create nav button
+            const navButton = document.createElement('button');
+            navButton.className = `nav-link ${isActive ? 'active' : ''}`;
+            navButton.id = `nav-${index + 1}-tab`;
+            navButton.setAttribute('data-bs-toggle', 'tab');
+            navButton.setAttribute('data-bs-target', `#nav-${index + 1}`);
+            navButton.setAttribute('type', 'button');
+            navButton.setAttribute('role', 'tab');
+            navButton.setAttribute('aria-controls', `nav-${index + 1}`);
+            navButton.setAttribute('aria-selected', isActive.toString());
+
+            const img = document.createElement('img');
+            img.src = image;
+            img.alt = product.name;
+            navButton.appendChild(img);
+
+            navContainer.appendChild(navButton);
+
+            // Create content tab
+            const contentTab = document.createElement('div');
+            contentTab.className = `tab-pane fade ${isActive ? 'show active' : ''}`;
+            contentTab.id = `nav-${index + 1}`;
+            contentTab.setAttribute('role', 'tabpanel');
+            contentTab.setAttribute('aria-labelledby', `nav-${index + 1}-tab`);
+            contentTab.setAttribute('tabindex', '0');
+
+            const mainThumb = document.createElement('div');
+            mainThumb.className = 'tp-product-details-nav-main-thumb';
+
+            const mainImg = document.createElement('img');
+            mainImg.src = image;
+            mainImg.alt = product.name;
+            mainThumb.appendChild(mainImg);
+
+            contentTab.appendChild(mainThumb);
+            contentContainer.appendChild(contentTab);
+        });
+    }
+});
+</script>

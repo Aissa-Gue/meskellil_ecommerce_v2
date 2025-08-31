@@ -42,9 +42,9 @@
         "name": "MeskEllil",
         "slug": "EMBALLAGES ET PRODUITS PATISSIERS",
         "logo": {
-            "svg": "assets/img/logo/meskellil_logo.svg",
-            "png": "assets/img/logo/meskellil_logo.png",
-            "jpg": "assets/img/logo/meskellil_logo.jpg"
+            "svg": "/assets/img/logo/meskellil_logo.svg",
+            "png": "/assets/img/logo/meskellil_logo.png",
+            "jpg": "/assets/img/logo/meskellil_logo.jpg"
         }
     }
 }
