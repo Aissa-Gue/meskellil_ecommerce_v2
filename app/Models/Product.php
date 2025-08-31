@@ -124,16 +124,49 @@ class Product extends Model
         for ($i = 1; $i <= 5; $i++) {
             $imageField = "image{$i}";
             if ($this->$imageField) {
-                $images[] = $this->$imageField;
+                $images[] = asset('storage/' . $this->$imageField);
             }
         }
 
         // If no images found, add a default one
         if (empty($images)) {
-            $images[] = 'assets/img/product/default-product.jpg';
+            $images[] = asset('assets/img/product/default-product.jpg');
         }
 
         return $images;
+    }
+
+    // get images as asset storage 
+    // as here     // Accessor to add URL prefix to image
+    // public function getImageAttribute($value)
+    // {
+    //     return $value ? asset('storage/' . $value) : null;
+    // }
+
+    // but for image1 and image2 and ...etc
+    public function getImage1Attribute($value)
+    {
+        return $value ? asset('storage/' . $value) : null;
+    }
+
+    public function getImage2Attribute($value)
+    {
+        return $value ? asset('storage/' . $value) : null;
+    }
+
+    public function getImage3Attribute($value)
+    {
+        return $value ? asset('storage/' . $value) : null;
+    }
+
+    public function getImage4Attribute($value)
+    {
+        return $value ? asset('storage/' . $value) : null;
+    }
+
+    public function getImage5Attribute($value)
+    {
+        return $value ? asset('storage/' . $value) : null;
     }
 
     public function getStockStatusAttribute()

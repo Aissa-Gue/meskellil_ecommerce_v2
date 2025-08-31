@@ -48,12 +48,10 @@
             <div class="offcanvas__bottom">
                <div class="offcanvas__footer d-flex align-items-center justify-content-between">
                   <div class="offcanvas__currency-wrapper currency">
-                     <span class="offcanvas__currency-selected-currency tp-currency-toggle" id="tp-offcanvas-currency-toggle">Currency : USD</span>
+                     <span class="offcanvas__currency-selected-currency tp-currency-toggle" id="tp-offcanvas-currency-toggle">Currency : DZD</span>
                      <ul class="offcanvas__currency-list tp-currency-list">
+                        <li>EUR</li>
                         <li>USD</li>
-                        <li>ERU</li>
-                        <li>BDT </li>
-                        <li>INR</li>
                      </ul>
                   </div>
                   <div class="offcanvas__select language">
@@ -64,10 +62,8 @@
                         <div class="offcanvas__lang-wrapper">
                            <span class="offcanvas__lang-selected-lang tp-lang-toggle" id="tp-offcanvas-lang-toggle">English</span>
                            <ul class="offcanvas__lang-list tp-lang-list">
-                              <li>Spanish</li>
-                              <li>Portugese</li>
-                              <li>American</li>
-                              <li>Canada</li>
+                              <li>French</li>
+                              <li>العربية</li>
                            </ul>
                         </div>
                      </div>

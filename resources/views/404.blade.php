@@ -17,7 +17,9 @@
                     <div class="col-xl-6 col-lg-8 col-md-10">
                          <div class="tp-error-content text-center">
                          <div class="tp-error-thumb">
-                              <img src="assets/img/error/error.png" alt="">
+                              <img src="/assets/img/error/error.png" 
+                              width="400"
+                              alt="">
                          </div>
 
                          <h3 class="tp-error-title">Oops! Page not found</h3>

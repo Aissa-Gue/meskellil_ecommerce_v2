@@ -22,30 +22,21 @@
                                  <span class="tp-header-lang-toggle" id="tp-header-lang-toggle">English</span>
                                  <ul>
                                     <li>
-                                       <a href="#">Spanish</a>
+                                       <a href="#">French</a>
                                     </li>
                                     <li>
-                                       <a href="#">Russian</a>
-                                    </li>
-                                    <li>
-                                       <a href="#">Portuguese</a>
+                                       <a href="#">العربية</a>
                                     </li>
                                  </ul>
                               </div>
                               <div class="tp-header-top-menu-item tp-header-currency">
-                                 <span class="tp-header-currency-toggle" id="tp-header-currency-toggle">USD</span>
+                                 <span class="tp-header-currency-toggle" id="tp-header-currency-toggle">DZD</span>
                                  <ul>
                                     <li>
                                        <a href="#">EUR</a>
                                     </li>
                                     <li>
-                                       <a href="#">CHF</a>
-                                    </li>
-                                    <li>
-                                       <a href="#">GBP</a>
-                                    </li>
-                                    <li>
-                                       <a href="#">KWD</a>
+                                       <a href="#">USD</a>
                                     </li>
                                  </ul>
                               </div>

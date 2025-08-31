@@ -69,7 +69,13 @@ class DatabaseSeeder extends Seeder
                 'shelf_life' => '5 days',
                 'storage' => 'refrigerated',
                 'serving_size' => '12-15 people'
-            ]), 'reference' => 'CK-001', 'price1' => 2500, 'price2' => 2300, 'stock' => 10, 'discount' => 10, 'is_new' => true, 'image1' => 'cake1.jpg'],
+            ]), 'reference' => 'CK-001', 'price1' => 2500, 'price2' => 2300, 'stock' => 10, 'discount' => 10, 'is_new' => true,
+                'image1' => 'pictures/products/1/1_1.jpg',
+                'image2' => 'pictures/products/1/1_2.jpg',
+                'image3' => 'pictures/products/1/1_3.jpg',
+                'image4' => 'pictures/products/1/1_4.jpg',
+                'image5' => 'pictures/products/1/1_5.jpg',
+            ],
 
             ['name' => 'Baklava Assortment', 'size' => 'Medium', 'brand_id' => $brands[4]->id, 'category_id' => $categories[4]->id, 'use_case' => 'Family', 'description' => 'Traditional Algerian baklava', 'caracteristics' => json_encode([
                 'nuts' => 'almond',
@@ -83,7 +89,13 @@ class DatabaseSeeder extends Seeder
                 'storage' => 'room temperature',
                 'origin' => 'Algerian traditional',
                 'serving_size' => '6-8 people'
-            ]), 'reference' => 'BK-002', 'price1' => 1800, 'price2' => 1700, 'stock' => 15, 'discount' => 5, 'is_new' => false, 'image1' => 'baklava.jpg'],
+            ]), 'reference' => 'BK-002', 'price1' => 1800, 'price2' => 1700, 'stock' => 15, 'discount' => 5, 'is_new' => false,
+                'image1' => 'pictures/products/2/2_1.jpg',
+                'image2' => 'pictures/products/2/2_2.jpg',
+                'image3' => 'pictures/products/2/2_3.jpg',
+                'image4' => 'pictures/products/2/2_4.jpg',
+                'image5' => 'pictures/products/2/2_5.jpg',
+            ],
 
             ['name' => 'Croissant au Beurre', 'size' => 'Small', 'brand_id' => $brands[2]->id, 'category_id' => $categories[6]->id, 'use_case' => 'Breakfast', 'description' => 'Buttery croissant', 'caracteristics' => json_encode([
                 'type' => 'butter',
@@ -97,7 +109,13 @@ class DatabaseSeeder extends Seeder
                 'storage' => 'room temperature',
                 'serving_temperature' => 'warm',
                 'pairing' => 'coffee, tea, jam'
-            ]), 'reference' => 'CR-003', 'price1' => 200, 'price2' => 180, 'stock' => 50, 'discount' => 0, 'is_new' => true, 'image1' => 'croissant.jpg'],
+            ]), 'reference' => 'CR-003', 'price1' => 200, 'price2' => 180, 'stock' => 50, 'discount' => 0, 'is_new' => true,
+                'image1' => 'pictures/products/3/3_1.jpg',
+                'image2' => 'pictures/products/3/3_2.jpg',
+                'image3' => 'pictures/products/3/3_3.jpg',
+                'image4' => 'pictures/products/3/3_4.jpg',
+                'image5' => 'pictures/products/3/3_5.jpg',
+            ],
 
             ['name' => 'Makrout el Louz', 'size' => 'Medium', 'brand_id' => $brands[1]->id, 'category_id' => $categories[4]->id, 'use_case' => 'Wedding', 'description' => 'Almond based sweet', 'caracteristics' => json_encode([
                 'syrup' => 'honey',
@@ -112,7 +130,13 @@ class DatabaseSeeder extends Seeder
                 'traditional_recipe' => true,
                 'serving_size' => '4-6 people',
                 'occasion' => 'weddings, celebrations'
-            ]), 'reference' => 'MK-004', 'price1' => 1500, 'price2' => 1400, 'stock' => 20, 'discount' => 0, 'is_new' => false, 'image1' => 'makrout.jpg'],
+            ]), 'reference' => 'MK-004', 'price1' => 1500, 'price2' => 1400, 'stock' => 20, 'discount' => 0, 'is_new' => false,
+                'image1' => 'pictures/products/4/4_1.jpg',
+                'image2' => 'pictures/products/4/4_2.jpg',
+                'image3' => 'pictures/products/4/4_3.jpg',
+                'image4' => 'pictures/products/4/4_4.jpg',
+                'image5' => 'pictures/products/4/4_5.jpg',
+            ],
 
             ['name' => 'Strawberry Cake', 'size' => 'Large', 'brand_id' => $brands[3]->id, 'category_id' => $categories[5]->id, 'use_case' => 'Birthday', 'description' => 'Strawberry whipped cream', 'caracteristics' => json_encode([
                 'flavor' => 'strawberry',
@@ -127,7 +151,13 @@ class DatabaseSeeder extends Seeder
                 'storage' => 'refrigerated',
                 'serving_size' => '15-18 people',
                 'decoration' => 'edible flowers'
-            ]), 'reference' => 'CK-005', 'price1' => 2800, 'price2' => 2600, 'stock' => 8, 'discount' => 15, 'is_new' => true, 'image1' => 'strawberry_cake.jpg'],
+            ]), 'reference' => 'CK-005', 'price1' => 2800, 'price2' => 2600, 'stock' => 8, 'discount' => 15, 'is_new' => true,
+                'image1' => 'pictures/products/5/5_1.jpg',
+                'image2' => 'pictures/products/5/5_2.jpg',
+                'image3' => 'pictures/products/5/5_3.jpg',
+                'image4' => 'pictures/products/5/5_4.jpg',
+                'image5' => 'pictures/products/5/5_5.jpg',
+            ],
         ])->map(fn($p) => Product::create($p));
 
         // --- Orders ---
