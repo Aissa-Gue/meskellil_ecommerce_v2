@@ -46,24 +46,18 @@
                             <div class="tp-header-top-menu d-flex align-items-center justify-content-end">
                                 <div class="tp-header-top-menu-item tp-header-lang">
                                     <span class="tp-header-lang-toggle" id="tp-header-lang-toggle">English</span>
-                                    <ul>
-                                        <li>
-                                            <a href="#">French</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">العربية</a>
-                                        </li>
+                                    <ul class="tp-header-lang-list">
+                                        <li data-lang="English">English</li>
+                                        <li data-lang="French">French</li>
+                                        <li data-lang="العربية">العربية</li>
                                     </ul>
                                 </div>
                                 <div class="tp-header-top-menu-item tp-header-currency">
                                     <span class="tp-header-currency-toggle" id="tp-header-currency-toggle">DZD</span>
-                                    <ul>
-                                        <li>
-                                            <a href="#">EUR</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">USD</a>
-                                        </li>
+                                    <ul class="tp-header-currency-list">
+                                        <li data-currency="DZD">DZD</li>
+                                        <li data-currency="EUR">EUR</li>
+                                        <li data-currency="USD">USD</li>
                                     </ul>
                                 </div>
                                 <div class="tp-header-top-menu-item tp-header-setting">

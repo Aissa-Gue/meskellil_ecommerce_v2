@@ -143,31 +143,31 @@ class Product extends Model
     //     return $value ? asset('storage/' . $value) : null;
     // }
 
-    // but for image1 and image2 and ...etc
-    public function getImage1Attribute($value)
-    {
-        return $value ? asset('storage/' . $value) : null;
-    }
+    // // but for image1 and image2 and ...etc
+    // public function getImage1Attribute($value)
+    // {
+    //     return $value ? asset('storage/' . $value) : null;
+    // }
 
-    public function getImage2Attribute($value)
-    {
-        return $value ? asset('storage/' . $value) : null;
-    }
+    // public function getImage2Attribute($value)
+    // {
+    //     return $value ? asset('storage/' . $value) : null;
+    // }
 
-    public function getImage3Attribute($value)
-    {
-        return $value ? asset('storage/' . $value) : null;
-    }
+    // public function getImage3Attribute($value)
+    // {
+    //     return $value ? asset('storage/' . $value) : null;
+    // }
 
-    public function getImage4Attribute($value)
-    {
-        return $value ? asset('storage/' . $value) : null;
-    }
+    // public function getImage4Attribute($value)
+    // {
+    //     return $value ? asset('storage/' . $value) : null;
+    // }
 
-    public function getImage5Attribute($value)
-    {
-        return $value ? asset('storage/' . $value) : null;
-    }
+    // public function getImage5Attribute($value)
+    // {
+    //     return $value ? asset('storage/' . $value) : null;
+    // }
 
     public function getStockStatusAttribute()
     {

@@ -41,6 +41,7 @@
                                     <div class="tp-product-action-3 tp-product-action-4 has-shadow tp-product-action-primaryStyle">
                                         <div class="tp-product-action-item-3 d-flex flex-column">
                                             <button type="button" class="tp-product-action-btn-3 tp-product-add-cart-btn"
+                                                    data-product-id="{{ $product->id }}"
                                                     {{ $product->stock <= 0 ? 'disabled' : '' }}>
                                                 <svg width="17" height="17" viewBox="0 0 17 17" fill="none"
                                                      xmlns="http://www.w3.org/2000/svg">
@@ -78,7 +79,8 @@
                                                 </svg>
                                                 <span class="tp-product-tooltip">Quick View</span>
                                             </button>
-                                            <button type="button" class="tp-product-action-btn-3 tp-product-add-to-wishlist-btn">
+                                            <button type="button" class="tp-product-action-btn-3 tp-product-add-to-wishlist-btn"
+                                                    data-product-id="{{ $product->id }}">
                                                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
                                                      xmlns="http://www.w3.org/2000/svg">
                                                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -95,6 +97,7 @@
 
                                     <div class="tp-product-add-cart-btn-large-wrapper">
                                         <button type="button" class="tp-product-add-cart-btn-large"
+                                                data-product-id="{{ $product->id }}"
                                                 {{ $product->stock <= 0 ? 'disabled' : '' }}>
                                             {{ $product->stock > 0 ? 'Add To Cart' : 'Out of Stock' }}
                                         </button>

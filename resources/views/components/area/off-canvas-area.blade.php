@@ -24,7 +24,7 @@
                      All Categories
                   </button>
                   <div class="tp-category-mobile-menu">
-                     
+
                   </div>
                </div>
                <div class="tp-main-menu-mobile fix d-lg-none mb-40"></div>
@@ -50,8 +50,9 @@
                   <div class="offcanvas__currency-wrapper currency">
                      <span class="offcanvas__currency-selected-currency tp-currency-toggle" id="tp-offcanvas-currency-toggle">Currency : DZD</span>
                      <ul class="offcanvas__currency-list tp-currency-list">
-                        <li>EUR</li>
-                        <li>USD</li>
+                        <li data-currency="DZD">DZD</li>
+                        <li data-currency="EUR">EUR</li>
+                        <li data-currency="USD">USD</li>
                      </ul>
                   </div>
                   <div class="offcanvas__select language">
@@ -62,8 +63,9 @@
                         <div class="offcanvas__lang-wrapper">
                            <span class="offcanvas__lang-selected-lang tp-lang-toggle" id="tp-offcanvas-lang-toggle">English</span>
                            <ul class="offcanvas__lang-list tp-lang-list">
-                              <li>French</li>
-                              <li>العربية</li>
+                              <li data-lang="English">English</li>
+                              <li data-lang="French">French</li>
+                              <li data-lang="العربية">العربية</li>
                            </ul>
                         </div>
                      </div>

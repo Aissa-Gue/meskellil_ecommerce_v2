@@ -57,7 +57,7 @@
                                     <div class="tp-product-item p-relative transition-3 mb-25">
                                        <div class="tp-product-thumb p-relative fix m-img">
                                           <a href="/products/{{ $product->id }}">
-                                             <img src="{{ asset($product->image1 ?? 'assets/img/product/product-1.jpg') }}" alt="{{ $product->name }}" height="300">
+                                             <img src="{{ asset($product->images[0] ?? 'assets/img/product/product-1.jpg') }}" alt="{{ $product->name }}" height="300">
                                              {{-- <img src="{{ 'assets/img/product/product-1.jpg') ?? asset($product->image1 }}" alt="{{ $product->name }}"> --}}
                                           </a>
 

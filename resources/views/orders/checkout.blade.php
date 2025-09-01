@@ -16,7 +16,7 @@
         <section class="tp-checkout-area pb-120" data-bg-color="#EFF1F5">
             <div class="container">
                 <div class="row">
-                    <div class="col-xl-7 col-lg-7">
+                    {{-- <div class="col-xl-7 col-lg-7">
                         <div class="tp-checkout-verify">
                             <div class="tp-checkout-verify-item">
                                 <p class="tp-checkout-verify-reveal">Returning customer? <button type="button" class="tp-checkout-login-form-reveal-btn">Click here to login</button></p>
@@ -46,21 +46,8 @@
                                     </form>
                                 </div>
                             </div>
-                            <div class="tp-checkout-verify-item">
-                                <p class="tp-checkout-verify-reveal">Have a coupon? <button type="button" class="tp-checkout-coupon-form-reveal-btn">Click here to enter your code</button></p>
-
-                                <div id="tpCheckoutCouponForm" class="tp-return-customer">
-                                    <form action="#">
-                                        <div class="tp-return-customer-input">
-                                            <label>Coupon Code :</label>
-                                            <input type="text" placeholder="Coupon">
-                                        </div>
-                                        <button type="submit" class="tp-return-customer-btn tp-checkout-btn">Apply</button>
-                                    </form>
-                                </div>
-                            </div>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="col-lg-7">
                         <div class="tp-checkout-bill-area">
                             <h3 class="tp-checkout-bill-title">Billing Details</h3>
@@ -226,33 +213,7 @@
                                     </li>
                                 </ul>
                             </div>
-                            <div class="tp-checkout-payment">
-                                <div class="tp-checkout-payment-item">
-                                    <input type="radio" id="back_transfer" name="payment">
-                                    <label for="back_transfer" data-bs-toggle="direct-bank-transfer">Direct Bank Transfer</label>
-                                    <div class="tp-checkout-payment-desc direct-bank-transfer">
-                                        <p>Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.</p>
-                                    </div>
-                                </div>
-                                <div class="tp-checkout-payment-item">
-                                    <input type="radio" id="cheque_payment" name="payment">
-                                    <label for="cheque_payment">Cheque Payment</label>
-                                    <div class="tp-checkout-payment-desc cheque-payment">
-                                        <p>Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.</p>
-                                    </div>
-                                </div>
-                                <div class="tp-checkout-payment-item">
-                                    <input type="radio" id="cod" name="payment">
-                                    <label for="cod">Cash on Delivery</label>
-                                    <div class="tp-checkout-payment-desc cash-on-delivery">
-                                        <p>Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.</p>
-                                    </div>
-                                </div>
-                                <div class="tp-checkout-payment-item paypal-payment">
-                                    <input type="radio" id="paypal" name="payment">
-                                    <label for="paypal">PayPal <img src="assets/img/icon/payment-option.png" alt=""> <a href="#">What is PayPal?</a></label>
-                                </div>
-                            </div>
+                           
                             <div class="tp-checkout-agree">
                                 <div class="tp-checkout-option">
                                     <input id="read_all" type="checkbox">

@@ -276,7 +276,13 @@
                                                             @foreach($product->characteristics_array as $key => $value)
                                                             <tr>
                                                                 <td>{{ ucfirst(str_replace('_', ' ', $key)) }}</td>
-                                                                <td>{{ $value }}</td>
+                                                                <td>
+                                                                    @if(is_array($value))
+                                                                        {{ implode(', ', $value) }}
+                                                                    @else
+                                                                        {{ $value }}
+                                                                    @endif
+                                                                </td>
                                                             </tr>
                                                             @endforeach
                                                         </tbody>

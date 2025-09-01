@@ -26,7 +26,8 @@
         <link rel="stylesheet" href="{{asset('assets/css/spacing.css')}}">
         <link rel="stylesheet" href="{{asset('assets/css/main.css')}}">
 
-        {{-- 
+
+        {{--
         <!-- Styles / Scripts -->
         @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
             @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -47,7 +48,7 @@
         @include('components.back-to-top-btn')
 
         @yield('content')
-        
+
         <!-- JS here -->
         <script src="{{asset('assets/js/vendor/jquery.js')}}"></script>
         <script src="{{asset('assets/js/vendor/waypoints.js')}}"></script>
@@ -65,5 +66,6 @@
         <script src="{{asset('assets/js/imagesloaded-pkgd.js')}}"></script>
         <script src="{{asset('assets/js/ajax-form.js')}}"></script>
         <script src="{{asset('assets/js/main.js')}}"></script>
+        <script src="{{asset('assets/js/ecommerce-storage.js')}}"></script>
     </body>
 </html>
