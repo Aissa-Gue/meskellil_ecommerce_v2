@@ -1,13 +1,5 @@
 @extends('layouts.auth')
 
-@section('auth-header')
-    <h3 class="breadcrumb__title">Reset Password</h3>
-    <div class="breadcrumb__list">
-        <span><a href="{{ route('home') }}">Home</a></span>
-        <span>Reset Password</span>
-    </div>
-@endsection
-
 @section('auth-wrapper')
      <div class="tp-login-top text-center mb-30">
           <h3 class="tp-login-title">Reset Password</h3>

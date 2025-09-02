@@ -9,19 +9,53 @@ class BrandController extends Controller
 {
     public function index(Request $request)
     {
+        $breadcrumbData = [
+            'title' => 'Brands',
+            'bgColor' => '#F8F9FA',
+            'breadcrumbs' => [
+                [
+                    'name' => 'Home',
+                    'url' => route('home')
+                ],
+                [
+                    'name' => 'Brands',
+                    'url' => null
+                ]
+            ]
+        ];
+
         $brands = Brand::query()
             ->search($request->get('search'))
             ->orderBy('name')
             ->paginate(30)
             ->withQueryString();
 
-        return view('brands.index', compact('brands'));
+        return view('brands.index', compact('brands', 'breadcrumbData'));
     }
 
     public function show(Brand $brand)
     {
+        $breadcrumbData = [
+            'title' => $brand->name,
+            'bgColor' => '#F8F9FA',
+            'breadcrumbs' => [
+                [
+                    'name' => 'Home',
+                    'url' => route('home')
+                ],
+                [
+                    'name' => 'Brands',
+                    'url' => route('brands.index')
+                ],
+                [
+                    'name' => $brand->name,
+                    'url' => null
+                ]
+            ]
+        ];
+
         $brand->load(['products' => fn($q) => $q->latest()]);
-        return view('brands.show', compact('brand'));
+        return view('brands.show', compact('brand', 'breadcrumbData'));
     }
 
     public function store(Request $request)

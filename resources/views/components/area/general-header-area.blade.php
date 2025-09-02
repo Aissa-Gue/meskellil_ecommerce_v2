@@ -107,70 +107,55 @@
                                         <li class="has-mega-menu">
                                             <a href="/">Home</a>
                                         </li>
-                                        <li class="has-dropdown has-mega-menu ">
-
-                                            <a href="shop.html">Products</a>
+                                        <li class="has-dropdown has-mega-menu">
+                                            <a href="{{ route('products.index') }}">Categories</a>
                                             <ul class="tp-submenu tp-mega-menu mega-menu-style-2">
-                                                <!-- first col -->
+                                            @if(!empty($categories))
+                                                @php
+                                                    $parentCategories = collect($categories)->where('parent_id', null);
+                                                    $chunks = $parentCategories->chunk(ceil($parentCategories->count() / 5));
+                                                @endphp
+                                                
+                                                @foreach($chunks as $chunk)
+                                                    <li class="has-dropdown">
+                                                        @foreach($chunk as $category)
+                                                        <div class="tp-mega-menu-category-item">
+                                                            <a href="{{ route('products.index', ['category' => $category->id]) }}" class="mega-menu-title d-flex align-items-center">
+                                                                <!-- @if($category->image)
+                                                                    <img src="{{ $category->image }}" alt="{{ $category->name }}" style="width:24px;height:24px;object-fit:cover;margin-right:8px;border-radius:4px;">
+                                                                @endif -->
+                                                                {{ $category->name }}
+                                                            </a>
+                                                            @if($category->children && $category->children->count() > 0)
+                                                                <ul class="tp-submenu">
+                                                                    @foreach($category->children->take(6) as $child)
+                                                                    <li>
+                                                                        <a href="{{ route('products.index', ['category' => $child->id]) }}" class="d-flex align-items-center">
+                                                                            @if($child->image)
+                                                                                <img src="{{ $child->image }}" alt="{{ $child->name }}" style="width:16px;height:16px;object-fit:cover;margin-right:6px;border-radius:2px;">
+                                                                            @endif
+                                                                            {{ $child->name }}
+                                                                        </a>
+                                                                    </li>
+                                                                    @endforeach
+                                                                    @if($category->children->count() > 6)
+                                                                    <li><a href="{{ route('products.index', ['category' => $category->id]) }}" class="text-primary">View All {{ $category->name }}</a></li>
+                                                                    @endif
+                                                                </ul>
+                                                            @endif
+                                                        </div>
+                                                        @endforeach
+                                                    </li>
+                                                @endforeach
+                                            @else
                                                 <li class="has-dropdown">
-                                                    <a href="shop.html" class="mega-menu-title">Shop Page</a>
+                                                    <a href="{{ route('products.index') }}" class="mega-menu-title">All Products</a>
                                                     <ul class="tp-submenu">
-                                                        <li><a href="shop-category.html">Only Categories</a></li>
-                                                        <li><a href="shop-filter-offcanvas.html">Shop Grid</a></li>
-                                                        <li><a href="shop.html">Shop Grid with Sideber</a></li>
-                                                        <li><a href="shop-list.html">Shop List</a></li>
-                                                        <li><a href="shop-category.html">Categories</a></li>
-                                                        <li><a href="product-details.html">Product Details</a></li>
-                                                        <li><a href="product-details-progress.html">Product Details
-                                                                Progress</a></li>
+                                                        <li><a href="{{ route('products.index') }}">Browse All Products</a></li>
                                                     </ul>
                                                 </li>
-                                                <!-- third col -->
-                                                <li class="has-dropdown">
-                                                    <a href="product-details.html" class="mega-menu-title">Products</a>
-                                                    <ul class="tp-submenu">
-
-                                                        <li><a href="product-details.html">Product Simple</a></li>
-                                                        <li><a href="product-details-video.html">With Video</a></li>
-                                                        <li><a href="product-details-countdown.html">With Countdown
-                                                                Timer</a></li>
-                                                        <li><a href="product-details-presentation.html">Product
-                                                                Presentation</a></li>
-                                                        <li><a href="product-details-swatches.html">Variations
-                                                                Swatches</a></li>
-                                                        <li><a href="product-details-list.html">List View</a></li>
-                                                        <li><a href="product-details-gallery.html">Details Gallery</a>
-                                                        </li>
-                                                        <li><a href="product-details-slider.html">With Slider</a></li>
-                                                    </ul>
-                                                </li>
-                                                <!-- third col -->
-                                                <li class="has-dropdown">
-                                                    <a href="shop.html" class="mega-menu-title">eCommerce</a>
-                                                    <ul class="tp-submenu">
-                                                        <li><a href="/cart">Shopping Cart</a></li>
-                                                        <li><a href="/order">Track Your Order</a></li>
-                                                        {{-- <li><a href="/compare">Compare</a></li> --}}
-                                                        <li><a href="/wishlist">Wishlist</a></li>
-                                                        <li><a href="/checkout">Checkout</a></li>
-                                                        <li><a href="/profile">My account</a></li>
-                                                    </ul>
-                                                </li>
-
-                                                <!-- second col -->
-                                                <li class="has-dropdown">
-                                                    <a href="shop.html" class="mega-menu-title">More Pages</a>
-                                                    <ul class="tp-submenu">
-
-
-                                                        <li><a href="/about">About</a></li>
-                                                        <li><a href="/login">Login</a></li>
-                                                        <li><a href="/register">Register</a></li>
-                                                        <li><a href="/forgot">Forgot Password</a></li>
-                                                        <li><a href="/404">404 Error</a></li>
-                                                    </ul>
-                                                </li>
-
+                                            @endif
+                                            
                                             </ul>
                                         </li>
                                         {{-- <li><a href="coupon.html">Coupons</a></li>

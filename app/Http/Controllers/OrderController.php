@@ -112,6 +112,21 @@ class OrderController extends Controller
     /***************************************************************/
     public function index(Request $request, OrderService $orderService)
     {
+        $breadcrumbData = [
+            'title' => 'Orders Management',
+            'bgColor' => '#F8F9FA',
+            'breadcrumbs' => [
+                [
+                    'name' => 'Home',
+                    'url' => route('home')
+                ],
+                [
+                    'name' => 'Orders',
+                    'url' => null
+                ]
+            ]
+        ];
+
         $orders = QueryBuilder::for(Order::with('client', 'items.product'))
             ->allowedFilters([
                 AllowedFilter::exact('product_id'),
@@ -135,7 +150,7 @@ class OrderController extends Controller
             ->allowedIncludes(['products', 'client'])
             ->paginate(25);
 
-        return view('orders.index', compact('orders'));
+        return view('orders.index', compact('orders', 'breadcrumbData'));
     }
 
     public function show(Order $order)

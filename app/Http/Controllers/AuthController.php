@@ -11,7 +11,22 @@ class AuthController extends Controller
 {
     public function showLoginForm()
     {
-        return view('auth.login');
+        $breadcrumbData = [
+            'title' => 'Login',
+            'bgColor' => '#FFF',
+            'breadcrumbs' => [
+                [
+                    'name' => 'Home',
+                    'url' => route('home')
+                ],
+                [
+                    'name' => 'Login',
+                    'url' => null
+                ]
+            ]
+        ];
+
+        return view('auth.login', compact('breadcrumbData'));
     }
 
     public function login(Request $request)
@@ -41,7 +56,22 @@ class AuthController extends Controller
 
     public function showRegisterForm()
     {
-        return view('auth.register');
+        $breadcrumbData = [
+            'title' => 'Register',
+            'bgColor' => '#FFF',
+            'breadcrumbs' => [
+                [
+                    'name' => 'Home',
+                    'url' => route('home')
+                ],
+                [
+                    'name' => 'Register',
+                    'url' => null
+                ]
+            ]
+        ];
+
+        return view('auth.register', compact('breadcrumbData'));
     }
 
     public function register(Request $request)

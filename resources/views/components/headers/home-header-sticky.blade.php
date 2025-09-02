@@ -17,7 +17,59 @@
                               <li class="has-mega-menu">
                                  <a href="/">Home</a>
                               </li>
-                              
+
+                              <li class="has-dropdown has-mega-menu">
+                                 <a href="{{ route('products.index') }}">Categories</a>
+                                 <ul class="tp-submenu tp-mega-menu mega-menu-style-2">
+                                    @if(!empty($categories))
+                                       @php
+                                          $parentCategories = collect($categories)->where('parent_id', null);
+                                          $chunks = $parentCategories->chunk(ceil($parentCategories->count() / 5));
+                                       @endphp
+                                       
+                                       @foreach($chunks as $chunk)
+                                          <li class="has-dropdown">
+                                             @foreach($chunk as $category)
+                                                <div class="tp-mega-menu-category-item">
+                                                   <a href="{{ route('products.index', ['category' => $category->id]) }}" class="mega-menu-title d-flex align-items-center">
+                                                      <!-- @if($category->image)
+                                                         <img src="{{ $category->image }}" alt="{{ $category->name }}" style="width:24px;height:24px;object-fit:cover;margin-right:8px;border-radius:4px;">
+                                                      @endif -->
+                                                      {{ $category->name }}
+                                                   </a>
+                                                   @if($category->children && $category->children->count() > 0)
+                                                      <ul class="tp-submenu">
+                                                         @foreach($category->children->take(6) as $child)
+                                                            <li>
+                                                               <a href="{{ route('products.index', ['category' => $child->id]) }}" class="d-flex align-items-center">
+                                                                  @if($child->image)
+                                                                     <img src="{{ $child->image }}" alt="{{ $child->name }}" style="width:16px;height:16px;object-fit:cover;margin-right:6px;border-radius:2px;">
+                                                                  @endif
+                                                                  {{ $child->name }}
+                                                               </a>
+                                                            </li>
+                                                         @endforeach
+                                                         @if($category->children->count() > 6)
+                                                            <li><a href="{{ route('products.index', ['category' => $category->id]) }}" class="text-primary">View All {{ $category->name }}</a></li>
+                                                         @endif
+                                                      </ul>
+                                                   @endif
+                                                </div>
+                                             @endforeach
+                                          </li>
+                                       @endforeach
+                                    @else
+                                       <li class="has-dropdown">
+                                          <a href="{{ route('products.index') }}" class="mega-menu-title">All Products</a>
+                                          <ul class="tp-submenu">
+                                             <li><a href="{{ route('products.index') }}">Browse All Products</a></li>
+                                          </ul>
+                                       </li>
+                                    @endif
+                                    
+                                 </ul>
+                              </li>
+
                               <li><a href="/contact">Contact</a></li>
                            </ul>
                         </nav>

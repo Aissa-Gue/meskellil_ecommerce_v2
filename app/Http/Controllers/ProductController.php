@@ -14,8 +14,8 @@ class ProductController extends Controller
     public function index(Request $request, ProductService $productService)
     {
         $breadcrumbData = [
-            'title' => 'Checkout',
-            'bgColor' => '#EFF1F5',
+            'title' => 'Products',
+            'bgColor' => '#FFF',
             'breadcrumbs' => [
                 [
                     'name' => 'Home',
@@ -53,8 +53,11 @@ class ProductController extends Controller
 
     public function show(Product $product)
     {
+        $product->load(['brand', 'category']);
+        // return response()->json($product);
         $breadcrumbData = [
-            'title' => $product->name,
+            'title' => $product->name ?? 'Product Details',
+            'bgColor' => '#FFF',
             'breadcrumbs' => [
                 [
                     'name' => 'Home',
@@ -65,7 +68,11 @@ class ProductController extends Controller
                     'url' => route('products.index')
                 ],
                 [
-                    'name' => $product->name,
+                    'name' => $product->category->name ?? 'Uncategorized',
+                    'url' => route('products.index', ['category' => $product->category])
+                ],
+                [
+                    'name' => $product->name ?? 'Product Details',
                     'url' => null
                 ]
             ]

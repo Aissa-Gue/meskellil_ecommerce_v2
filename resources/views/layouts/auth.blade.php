@@ -9,17 +9,21 @@
     
     <main>
         <!-- breadcrumb area start -->
-        <section class="breadcrumb__area include-bg text-center pt-95 pb-50">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xxl-12">
-                        <div class="breadcrumb__content p-relative z-index-1">
-                              @yield('auth-header')
+        @if(isset($breadcrumbData))
+            @include('components.breadcrumb-auth', ['breadcrumbData' => $breadcrumbData])
+        @else
+            <section class="breadcrumb__area include-bg text-center pt-95 pb-50">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xxl-12">
+                            <div class="breadcrumb__content p-relative z-index-1">
+                                  @yield('auth-header')
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        @endif
         <!-- breadcrumb area end -->
 
         <!-- login area start -->

@@ -73,7 +73,7 @@ class HomeController extends Controller
     public function contact()
     {
         $breadcrumbData = [
-            'title' => 'Checkout',
+            'title' => 'Contact Us',
             'bgColor' => '#EFF1F5',
             'breadcrumbs' => [
                 [
@@ -81,11 +81,7 @@ class HomeController extends Controller
                     'url' => route('home')
                 ],
                 [
-                    'name' => 'Shop',
-                    'url' => route('products.index')
-                ],
-                [
-                    'name' => 'Checkout',
+                    'name' => 'Contact',
                     'url' => null // Current page, no URL needed
                 ]
             ]

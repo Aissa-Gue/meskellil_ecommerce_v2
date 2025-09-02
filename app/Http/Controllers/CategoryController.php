@@ -9,6 +9,21 @@ class CategoryController extends Controller
 {
     public function index(Request $request)
     {
+        $breadcrumbData = [
+            'title' => 'Categories',
+            'bgColor' => '#F8F9FA',
+            'breadcrumbs' => [
+                [
+                    'name' => 'Home',
+                    'url' => route('home')
+                ],
+                [
+                    'name' => 'Categories',
+                    'url' => null
+                ]
+            ]
+        ];
+
         $categories = Category::query()
             ->with('parent:id,name')
             ->search($request->get('search'))
@@ -16,13 +31,32 @@ class CategoryController extends Controller
             ->paginate(30)
             ->withQueryString();
 
-        return view('categories.index', compact('categories'));
+        return view('categories.index', compact('categories', 'breadcrumbData'));
     }
 
     public function show(Category $category)
     {
+        $breadcrumbData = [
+            'title' => $category->name,
+            'bgColor' => '#F8F9FA',
+            'breadcrumbs' => [
+                [
+                    'name' => 'Home',
+                    'url' => route('home')
+                ],
+                [
+                    'name' => 'Categories',
+                    'url' => route('categories.index')
+                ],
+                [
+                    'name' => $category->name,
+                    'url' => null
+                ]
+            ]
+        ];
+
         $category->load(['parent:id,name','children:id,name,parent_id','products'=>fn($q)=>$q->latest()]);
-        return view('categories.show', compact('category'));
+        return view('categories.show', compact('category', 'breadcrumbData'));
     }
 
     public function store(Request $request)

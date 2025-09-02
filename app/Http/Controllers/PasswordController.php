@@ -19,7 +19,26 @@ class PasswordController extends Controller
      */
     public function showLinkRequestForm()
     {
-        return view('auth.forgot-password');
+        $breadcrumbData = [
+            'title' => 'Forgot Password',
+            'bgColor' => '#FFF',
+            'breadcrumbs' => [
+                [
+                    'name' => 'Home',
+                    'url' => route('home')
+                ],
+                [
+                    'name' => 'Login',
+                    'url' => route('login')
+                ],
+                [
+                    'name' => 'Forgot Password',
+                    'url' => null
+                ]
+            ]
+        ];
+
+        return view('auth.forgot-password', compact('breadcrumbData'));
     }
 
     /**
@@ -56,8 +75,27 @@ class PasswordController extends Controller
      */
     public function showResetForm(Request $request, $token = null)
     {
+        $breadcrumbData = [
+            'title' => 'Reset Password',
+            'bgColor' => '#FFF',
+            'breadcrumbs' => [
+                [
+                    'name' => 'Home',
+                    'url' => route('home')
+                ],
+                [
+                    'name' => 'Login',
+                    'url' => route('login')
+                ],
+                [
+                    'name' => 'Reset Password',
+                    'url' => null
+                ]
+            ]
+        ];
+
         return view('auth.reset-password')->with(
-            ['token' => $token, 'email' => $request->email]
+            ['token' => $token, 'email' => $request->email, 'breadcrumbData' => $breadcrumbData]
         );
     }
 

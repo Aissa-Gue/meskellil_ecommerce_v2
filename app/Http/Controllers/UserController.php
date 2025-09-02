@@ -11,23 +11,73 @@ class UserController extends Controller
 {
     public function index(Request $request, UserFilters $filters)
     {
+        $breadcrumbData = [
+            'title' => 'Users',
+            'bgColor' => '#F8F9FA',
+            'breadcrumbs' => [
+                [
+                    'name' => 'Home',
+                    'url' => route('home')
+                ],
+                [
+                    'name' => 'Users',
+                    'url' => null
+                ]
+            ]
+        ];
+
         $users = $filters->apply(
             User::query()->orderBy('name')
         )->paginate($request->integer('per_page', 30))->withQueryString();
 
-        return view('users.index', compact('users'));
+        return view('users.index', compact('users', 'breadcrumbData'));
     }
 
     public function show(User $user)
     {
-        return view('users.show', compact('user'));
+        $breadcrumbData = [
+            'title' => 'User Details',
+            'bgColor' => '#F8F9FA',
+            'breadcrumbs' => [
+                [
+                    'name' => 'Home',
+                    'url' => route('home')
+                ],
+                [
+                    'name' => 'Users',
+                    'url' => route('users.index')
+                ],
+                [
+                    'name' => $user->name,
+                    'url' => null
+                ]
+            ]
+        ];
+
+        return view('users.show', compact('user', 'breadcrumbData'));
     }
 
     public function profile(User $user)
     {
         // show authenticated user's profile when visiting /profile
         $user = auth()->user();
-        return view('users.profile', compact('user'));
+        
+        $breadcrumbData = [
+            'title' => 'My Profile',
+            'bgColor' => '#F8F9FA',
+            'breadcrumbs' => [
+                [
+                    'name' => 'Home',
+                    'url' => route('home')
+                ],
+                [
+                    'name' => 'My Profile',
+                    'url' => null
+                ]
+            ]
+        ];
+
+        return view('users.profile', compact('user', 'breadcrumbData'));
     }
 
     /**
