@@ -238,6 +238,9 @@ document.addEventListener('DOMContentLoaded', function() {
             const mainImg = document.createElement('img');
             mainImg.src = image;
             mainImg.alt = product.name;
+            mainImg.classList.add('img-fluid', 'img-center');
+            // mainImg.style.maxWidth = '100px';
+            mainImg.style.maxHeight = '500px';
             mainThumb.appendChild(mainImg);
 
             contentTab.appendChild(mainThumb);

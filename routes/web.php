@@ -28,25 +28,33 @@ Route::get('/api/products/{product}/quick-view', [ProductController::class, 'qui
 Route::get('/category/{category}/products', [ProductController::class, 'showByCategory'])->name('products.by-category');
 Route::get('/api/category/{category}/products', [ProductController::class, 'getCategoryProducts'])->name('api.category.products');
 
-// Auth routes
-Route::get('login', [App\Http\Controllers\AuthController::class, 'showLoginForm'])->name('login');
-Route::post('login', [App\Http\Controllers\AuthController::class, 'login']);
-Route::post('logout', [App\Http\Controllers\AuthController::class, 'logout'])->name('logout');
-Route::get('register', [App\Http\Controllers\AuthController::class, 'showRegisterForm'])->name('register');
-Route::post('register', [App\Http\Controllers\AuthController::class, 'register']);
+// Auth routes - protected by guest middleware to redirect logged-in users
+Route::middleware('guest')->group(function () {
+    Route::get('login', [App\Http\Controllers\AuthController::class, 'showLoginForm'])->name('login');
+    Route::post('login', [App\Http\Controllers\AuthController::class, 'login']);
+    Route::get('register', [App\Http\Controllers\AuthController::class, 'showRegisterForm'])->name('register');
+    Route::post('register', [App\Http\Controllers\AuthController::class, 'register']);
+    
+    // Password reset routes
+    Route::get('forgot-password', [App\Http\Controllers\PasswordController::class, 'showLinkRequestForm'])->name('password.request');
+    Route::post('forgot-password', [App\Http\Controllers\PasswordController::class, 'sendResetLinkEmail'])->name('password.email');
+    Route::get('reset-password/{token}', [App\Http\Controllers\PasswordController::class, 'showResetForm'])->name('password.reset');
+    Route::post('reset-password', [App\Http\Controllers\PasswordController::class, 'reset'])->name('password.update');
+});
 
-// Password reset routes
-Route::get('forgot-password', [App\Http\Controllers\PasswordController::class, 'showLinkRequestForm'])->name('password.request');
-Route::post('forgot-password', [App\Http\Controllers\PasswordController::class, 'sendResetLinkEmail'])->name('password.email');
-Route::get('reset-password/{token}', [App\Http\Controllers\PasswordController::class, 'showResetForm'])->name('password.reset');
-Route::post('reset-password', [App\Http\Controllers\PasswordController::class, 'reset'])->name('password.update');
+// Logout route - only accessible by authenticated users
+Route::post('logout', [App\Http\Controllers\AuthController::class, 'logout'])->name('logout')->middleware('auth');
 
 //Route::resource('brands', BrandController::class)->only(['index','show','store','update','destroy']);
 //Route::resource('categories', CategoryController::class)->only(['index','show','store','update','destroy']);
 //Route::resource('orders', OrderController::class)->only(['index','show','store','update','destroy']);
 // Route::resource('users', UserController::class)->only(['index','show']);
 
-Route::get('profile', [UserController::class, 'profile'])->name('profile.show');
+Route::middleware('auth')->group(function () {
+    Route::get('profile', [UserController::class, 'profile'])->name('profile.show');
+    Route::post('profile', [UserController::class, 'updateProfile'])->name('profile.update');
+    Route::post('profile/password', [UserController::class, 'updatePassword'])->name('profile.password.update');
+});
 
 // Orders: store and show (store used by frontend checkout form)
 Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');

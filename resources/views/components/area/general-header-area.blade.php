@@ -73,7 +73,10 @@
                                             <a href="/cart">Cart</a>
                                         </li>
                                         <li>
-                                            <a href="login">Logout</a>
+                                            <form method="POST" action="{{ route('logout') }}" class="d-inline-block">
+                                                @csrf
+                                                <button type="submit" class="tp-plain-link" style="background:none;border:none;padding:0;color:inherit;cursor:pointer;">Logout</button>
+                                            </form>
                                         </li>
                                     </ul>
                                 </div>

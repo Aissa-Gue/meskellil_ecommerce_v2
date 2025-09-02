@@ -22,6 +22,7 @@ return new class extends Migration
             $table->enum('type', ['gros', 'details'])->default('details')->index();
             $table->enum('status', ['pending', 'active', 'disabled'])->default('pending')->index();
             $table->string('address')->nullable();
+            $table->string('avatar')->nullable();
             $table->foreignId('commune_id')->constrained();
             $table->rememberToken();
             $table->timestamps();
