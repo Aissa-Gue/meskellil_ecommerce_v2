@@ -14,12 +14,21 @@
           <p>Don't have an account? <a href="{{ route('register') }}">Create a free account</a></p>
      </div>
      <div class="tp-login-option">
-          <form method="POST" action="{{ route('login') }}">
-               @csrf
+            <form method="POST" action="{{ route('login') }}">
+                  @csrf
+                  @if($errors->any())
+                       <div class="alert alert-danger">
+                            <ul class="mb-0">
+                                 @foreach($errors->all() as $error)
+                                      <li>{{ $error }}</li>
+                                 @endforeach
+                            </ul>
+                       </div>
+                  @endif
                <div class="tp-login-input-wrapper">
                <div class="tp-login-input-box">
                     <div class="tp-login-input">
-                         <input id="email" name="email" type="email" placeholder="example@mail.com" required autofocus>
+                         <input id="email" name="email" type="email" value="{{ old('email') }}" placeholder="example@mail.com" required autofocus>
                     </div>
                     <div class="tp-login-input-title">
                          <label for="email">Your Email</label>
@@ -35,7 +44,7 @@
                </div>
                <div class="tp-login-suggetions d-sm-flex align-items-center justify-content-between mb-20">
                     <div class="tp-login-remeber">
-                         <input id="remember" name="remember" type="checkbox">
+                         <input id="remember" name="remember" type="checkbox" {{ old('remember') ? 'checked' : '' }}>
                          <label for="remember">Remember me</label>
                     </div>
                     <div class="tp-login-forgot">
@@ -57,16 +66,6 @@
                     Sign in with google
                </a>
                </div>
-               {{-- <div class="tp-login-option-item">
-               <a href="#">
-                    <img src="{{ asset('assets/img/icon/login/facebook.svg') }}" alt="">
-               </a>
-               </div>
-               <div class="tp-login-option-item">
-               <a href="#">
-                    <img class="apple" src="{{ asset('assets/img/icon/login/apple.svg') }}" alt="">
-               </a>
-               </div> --}}
           </div>
      </div>
 @endsection

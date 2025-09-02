@@ -146,8 +146,8 @@
                                                     <a href="shop.html" class="mega-menu-title">eCommerce</a>
                                                     <ul class="tp-submenu">
                                                         <li><a href="/cart">Shopping Cart</a></li>
-                                                        <li><a href="order.html">Track Your Order</a></li>
-                                                        {{-- <li><a href="compare.html">Compare</a></li> --}}
+                                                        <li><a href="/order">Track Your Order</a></li>
+                                                        {{-- <li><a href="/compare">Compare</a></li> --}}
                                                         <li><a href="/wishlist">Wishlist</a></li>
                                                         <li><a href="/checkout">Checkout</a></li>
                                                         <li><a href="/profile">My account</a></li>
@@ -160,11 +160,11 @@
                                                     <ul class="tp-submenu">
 
 
-                                                        <li><a href="about.html">About</a></li>
-                                                        <li><a href="login.html">Login</a></li>
-                                                        <li><a href="register.html">Register</a></li>
-                                                        <li><a href="forgot.html">Forgot Password</a></li>
-                                                        <li><a href="404.html">404 Error</a></li>
+                                                        <li><a href="/about">About</a></li>
+                                                        <li><a href="/login">Login</a></li>
+                                                        <li><a href="/register">Register</a></li>
+                                                        <li><a href="/forgot">Forgot Password</a></li>
+                                                        <li><a href="/404">404 Error</a></li>
                                                     </ul>
                                                 </li>
 

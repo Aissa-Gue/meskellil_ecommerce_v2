@@ -155,74 +155,43 @@
                             <h3 class="tp-checkout-place-title">Your Order</h3>
 
                             <div class="tp-order-info-list">
-                                <ul>
-
-                                    <!-- header -->
+                                <ul id="order-items-list">
                                     <li class="tp-order-info-list-header">
                                         <h4>Product</h4>
                                         <h4>Total</h4>
                                     </li>
-
-                                    <!-- item list -->
-                                    <li class="tp-order-info-list-desc">
-                                        <p>Xiaomi Redmi Note 9 Global V. <span> x 2</span></p>
-                                        <span>$274:00</span>
-                                    </li>
-                                    <li class="tp-order-info-list-desc">
-                                        <p>Office Chair Multifun <span> x 1</span></p>
-                                        <span>$74:00</span>
-                                    </li>
-                                    <li class="tp-order-info-list-desc">
-                                        <p>Apple Watch Series 6 Stainless  <span> x 3</span></p>
-                                        <span>$362:00</span>
-                                    </li>
-                                    <li class="tp-order-info-list-desc">
-                                        <p>Body Works Mens Collection <span> x 1</span></p>
-                                        <span>$145:00</span>
-                                    </li>
-
-                                    <!-- subtotal -->
-                                    <li class="tp-order-info-list-subtotal">
-                                        <span>Subtotal</span>
-                                        <span>$507.00</span>
-                                    </li>
-
-                                    <!-- shipping -->
-                                    <li class="tp-order-info-list-shipping">
-                                        <span>Shipping</span>
-                                        <div class="tp-order-info-list-shipping-item d-flex flex-column align-items-end">
-                                    <span>
-                                       <input id="flat_rate" type="radio" name="shipping">
-                                       <label for="flat_rate">Flat rate: <span>$20.00</span></label>
-                                    </span>
-                                            <span>
-                                       <input id="local_pickup" type="radio" name="shipping">
-                                       <label for="local_pickup">Local pickup: <span>$25.00</span></label>
-                                    </span>
-                                            <span>
-                                       <input id="free_shipping" type="radio" name="shipping">
-                                       <label for="free_shipping">Free shipping</label>
-                                    </span>
-                                        </div>
-                                    </li>
-
-                                    <!-- total -->
-                                    <li class="tp-order-info-list-total">
-                                        <span>Total</span>
-                                        <span>$1,476.00</span>
-                                    </li>
                                 </ul>
                             </div>
-                           
+
+                            <div class="tp-checkout-summary mt-3">
+                                <div class="d-flex justify-content-between"><span>Subtotal</span><strong id="cart-subtotal">$0.00</strong></div>
+                                <div class="d-flex justify-content-between"><span>Shipping</span><strong id="cart-shipping">$0.00</strong></div>
+                                <div class="d-flex justify-content-between"><span>Total</span><strong id="cart-total">$0.00</strong></div>
+                            </div>
+
                             <div class="tp-checkout-agree">
                                 <div class="tp-checkout-option">
                                     <input id="read_all" type="checkbox">
                                     <label for="read_all">I have read and agree to the website.</label>
                                 </div>
                             </div>
-                            <div class="tp-checkout-btn-wrapper">
-                                <a href="#" class="tp-checkout-btn w-100">Place Order</a>
-                            </div>
+
+                            <!-- hidden form to submit order to server -->
+                            <form id="place-order-form" method="POST" action="/orders">
+                                @csrf
+                                <input type="hidden" name="payment_status" value="pending">
+                                <input type="hidden" name="payment_method" value="cash">
+                                <input type="hidden" name="client_name" id="client_name" value="">
+                                <input type="hidden" name="client_phone" id="client_phone" value="">
+                                <input type="hidden" name="commune_id" id="commune_id" value="">
+                                <input type="hidden" name="is_verified" value="0">
+                                <input type="hidden" name="order_status" value="pending">
+                                <input type="hidden" name="notes" id="order_notes" value="">
+
+                                <div class="tp-checkout-btn-wrapper mt-3">
+                                    <button type="button" id="place-order-btn" class="tp-checkout-btn w-100">Place Order</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -232,4 +201,75 @@
     </main>
 
     @include('components.footer')
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        function getCart() {
+            return window.meskellilStorage ? window.meskellilStorage.getCart() : [];
+        }
+
+        function updateSummary() {
+            const cart = getCart();
+            const subtotal = cart.reduce((t, i) => t + (i.price * i.quantity), 0);
+            const shipping = subtotal > 0 ? 5.99 : 0;
+            const total = subtotal + shipping;
+
+            document.getElementById('cart-subtotal').textContent = `$${subtotal.toFixed(2)}`;
+            document.getElementById('cart-shipping').textContent = `$${shipping.toFixed(2)}`;
+            document.getElementById('cart-total').textContent = `$${total.toFixed(2)}`;
+
+            const list = document.getElementById('order-items-list');
+            // remove previous items except header
+            list.querySelectorAll('.tp-order-info-list-desc').forEach(n => n.remove());
+
+            cart.forEach(item => {
+                const li = document.createElement('li');
+                li.className = 'tp-order-info-list-desc';
+                li.innerHTML = `<p>${item.name} <span> x ${item.quantity}</span></p><span>$${(item.price * item.quantity).toFixed(2)}</span>`;
+                list.appendChild(li);
+            });
+        }
+
+        function gatherClientData() {
+            // try to read visible checkout inputs for name/phone/notes
+            const name = document.querySelector('.tp-checkout-bill-form input[type="text"]')?.value || '';
+            const phone = document.querySelector('input[placeholder="Phone"]')?.value || document.querySelector('input[placeholder=""]')?.value || '';
+            const notes = document.querySelector('textarea')?.value || '';
+            return { name, phone, notes };
+        }
+
+        updateSummary();
+
+        document.getElementById('place-order-btn').addEventListener('click', function() {
+            const cart = getCart();
+            if (!cart || cart.length === 0) {
+                alert('Your cart is empty');
+                return;
+            }
+
+            if (!document.getElementById('read_all').checked) {
+                alert('Please accept the terms.');
+                return;
+            }
+
+            // build items inputs according to expected payload items[][product_id], items[][qte], items[][price]
+            const form = document.getElementById('place-order-form');
+            // remove existing dynamic inputs
+            form.querySelectorAll('input[name^="items"]').forEach(n => n.remove());
+
+            cart.forEach((it, idx) => {
+                const pid = document.createElement('input'); pid.type='hidden'; pid.name = `items[${idx}][product_id]`; pid.value = it.id; form.appendChild(pid);
+                const q = document.createElement('input'); q.type='hidden'; q.name = `items[${idx}][qte]`; q.value = it.quantity; form.appendChild(q);
+                const p = document.createElement('input'); p.type='hidden'; p.name = `items[${idx}][price]`; p.value = it.price; form.appendChild(p);
+            });
+
+            const client = gatherClientData();
+            document.getElementById('client_name').value = client.name || 'Guest';
+            document.getElementById('client_phone').value = client.phone || '';
+            document.getElementById('order_notes').value = client.notes || '';
+
+            // submit the form (normal POST) so Laravel handles redirect
+            form.submit();
+        });
+    });
+    </script>
 @endsection

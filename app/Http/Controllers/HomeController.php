@@ -48,7 +48,12 @@ class HomeController extends Controller
             ->limit(8)
             ->get();
 
-        $categories = \App\Models\Category::all();
+        // Fetch top-level categories and eager load children recursively (2 levels by default)
+        // We'll eager load multiple levels by using nested with: children, children.children, etc.
+        $categories = \App\Models\Category::whereNull('parent_id')
+            ->with(['children', 'children.children'])
+            ->orderBy('name')
+            ->get();
         $products = $newestProducts;
 
         // Get products by category for featured categories

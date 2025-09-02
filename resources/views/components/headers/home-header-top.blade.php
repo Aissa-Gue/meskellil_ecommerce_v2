@@ -35,21 +35,30 @@
                                  </ul>
                               </div>
                               <div class="tp-header-top-menu-item tp-header-setting">
-                                 <span class="tp-header-setting-toggle" id="tp-header-setting-toggle">Setting</span>
-                                 <ul>
-                                    <li>
-                                       <a href="/profile">My Profile</a>
-                                    </li>
-                                    <li>
-                                       <a href="/wishlist">Wishlist</a>
-                                    </li>
-                                    <li>
-                                       <a href="/cart">Cart</a>
-                                    </li>
-                                    <li>
-                                       <a href="/login">Logout d2</a>
-                                    </li>
-                                 </ul>
+                                 @auth
+                                    <span class="tp-header-setting-toggle" id="tp-header-setting-toggle">Setting</span>
+                                    <ul>
+                                       <li>
+                                          <a href="{{ route('profile.show') }}">My Profile</a>
+                                       </li>
+                                       <li>
+                                          <a href="{{ route('wishlist') }}">Wishlist</a>
+                                       </li>
+                                       <li>
+                                          <a href="{{ route('cart') }}">Cart</a>
+                                       </li>
+                                       <li>
+                                          <form method="POST" action="{{ route('logout') }}">
+                                             @csrf
+                                             <button type="submit" class="tp-plain-link" style="background:none;border:none;padding:0;color:inherit;cursor:pointer;">Logout</button>
+                                          </form>
+                                       </li>
+                                    </ul>
+                                 @else
+                                    <div class=" tp-header-welcome">
+                                       <a href="{{ route('login') }}" class="tp-header-contact-icon"><span class="tp-header-contact-icon">Login</span></a>
+                                    </div>
+                                 @endauth
                               </div>
                            </div>
                         </div>

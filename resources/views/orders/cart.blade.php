@@ -104,63 +104,44 @@
             container.style.display = 'block';
             emptyMessage.style.display = 'none';
 
-            container.innerHTML = `
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th colspan="2" class="tp-cart-header-product">Product</th>
-                            <th class="tp-cart-header-price">Price</th>
-                            <th class="tp-cart-header-quantity">Quantity</th>
-                            <th class="tp-cart-header-total">Total</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        ${cart.map(item => `
-                            <tr data-product-id="${item.id}">
-                                <td class="tp-cart-img">
-                                    <a href="#">
-                                        <img src="${item.image || '/assets/img/product/product-1.jpg'}" alt="${item.name}">
-                                    </a>
-                                </td>
-                                <td class="tp-cart-title">
-                                    <a href="#">${item.name}</a>
-                                </td>
-                                <td class="tp-cart-price">
-                                    <span>$${item.price.toFixed(2)}</span>
-                                </td>
-                                <td class="tp-cart-quantity">
-                                    <div class="tp-product-quantity mt-10 mb-10">
-                                        <span class="tp-cart-minus" data-product-id="${item.id}">
-                                            <svg width="10" height="2" viewBox="0 0 10 2" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M1 1H9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                            </svg>
-                                        </span>
-                                        <input class="tp-cart-input" type="text" value="${item.quantity}" data-product-id="${item.id}">
-                                        <span class="tp-cart-plus" data-product-id="${item.id}">
-                                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M5 1V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                                <path d="M1 5H9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                            </svg>
-                                        </span>
-                                    </div>
-                                </td>
-                                <td class="tp-cart-total">
-                                    <span>$${(item.price * item.quantity).toFixed(2)}</span>
-                                </td>
-                                <td class="tp-cart-action">
-                                    <button class="tp-cart-action-btn" data-product-id="${item.id}">
-                                        <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M9.53033 1.53033C9.82322 1.23744 9.82322 0.762563 9.53033 0.46967C9.23744 0.176777 8.76256 0.176777 8.46967 0.46967L5 3.93934L1.53033 0.46967C1.23744 0.176777 0.762563 0.176777 0.46967 0.46967C0.176777 0.762563 0.176777 1.23744 0.46967 1.53033L3.93934 5L0.46967 8.46967C0.176777 8.76256 0.176777 9.23744 0.46967 9.53033C0.762563 9.82322 1.23744 9.82322 1.53033 9.53033C5 6.06066L8.46967 9.53033C8.76256 9.82322 9.23744 9.82322 9.53033 9.53033C9.82322 9.23744 9.82322 8.76256 9.53033 8.46967L6.06066 5L9.53033 1.53033Z" fill="currentColor"/>
-                                        </svg>
-                                        <span>Remove</span>
-                                    </button>
-                                </td>
+                container.innerHTML = `
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th colspan="2" class="tp-cart-header-product">Product</th>
+                                <th class="tp-cart-header-price">Price</th>
+                                <th class="tp-cart-header-quantity">Quantity</th>
+                                <th class="tp-cart-header-total">Total</th>
+                                <th>Action</th>
                             </tr>
-                        `).join('')}
-                    </tbody>
-                </table>
-            `;
+                        </thead>
+                        <tbody>
+                            ${cart.map(item => `
+                                <tr data-product-id="${item.id}">
+                                    <td style="width:80px"><img src="${item.image || '/assets/img/default-product.png'}" alt="${item.name}" style="width:70px; height:70px; object-fit:cover"></td>
+                                    <td>${item.name}</td>
+                                    <td>$${item.price.toFixed(2)}</td>
+                                    <td>
+                                        <div class="tp-cart-quantity">
+                                            <button class="tp-cart-minus" data-product-id="${item.id}">-</button>
+                                            <input type="number" class="tp-cart-input" data-product-id="${item.id}" value="${item.quantity}" min="1">
+                                            <button class="tp-cart-plus" data-product-id="${item.id}">+</button>
+                                        </div>
+                                    </td>
+                                    <td>$${(item.price * item.quantity).toFixed(2)}</td>
+                                    <td><button class="tp-cart-action-btn" data-product-id="${item.id}">Remove</button></td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                    <div class="d-flex justify-content-between mt-3">
+                        <button id="update-cart-btn" class="tp-btn-2">Update Cart</button>
+                        <div>
+                            <a href="/checkout" id="checkout-link" class="tp-btn-2">Proceed to Checkout</a>
+                            <button id="clear-cart-btn" class="tp-btn-2">Clear Cart</button>
+                        </div>
+                    </div>
+                `;
 
             updateCartSummary(cart);
             addCartEventListeners();

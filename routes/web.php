@@ -48,6 +48,10 @@ Route::post('reset-password', [App\Http\Controllers\PasswordController::class, '
 
 Route::get('profile', [UserController::class, 'profile'])->name('profile.show');
 
+// Orders: store and show (store used by frontend checkout form)
+Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
+Route::get('/orders/{order}', [OrderController::class, 'show'])->name('orders.show');
+
 // route that catches any get request
 Route::get('{any}', function () {
     return view('404');
