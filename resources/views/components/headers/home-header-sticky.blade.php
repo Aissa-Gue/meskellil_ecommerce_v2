@@ -15,11 +15,11 @@
                         <nav id="mobile-menu"> 
                            <ul>
                               <li class="has-mega-menu">
-                                 <a href="/">Home</a>
+                                 <a href="/">{{ __('header.home') }}</a>
                               </li>
 
                               <li class="has-dropdown has-mega-menu">
-                                 <a href="{{ route('products.index') }}">Categories</a>
+                                 <a href="{{ route('products.index') }}">{{ __('header.categories') }}</a>
                                  <ul class="tp-submenu tp-mega-menu mega-menu-style-2">
                                     @if(!empty($categories))
                                        @php
@@ -70,7 +70,7 @@
                                  </ul>
                               </li>
 
-                              <li><a href="/contact">Contact</a></li>
+                              <li><a href="/contact">{{ __('header.contact') }}</a></li>
                            </ul>
                         </nav>
                      </div>
@@ -102,7 +102,7 @@
                               </a>
                               <form method="POST" action="{{ route('logout') }}" class="d-inline-block">
                                  @csrf
-                                 <button type="submit" class="tp-header-action-btn" style="background:none;border:none;padding:0;color:inherit;cursor:pointer;">Logout</button>
+                                 <button type="submit" class="tp-header-action-btn" style="background:none;border:none;padding:0;color:inherit;cursor:pointer;">{{ __('header.logout') }}</button>
                               </form>
                            @else
                               <button type="button" class="tp-header-action-btn cartmini-open-btn">

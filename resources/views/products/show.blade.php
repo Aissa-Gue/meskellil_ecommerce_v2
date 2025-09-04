@@ -100,7 +100,7 @@
                                 @if($product->size)
                                 <div class="tp-product-details-variation">
                                     <div class="tp-product-details-variation-item">
-                                        <h4 class="tp-product-details-variation-title">Size :</h4>
+                                        <h4 class="tp-product-details-variation-title">{{ __('header.size') }} :</h4>
                                         <div class="tp-product-details-variation-list">
                                             <button type="button" class="color tp-color-variation-btn active">
                                                 <span>{{ $product->size }}</span>
@@ -164,21 +164,21 @@
                                                     d="M12.8384 6.93209C12.5548 6.93209 12.3145 6.71865 12.2911 6.43693C12.2427 5.84618 11.8397 5.34743 11.266 5.1656C10.9766 5.07361 10.8184 4.76962 10.9114 4.48718C11.0059 4.20402 11.3129 4.05023 11.6031 4.13934C12.6017 4.45628 13.3014 5.32371 13.3872 6.34925C13.4113 6.64606 13.1864 6.90622 12.8838 6.92993C12.8684 6.93137 12.8538 6.93209 12.8384 6.93209"
                                                     stroke="currentColor" stroke-width="0.3"/>
                                         </svg>
-                                        Add Wishlist
+                                        {{ __('header.add_wishlist') }}
                                     </button>
                                 </div>
                                 <div class="tp-product-details-query">
                                     <div class="tp-product-details-query-item d-flex align-items-center">
-                                        <span>SKU:  </span>
+                                        <span>{{ __('header.sku') }}:  </span>
                                         <p>{{ $product->reference ?: 'N/A' }}</p>
                                     </div>
                                     <div class="tp-product-details-query-item d-flex align-items-center">
-                                        <span>Category:  </span>
-                                        <p>{{ $product->category->name ?? 'Uncategorized' }}</p>
+                                        <span>{{ __('header.category') }}:  </span>
+                                        <p>{{ $product->category->name ?? __('header.uncategorized') }}</p>
                                     </div>
                                     @if($product->brand)
                                     <div class="tp-product-details-query-item d-flex align-items-center">
-                                        <span>Brand: </span>
+                                        <span>{{ __('header.brand') }}: </span>
                                         <p>{{ $product->brand->name }}</p>
                                     </div>
                                     @endif

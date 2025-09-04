@@ -4,7 +4,7 @@
                <div class="row align-items-end">
                   <div class="col-xl-4 col-md-6">
                      <div class="tp-section-title-wrapper mb-50">
-                        <h3 class="tp-section-title">Latest news & articles
+                        <h3 class="tp-section-title">{{ __('header.latest_news_articles') }}
 
                            <svg width="114" height="35" viewBox="0 0 114 35" fill="none" xmlns="http://www.w3.org/2000/svg">
                               <path d="M112 23.275C1.84952 -10.6834 -7.36586 1.48086 7.50443 32.9053" stroke="currentColor" stroke-width="4" stroke-miterlimit="3.8637" stroke-linecap="round"/>
@@ -15,7 +15,7 @@
                   <div class="col-xl-8 col-md-6">
                      <div class="tp-blog-more-wrapper d-flex justify-content-md-end">
                         <div class="tp-blog-more mb-50 text-md-end">
-                           <a href="blog-grid.html" class="tp-btn tp-btn-2 tp-btn-blue">View All Blog 
+                           <a href="blog-grid.html" class="tp-btn tp-btn-2 tp-btn-blue">{{ __('header.view_all_blog') }} 
                               <svg width="17" height="14" viewBox="0 0 17 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                  <path d="M16 6.99976L1 6.99976" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                  <path d="M9.9502 0.975414L16.0002 6.99941L9.9502 13.0244" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -55,7 +55,7 @@
             
                                     <div class="tp-blog-btn">
                                        <a href="blog-details.html" class="tp-btn-2 tp-btn-border-2">
-                                          Read More 
+                                          {{ __('header.read_more') }} 
                                           <span>
                                              <svg width="17" height="15" viewBox="0 0 17 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M16 7.5L1 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -90,7 +90,7 @@
          
                                     <div class="tp-blog-btn">
                                        <a href="blog-details.html" class="tp-btn-2 tp-btn-border-2">
-                                          Read More 
+                                          {{ __('header.read_more') }} 
                                           <span>
                                              <svg width="17" height="15" viewBox="0 0 17 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M16 7.5L1 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -125,7 +125,7 @@
          
                                     <div class="tp-blog-btn">
                                        <a href="blog-details.html" class="tp-btn-2 tp-btn-border-2">
-                                          Read More 
+                                          {{ __('header.read_more') }} 
                                           <span>
                                              <svg width="17" height="15" viewBox="0 0 17 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M16 7.5L1 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>

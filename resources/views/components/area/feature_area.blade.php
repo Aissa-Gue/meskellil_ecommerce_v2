@@ -15,8 +15,8 @@
                            </span>
                         </div>
                         <div class="tp-feature-content">
-                           <h3 class="tp-feature-title">Free Delivary</h3>
-                           <p>Orders from all item</p>
+                           <h4 class="tp-feature-title-sm">{{ __('header.free_delivery') }}</h4>
+                           <p>{{ __('header.orders_from_all_item') }}</p>
                         </div>
                      </div>
                   </div>
@@ -31,8 +31,8 @@
                            </span>
                         </div>
                         <div class="tp-feature-content">
-                           <h3 class="tp-feature-title">Return & Refunf</h3>
-                           <p>Maney back guarantee</p>
+                           <h4 class="tp-feature-title-sm">{{ __('header.return_refund') }}</h4>
+                           <p>{{ __('header.money_back_guarantee') }}</p>
                         </div>
                      </div>
                   </div>
@@ -54,8 +54,8 @@
                            </span>
                         </div>
                         <div class="tp-feature-content">
-                           <h3 class="tp-feature-title">Member Discount</h3>
-                           <p>Onevery order over $140.00</p>
+                           <h4 class="tp-feature-title-sm">{{ __('header.member_discount') }}</h4>
+                           <p>{{ __('header.on_order_over_99') }}</p>
                         </div>
                      </div>
                   </div>
@@ -70,8 +70,8 @@
                            </span>
                         </div>
                         <div class="tp-feature-content">
-                           <h3 class="tp-feature-title">Support 24/7</h3>
-                           <p>Contact us 24 hours a day</p>
+                           <h4 class="tp-feature-title-sm">{{ __('header.support_24_7') }}</h4>
+                           <p>{{ __('header.contact_us_24_hrs_a_day') }}</p>
                         </div>
                      </div>
                   </div>

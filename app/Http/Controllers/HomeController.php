@@ -43,6 +43,34 @@ class HomeController extends Controller
             ->limit(8)
             ->get();
 
+        // Get featured products (products with higher prices or specific characteristics)
+        $featuredProductsFilter = new Request([
+            'filter' => [
+                'is_active' => true,
+                'price1_min' => 100 // Featured products are higher-priced items
+            ]
+        ]);
+        
+        $featuredProducts = $productService->getFilteredProducts($featuredProductsFilter)
+            ->orderByDesc('price1')
+            ->limit(8)
+            ->get();
+            
+        // If no featured products, get products with stock > 10 (popular items)
+        if ($featuredProducts->isEmpty()) {
+            $featuredProductsFilter = new Request([
+                'filter' => [
+                    'is_active' => true,
+                    'instock' => true
+                ]
+            ]);
+            $featuredProducts = $productService->getFilteredProducts($featuredProductsFilter)
+                ->where('stock', '>', 10)
+                ->orderByDesc('stock')
+                ->limit(8)
+                ->get();
+        }
+
         $discountedProducts = $productService->getFilteredProducts($discountedProductsFilter)
             ->orderByDesc('discount')
             ->limit(8)
@@ -67,7 +95,7 @@ class HomeController extends Controller
                 ->get();
         }
 
-        return view('home', compact(['newestProducts', 'bestSellingProducts', 'discountedProducts', 'products', 'categories', 'categoryProducts']));
+        return view('home', compact(['newestProducts', 'featuredProducts', 'bestSellingProducts', 'discountedProducts', 'products', 'categories', 'categoryProducts']));
     }
 
     public function contact()

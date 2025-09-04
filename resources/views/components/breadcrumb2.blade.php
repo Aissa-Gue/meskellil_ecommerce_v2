@@ -15,8 +15,8 @@
                                 @endif
                             @endforeach
                         @else
-                            <span><a href="{{ url('/') }}">Home</a></span>
-                            <span>{{ $title ?? 'Current Page' }}</span>
+                            <span><a href="{{ url('/') }}">{{ __('header.home') }}</a></span>
+                            <span>{{ $title ?? __('header.current_page') }}</span>
                         @endif
                     </div>
                 </div>

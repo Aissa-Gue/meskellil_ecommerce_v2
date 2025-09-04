@@ -4,7 +4,7 @@
                <div class="row align-items-end">
                   <div class="col-xl-4 col-md-5 col-sm-6">
                      <div class="tp-section-title-wrapper mb-40">
-                        <h3 class="tp-section-title">Deal of The Day
+                        <h3 class="tp-section-title">{{ __('header.deals_of_the_day') }}
 
                            <svg width="114" height="35" viewBox="0 0 114 35" fill="none" xmlns="http://www.w3.org/2000/svg">
                               <path d="M112 23.275C1.84952 -10.6834 -7.36586 1.48086 7.50443 32.9053" stroke="currentColor" stroke-width="4" stroke-miterlimit="3.8637" stroke-linecap="round"/>
@@ -15,7 +15,7 @@
                   <div class="col-xl-8 col-md-7 col-sm-6">
                      <div class="tp-product-offer-more-wrapper d-flex justify-content-sm-end p-relative z-index-1">
                         <div class="tp-product-offer-more mb-40 text-sm-end grey-bg-2">
-                           <a href="shop.html" class="tp-btn tp-btn-2 tp-btn-blue">View All Deals 
+                           <a href="shop.html" class="tp-btn tp-btn-2 tp-btn-blue">{{ __('header.view_all_product') }} Deals 
                               <svg width="17" height="14" viewBox="0 0 17 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                  <path d="M16 6.99976L1 6.99976" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                  <path d="M9.9502 0.975414L16.0002 6.99941L9.9502 13.0244" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>

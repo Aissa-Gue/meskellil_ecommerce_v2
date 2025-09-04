@@ -6,7 +6,7 @@
                   <div class="col">
                      <div class="tp-product-category-item text-center mb-40">
                         <div class="tp-product-category-thumb fix">
-                           <a href="/products?category={{ $category->name }}">
+                           <a href="/products?category={{ $category->id }}">
                               <img src="{{ asset($category->image) ?? 'assets/img/product/category/product-cat-1.png' }}"
                                width="150"
                                alt="product-category">
@@ -14,7 +14,7 @@
                         </div>
                         <div class="tp-product-category-content">
                            <h3 class="tp-product-category-title">
-                              <a href="/products?category={{ $category->name }}"> {{ $category->name }} </a>
+                              <a href="/products?category={{ $category->id }}"> {{ $category->name }} </a>
                            </h3>
                            <p>{{ $category->count }} product</p>
                         </div>

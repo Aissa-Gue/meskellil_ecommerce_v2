@@ -16,9 +16,9 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-xxl-12">
-                            <div class="breadcrumb__content p-relative z-index-1">
+                            {{-- <div class="breadcrumb__content p-relative z-index-1">
                                   @yield('auth-header')
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>

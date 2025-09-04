@@ -16,7 +16,7 @@
                                            d="M8 0H5.81818C4.85376 0 3.92883 0.383116 3.24688 1.06507C2.56493 1.74702 2.18182 2.67194 2.18182 3.63636V5.81818H0V8.72727H2.18182V14.5455H5.09091V8.72727H7.27273L8 5.81818H5.09091V3.63636C5.09091 3.44348 5.16753 3.25849 5.30392 3.1221C5.44031 2.98571 5.6253 2.90909 5.81818 2.90909H8V0Z"
                                            fill="currentColor"/>
                                     </svg>
-                                 </span> {{ global_info('social_media.facebook.followers') }} Followers
+                                 </span> {{ global_info('social_media.facebook.followers') }} {{ __('header.followers') }}
                                 </a>
                             </div>
                             <div class="tp-header-info-item">
@@ -45,11 +45,11 @@
                             class="tp-header-top-right tp-header-top-black d-flex align-items-center justify-content-end">
                             <div class="tp-header-top-menu d-flex align-items-center justify-content-end">
                                 <div class="tp-header-top-menu-item tp-header-lang">
-                                    <span class="tp-header-lang-toggle" id="tp-header-lang-toggle">English</span>
+                                    <span class="tp-header-lang-toggle" id="tp-header-lang-toggle">{{ \App\Helpers\LocaleHelper::getCurrentLocaleName() }}</span>
                                     <ul class="tp-header-lang-list">
-                                        <li data-lang="English">English</li>
-                                        <li data-lang="French">French</li>
-                                        <li data-lang="العربية">العربية</li>
+                                        <li data-lang="en">English</li>
+                                        <li data-lang="fr">French</li>
+                                        <li data-lang="ar">العربية</li>
                                     </ul>
                                 </div>
                                 <div class="tp-header-top-menu-item tp-header-currency">
@@ -61,21 +61,21 @@
                                     </ul>
                                 </div>
                                 <div class="tp-header-top-menu-item tp-header-setting">
-                                    <span class="tp-header-setting-toggle" id="tp-header-setting-toggle">Setting</span>
+                                    <span class="tp-header-setting-toggle" id="tp-header-setting-toggle">{{ __('header.setting') }}</span>
                                     <ul>
                                         <li>
-                                            <a href="/profile">My Profile</a>
+                                            <a href="/profile">{{ __('header.my_profile') }}</a>
                                         </li>
                                         <li>
-                                            <a href="/wishlist">Wishlist</a>
+                                            <a href="/wishlist">{{ __('header.wishlist') }}</a>
                                         </li>
                                         <li>
-                                            <a href="/cart">Cart</a>
+                                            <a href="/cart">{{ __('header.cart') }}</a>
                                         </li>
                                         <li>
                                             <form method="POST" action="{{ route('logout') }}" class="d-inline-block">
                                                 @csrf
-                                                <button type="submit" class="tp-plain-link" style="background:none;border:none;padding:0;color:inherit;cursor:pointer;">Logout</button>
+                                                <button type="submit" class="tp-plain-link" style="background:none;border:none;padding:0;color:inherit;cursor:pointer;">{{ __('header.logout') }}</button>
                                             </form>
                                         </li>
                                     </ul>
@@ -105,10 +105,10 @@
                                 <nav class="tp-main-menu-content">
                                     <ul>
                                         <li class="has-mega-menu">
-                                            <a href="/">Home</a>
+                                            <a href="/">{{ __('header.home') }}</a>
                                         </li>
                                         <li class="has-dropdown has-mega-menu">
-                                            <a href="{{ route('products.index') }}">Categories</a>
+                                            <a href="{{ route('products.index') }}">{{ __('header.categories') }}</a>
                                             <ul class="tp-submenu tp-mega-menu mega-menu-style-2">
                                             @if(!empty($categories))
                                                 @php
@@ -169,7 +169,7 @@
                                                 <li><a href="blog-details.html">Blog Details</a></li>
                                             </ul>
                                         </li> --}}
-                                        <li><a href="/contact">Contact</a></li>
+                                        <li><a href="/contact">{{ __('header.contact') }}</a></li>
                                     </ul>
                                 </nav>
                             </div>

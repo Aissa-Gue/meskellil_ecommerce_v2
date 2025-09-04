@@ -12,18 +12,18 @@
                                  <path d="M16.9091 17.3636C18.1643 17.3636 19.1818 16.3461 19.1818 15.0909C19.1818 13.8357 18.1643 12.8182 16.9091 12.8182C15.6539 12.8182 14.6364 13.8357 14.6364 15.0909C14.6364 16.3461 15.6539 17.3636 16.9091 17.3636Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                               </svg>
                            </span>
-                           <p>FREE Express Shipping On Orders $570+</p>
+                           <p>{{ __('header.free_shipping') }}</p>
                         </div>
                      </div>
                      <div class="col-md-6">
                         <div class="tp-header-top-right d-flex align-items-center justify-content-end">
                            <div class="tp-header-top-menu d-flex align-items-center justify-content-end">
                               <div class="tp-header-top-menu-item tp-header-lang">
-                                 <span class="tp-header-lang-toggle" id="tp-header-lang-toggle">English</span>
+                                 <span class="tp-header-lang-toggle" id="tp-header-lang-toggle">{{ \App\Helpers\LocaleHelper::getCurrentLocaleName() }}</span>
                                  <ul class="tp-header-lang-list">
-                                    <li data-lang="English">English</li>
-                                    <li data-lang="French">French</li>
-                                    <li data-lang="العربية">العربية</li>
+                                       <li data-lang="en">English</li>
+                                       <li data-lang="fr">French</li>
+                                       <li data-lang="ar">العربية</li>
                                  </ul>
                               </div>
                               <div class="tp-header-top-menu-item tp-header-currency">
@@ -36,27 +36,27 @@
                               </div>
                               <div class="tp-header-top-menu-item tp-header-setting">
                                  @auth
-                                    <span class="tp-header-setting-toggle" id="tp-header-setting-toggle">Setting</span>
+                                    <span class="tp-header-setting-toggle" id="tp-header-setting-toggle">{{ __('header.setting') }}</span>
                                     <ul>
                                        <li>
-                                          <a href="{{ route('profile.show') }}">My Profile</a>
+                                          <a href="{{ route('profile.show') }}">{{ __('header.my_profile') }}</a>
                                        </li>
                                        <li>
-                                          <a href="{{ route('wishlist') }}">Wishlist</a>
+                                          <a href="{{ route('wishlist') }}">{{ __('header.wishlist') }}</a>
                                        </li>
                                        <li>
-                                          <a href="{{ route('cart') }}">Cart</a>
+                                          <a href="{{ route('cart') }}">{{ __('header.cart') }}</a>
                                        </li>
                                        <li>
                                           <form method="POST" action="{{ route('logout') }}">
                                              @csrf
-                                             <button type="submit" class="tp-plain-link" style="background:none;border:none;padding:0;color:inherit;cursor:pointer;">Logout</button>
+                                             <button type="submit" class="tp-plain-link" style="background:none;border:none;padding:0;color:inherit;cursor:pointer;">{{ __('header.logout') }}</button>
                                           </form>
                                        </li>
                                     </ul>
                                  @else
                                     <div class=" tp-header-welcome">
-                                       <a href="{{ route('login') }}" class="tp-header-contact-icon"><span class="tp-header-contact-icon">Login</span></a>
+                                       <a href="{{ route('login') }}" class="tp-header-contact-icon"><span class="tp-header-contact-icon">{{ __('header.login') }}</span></a>
                                     </div>
                                  @endauth
                               </div>

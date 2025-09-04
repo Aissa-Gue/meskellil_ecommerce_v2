@@ -11,7 +11,7 @@
                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M0 1C0 0.447715 0.447715 0 1 0H15C15.5523 0 16 0.447715 16 1C16 1.55228 15.5523 2 15 2H1C0.447715 2 0 1.55228 0 1ZM0 7C0 6.44772 0.447715 6 1 6H17C17.5523 6 18 6.44772 18 7C18 7.55228 17.5523 8 17 8H1C0.447715 8 0 7.55228 0 7ZM1 12C0.447715 12 0 12.4477 0 13C0 13.5523 0.447715 14 1 14H11C11.5523 14 12 13.5523 12 13C12 12.4477 11.5523 12 11 12H1Z" fill="currentColor"/>
                                     </svg>
                                  </span>     
-                                 All Categories                            
+                                 {{ __('header.all_categories') }}                            
                               </button>
                        <nav class="tp-category-menu-content">
                          {{-- Categories should be provided by the controller as $categories (top-level with children) --}}
@@ -30,10 +30,10 @@
                               <nav class="tp-main-menu-content">
                                  <ul>
                                     <li class="has-mega-menu">
-                                       <a href="/">Home</a>
+                                       <a href="/">{{ __('header.home') }}</a>
                                     </li>
 
-                                    <li><a href="/contact">Contact</a></li>
+                                    <li><a href="/contact">{{ __('header.contact') }}</a></li>
                                  </ul>
                               </nav>
                            </div>
@@ -51,7 +51,7 @@
                                  </span>
                               </div>
                               <div class="tp-header-contact-content">
-                                 <h5>Hotline:</h5>
+                                 <h5>{{ __('header.hotline') }}:</h5>
                                  <p><a href="tel:{{ global_info('contact.phone_primary') }}">{{ global_info('contact.phone_primary') }}</a></p>
                               </div>
                            </div>

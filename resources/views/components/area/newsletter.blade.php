@@ -20,16 +20,16 @@
                <div class="row align-items-center">
                   <div class="col-xl-7 col-lg-7">
                      <div class="tp-subscribe-content">
-                        <span>Sale 20% off all store</span>
-                        <h3 class="tp-subscribe-title">Subscribe our Newsletter</h3>
+                        <span>{{ __('header.sale_20_off_all_store') }}</span>
+                        <h3 class="tp-subscribe-title">{{ __('header.subscribe_newsletter') }}</h3>
                      </div>
                   </div>
                   <div class="col-xl-5 col-lg-5">
                      <div class="tp-subscribe-form">
                         <form action="#">
                            <div class="tp-subscribe-input">
-                              <input type="email" placeholder="Enter Your Email">
-                              <button type="submit">Subscribe</button>
+                              <input type="email" placeholder="{{ __('header.enter_your_email') }}">
+                              <button type="submit">{{ __('header.subscribe') }}</button>
                            </div>
                         </form>
                      </div>

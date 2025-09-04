@@ -7,7 +7,7 @@
                            <div class="tp-product-gadget-thumb">
                               <img src="assets/img/product/gadget/gadget-girl.png" alt="">
                            </div>
-                           <h3 class="tp-product-gadget-categories-title">Electronics <br> Gadgets</h3>
+                           <h3 class="tp-product-gadget-categories-title">{{ __('header.electronics') }} <br> Gadgets</h3>
 
                            <div class="tp-product-gadget-categories-list">
                               <ul>
@@ -20,13 +20,13 @@
                                  <li><a href="shop-category.html">Headphones</a></li> --}}
 
                                  {{-- @foreach ($categories as $category)
-                                    <li><a href="/products?category={{ $category->name }}">{{ $category->name }}</a></li>
+                                    <li><a href="/products?category={{ $category->id }}">{{ $category->name }}</a></li>
                                  @endforeach --}}
                               </ul>
                            </div>
 
                            <div class="tp-product-gadget-btn">
-                              <a href="shop-category.html" class="tp-link-btn">More Products 
+                              <a href="shop-category.html" class="tp-link-btn">{{ __('header.more_products') }} 
                                  <svg width="15" height="13" viewBox="0 0 15 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M13.9998 6.19656L1 6.19656" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                     <path d="M8.75674 0.975394L14 6.19613L8.75674 11.4177" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -39,17 +39,17 @@
                               <div class="swiper-wrapper">
                                  <div class="tp-product-gadget-banner-item swiper-slide include-bg" data-background="assets/img/product/gadget/gadget-banner-1.jpg">
                                     <div class="tp-product-gadget-banner-content">
-                                       <span class="tp-product-gadget-banner-price">Only $99.00</span>
+                                       <span class="tp-product-gadget-banner-price">{{ __('header.only') }} $99.00</span>
                                        <h3 class="tp-product-gadget-banner-title">
-                                          <a href="product-details.html">Selected novelty <br> Products</a>
+                                          <a href="product-details.html">{{ __('header.selected_novelty_products') }}</a>
                                        </h3>
                                     </div>
                                  </div>
                                  <div class="tp-product-gadget-banner-item swiper-slide include-bg" data-background="assets/img/product/gadget/gadget-banner-2.jpg">
                                     <div class="tp-product-gadget-banner-content">
-                                       <span class="tp-product-gadget-banner-price">Only $55.00</span>
+                                       <span class="tp-product-gadget-banner-price">{{ __('header.only') }} $55.00</span>
                                        <h3 class="tp-product-gadget-banner-title">
-                                          <a href="product-details.html">Top Rated <br> Products</a>
+                                          <a href="product-details.html">{{ __('header.top_rated_products') }}</a>
                                        </h3>
                                     </div>
                                  </div>
@@ -89,7 +89,7 @@
                                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M16.434 18.0409C16.322 18.0409 16.23 18.1329 16.23 18.2459C16.231 18.4749 16.641 18.4729 16.64 18.2459C16.64 18.1329 16.547 18.0409 16.434 18.0409ZM16.434 19.5409C15.72 19.5409 15.14 18.9599 15.14 18.2459C15.14 17.5319 15.72 16.9519 16.434 16.9519C17.149 16.9519 17.73 17.5319 17.73 18.2459C17.73 18.9599 17.149 19.5409 16.434 19.5409Z" fill="currentColor"/>
                                              </svg>   
                                                 
-                                             <span class="tp-product-tooltip">Add to Cart</span>
+                                             <span class="tp-product-tooltip">{{ __('header.add_to_cart') }}</span>
                                           </button>
                                           <button type="button" class="tp-product-action-btn tp-product-quick-view-btn" data-bs-toggle="modal" data-bs-target="#producQuickViewModal">
                                              <svg width="20" height="17" viewBox="0 0 20 17" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -99,7 +99,7 @@
                                                 </g>
                                              </svg>                                          
                                                 
-                                                <span class="tp-product-tooltip">Quick View</span>
+                                                <span class="tp-product-tooltip">{{ __('header.quick_view') }}</span>
                                           </button>
                                           <button type="button" class="tp-product-action-btn tp-product-add-to-wishlist-btn">
                                              <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -107,7 +107,7 @@
                                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M15.7806 7.42904C15.4025 7.42904 15.0821 7.13968 15.0508 6.75775C14.9864 5.95687 14.4491 5.2807 13.6841 5.03421C13.2983 4.9095 13.0873 4.49737 13.2113 4.11446C13.3373 3.73059 13.7467 3.52209 14.1335 3.6429C15.4651 4.07257 16.398 5.24855 16.5123 6.63888C16.5445 7.04127 16.2446 7.39397 15.8412 7.42612C15.8206 7.42807 15.8011 7.42904 15.7806 7.42904Z" fill="currentColor"/>
                                              </svg>                                                                                
                                                 
-                                             <span class="tp-product-tooltip">Add To Wishlist</span>
+                                             <span class="tp-product-tooltip">{{ __('header.add_to_wishlist') }}</span>
                                           </button>
                                        </div>
                                     </div>
@@ -115,7 +115,7 @@
                                  <!-- product content -->
                                  <div class="tp-product-content">
                                     <div class="tp-product-category">
-                                       <a href="shop.html">Electric</a>
+                                       <a href="shop.html">{{ __('header.electric') }}</a>
                                     </div>
                                     <h3 class="tp-product-title">
                                        <a href="product-details.html">
@@ -162,7 +162,7 @@
                                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M16.434 18.0409C16.322 18.0409 16.23 18.1329 16.23 18.2459C16.231 18.4749 16.641 18.4729 16.64 18.2459C16.64 18.1329 16.547 18.0409 16.434 18.0409ZM16.434 19.5409C15.72 19.5409 15.14 18.9599 15.14 18.2459C15.14 17.5319 15.72 16.9519 16.434 16.9519C17.149 16.9519 17.73 17.5319 17.73 18.2459C17.73 18.9599 17.149 19.5409 16.434 19.5409Z" fill="currentColor"/>
                                              </svg>   
                                                 
-                                             <span class="tp-product-tooltip">Add to Cart</span>
+                                             <span class="tp-product-tooltip">{{ __('header.add_to_cart') }}</span>
                                           </button>
                                           <button type="button" class="tp-product-action-btn tp-product-quick-view-btn" data-bs-toggle="modal" data-bs-target="#producQuickViewModal">
                                              <svg width="20" height="17" viewBox="0 0 20 17" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -172,7 +172,7 @@
                                                 </g>
                                              </svg>                                          
                                                 
-                                                <span class="tp-product-tooltip">Quick View</span>
+                                                <span class="tp-product-tooltip">{{ __('header.quick_view') }}</span>
                                           </button>
                                           <button type="button" class="tp-product-action-btn tp-product-add-to-wishlist-btn">
                                              <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -180,7 +180,7 @@
                                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M15.7806 7.42904C15.4025 7.42904 15.0821 7.13968 15.0508 6.75775C14.9864 5.95687 14.4491 5.2807 13.6841 5.03421C13.2983 4.9095 13.0873 4.49737 13.2113 4.11446C13.3373 3.73059 13.7467 3.52209 14.1335 3.6429C15.4651 4.07257 16.398 5.24855 16.5123 6.63888C16.5445 7.04127 16.2446 7.39397 15.8412 7.42612C15.8206 7.42807 15.8011 7.42904 15.7806 7.42904Z" fill="currentColor"/>
                                              </svg>                                                                                
                                                 
-                                             <span class="tp-product-tooltip">Add To Wishlist</span>
+                                             <span class="tp-product-tooltip">{{ __('header.add_to_wishlist') }}</span>
                                           </button>
                                        </div>
                                     </div>
@@ -188,7 +188,7 @@
                                  <!-- product content -->
                                  <div class="tp-product-content">
                                     <div class="tp-product-category">
-                                       <a href="shop.html">Tablet Pro 8</a>
+                                       <a href="shop.html">{{ __('header.tablet_pro_8') }}</a>
                                     </div>
                                     <h3 class="tp-product-title">
                                        <a href="product-details.html">
@@ -241,7 +241,7 @@
                                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M16.434 18.0409C16.322 18.0409 16.23 18.1329 16.23 18.2459C16.231 18.4749 16.641 18.4729 16.64 18.2459C16.64 18.1329 16.547 18.0409 16.434 18.0409ZM16.434 19.5409C15.72 19.5409 15.14 18.9599 15.14 18.2459C15.14 17.5319 15.72 16.9519 16.434 16.9519C17.149 16.9519 17.73 17.5319 17.73 18.2459C17.73 18.9599 17.149 19.5409 16.434 19.5409Z" fill="currentColor"/>
                                              </svg>   
                                                 
-                                             <span class="tp-product-tooltip">Add to Cart</span>
+                                             <span class="tp-product-tooltip">{{ __('header.add_to_cart') }}</span>
                                           </button>
                                           <button type="button" class="tp-product-action-btn tp-product-quick-view-btn" data-bs-toggle="modal" data-bs-target="#producQuickViewModal">
                                              <svg width="20" height="17" viewBox="0 0 20 17" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -251,7 +251,7 @@
                                                 </g>
                                              </svg>                                          
                                                 
-                                                <span class="tp-product-tooltip">Quick View</span>
+                                                <span class="tp-product-tooltip">{{ __('header.quick_view') }}</span>
                                           </button>
                                           <button type="button" class="tp-product-action-btn tp-product-add-to-wishlist-btn">
                                              <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -259,7 +259,7 @@
                                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M15.7806 7.42904C15.4025 7.42904 15.0821 7.13968 15.0508 6.75775C14.9864 5.95687 14.4491 5.2807 13.6841 5.03421C13.2983 4.9095 13.0873 4.49737 13.2113 4.11446C13.3373 3.73059 13.7467 3.52209 14.1335 3.6429C15.4651 4.07257 16.398 5.24855 16.5123 6.63888C16.5445 7.04127 16.2446 7.39397 15.8412 7.42612C15.8206 7.42807 15.8011 7.42904 15.7806 7.42904Z" fill="currentColor"/>
                                              </svg>                                                                                
                                                 
-                                             <span class="tp-product-tooltip">Add To Wishlist</span>
+                                             <span class="tp-product-tooltip">{{ __('header.add_to_wishlist') }}</span>
                                           </button>
                                        </div>
                                     </div>
@@ -267,7 +267,7 @@
                                  <!-- product content -->
                                  <div class="tp-product-content">
                                     <div class="tp-product-category">
-                                       <a href="shop.html">Headphone</a>
+                                       <a href="shop.html">{{ __('header.headphone') }}</a>
                                     </div>
                                     <h3 class="tp-product-title">
                                        <a href="product-details.html">
@@ -319,7 +319,7 @@
                                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M16.434 18.0409C16.322 18.0409 16.23 18.1329 16.23 18.2459C16.231 18.4749 16.641 18.4729 16.64 18.2459C16.64 18.1329 16.547 18.0409 16.434 18.0409ZM16.434 19.5409C15.72 19.5409 15.14 18.9599 15.14 18.2459C15.14 17.5319 15.72 16.9519 16.434 16.9519C17.149 16.9519 17.73 17.5319 17.73 18.2459C17.73 18.9599 17.149 19.5409 16.434 19.5409Z" fill="currentColor"/>
                                              </svg>   
                                                 
-                                             <span class="tp-product-tooltip">Add to Cart</span>
+                                             <span class="tp-product-tooltip">{{ __('header.add_to_cart') }}</span>
                                           </button>
                                           <button type="button" class="tp-product-action-btn tp-product-quick-view-btn" data-bs-toggle="modal" data-bs-target="#producQuickViewModal">
                                              <svg width="20" height="17" viewBox="0 0 20 17" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -329,7 +329,7 @@
                                                 </g>
                                              </svg>                                          
                                                 
-                                                <span class="tp-product-tooltip">Quick View</span>
+                                                <span class="tp-product-tooltip">{{ __('header.quick_view') }}</span>
                                           </button>
                                           <button type="button" class="tp-product-action-btn tp-product-add-to-wishlist-btn">
                                              <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -337,7 +337,7 @@
                                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M15.7806 7.42904C15.4025 7.42904 15.0821 7.13968 15.0508 6.75775C14.9864 5.95687 14.4491 5.2807 13.6841 5.03421C13.2983 4.9095 13.0873 4.49737 13.2113 4.11446C13.3373 3.73059 13.7467 3.52209 14.1335 3.6429C15.4651 4.07257 16.398 5.24855 16.5123 6.63888C16.5445 7.04127 16.2446 7.39397 15.8412 7.42612C15.8206 7.42807 15.8011 7.42904 15.7806 7.42904Z" fill="currentColor"/>
                                              </svg>                                                                                
                                                 
-                                             <span class="tp-product-tooltip">Add To Wishlist</span>
+                                             <span class="tp-product-tooltip">{{ __('header.add_to_wishlist') }}</span>
                                           </button>
                                        </div>
                                     </div>
@@ -398,7 +398,7 @@
                                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M16.434 18.0409C16.322 18.0409 16.23 18.1329 16.23 18.2459C16.231 18.4749 16.641 18.4729 16.64 18.2459C16.64 18.1329 16.547 18.0409 16.434 18.0409ZM16.434 19.5409C15.72 19.5409 15.14 18.9599 15.14 18.2459C15.14 17.5319 15.72 16.9519 16.434 16.9519C17.149 16.9519 17.73 17.5319 17.73 18.2459C17.73 18.9599 17.149 19.5409 16.434 19.5409Z" fill="currentColor"/>
                                              </svg>   
                                                 
-                                             <span class="tp-product-tooltip">Add to Cart</span>
+                                             <span class="tp-product-tooltip">{{ __('header.add_to_cart') }}</span>
                                           </button>
                                           <button type="button" class="tp-product-action-btn tp-product-quick-view-btn" data-bs-toggle="modal" data-bs-target="#producQuickViewModal">
                                              <svg width="20" height="17" viewBox="0 0 20 17" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -408,7 +408,7 @@
                                                 </g>
                                              </svg>                                          
                                                 
-                                                <span class="tp-product-tooltip">Quick View</span>
+                                                <span class="tp-product-tooltip">{{ __('header.quick_view') }}</span>
                                           </button>
                                           <button type="button" class="tp-product-action-btn tp-product-add-to-wishlist-btn">
                                              <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -416,7 +416,7 @@
                                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M15.7806 7.42904C15.4025 7.42904 15.0821 7.13968 15.0508 6.75775C14.9864 5.95687 14.4491 5.2807 13.6841 5.03421C13.2983 4.9095 13.0873 4.49737 13.2113 4.11446C13.3373 3.73059 13.7467 3.52209 14.1335 3.6429C15.4651 4.07257 16.398 5.24855 16.5123 6.63888C16.5445 7.04127 16.2446 7.39397 15.8412 7.42612C15.8206 7.42807 15.8011 7.42904 15.7806 7.42904Z" fill="currentColor"/>
                                              </svg>                                                                                
                                                 
-                                             <span class="tp-product-tooltip">Add To Wishlist</span>
+                                             <span class="tp-product-tooltip">{{ __('header.add_to_wishlist') }}</span>
                                           </button>
                                        </div>
                                     </div>
@@ -471,7 +471,7 @@
                                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M16.434 18.0409C16.322 18.0409 16.23 18.1329 16.23 18.2459C16.231 18.4749 16.641 18.4729 16.64 18.2459C16.64 18.1329 16.547 18.0409 16.434 18.0409ZM16.434 19.5409C15.72 19.5409 15.14 18.9599 15.14 18.2459C15.14 17.5319 15.72 16.9519 16.434 16.9519C17.149 16.9519 17.73 17.5319 17.73 18.2459C17.73 18.9599 17.149 19.5409 16.434 19.5409Z" fill="currentColor"/>
                                              </svg>   
                                                 
-                                             <span class="tp-product-tooltip">Add to Cart</span>
+                                             <span class="tp-product-tooltip">{{ __('header.add_to_cart') }}</span>
                                           </button>
                                           <button type="button" class="tp-product-action-btn tp-product-quick-view-btn" data-bs-toggle="modal" data-bs-target="#producQuickViewModal">
                                              <svg width="20" height="17" viewBox="0 0 20 17" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -481,7 +481,7 @@
                                                 </g>
                                              </svg>                                          
                                                 
-                                                <span class="tp-product-tooltip">Quick View</span>
+                                                <span class="tp-product-tooltip">{{ __('header.quick_view') }}</span>
                                           </button>
                                           <button type="button" class="tp-product-action-btn tp-product-add-to-wishlist-btn">
                                              <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -489,7 +489,7 @@
                                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M15.7806 7.42904C15.4025 7.42904 15.0821 7.13968 15.0508 6.75775C14.9864 5.95687 14.4491 5.2807 13.6841 5.03421C13.2983 4.9095 13.0873 4.49737 13.2113 4.11446C13.3373 3.73059 13.7467 3.52209 14.1335 3.6429C15.4651 4.07257 16.398 5.24855 16.5123 6.63888C16.5445 7.04127 16.2446 7.39397 15.8412 7.42612C15.8206 7.42807 15.8011 7.42904 15.7806 7.42904Z" fill="currentColor"/>
                                              </svg>                                                                                
                                                 
-                                             <span class="tp-product-tooltip">Add To Wishlist</span>
+                                             <span class="tp-product-tooltip">{{ __('header.add_to_wishlist') }}</span>
                                           </button>
                                        </div>
                                     </div>

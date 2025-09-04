@@ -26,40 +26,40 @@
                     </div>
                     <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
                         <div class="tp-footer-widget footer-col-2 mb-50">
-                            <h4 class="tp-footer-widget-title">My Account</h4>
+                            <h4 class="tp-footer-widget-title">{{ __('header.my_account') }}</h4>
                             <div class="tp-footer-widget-content">
                                 <ul>
-                                    <li><a href="#">Track Orders</a></li>
-                                    <li><a href="#">Shipping</a></li>
-                                    <li><a href="/wishlist">Wishlist</a></li>
-                                    <li><a href="#">My Account</a></li>
-                                    <li><a href="#">Order History</a></li>
-                                    <li><a href="#">Returns</a></li>
+                                    <li><a href="#">{{ __('header.track_orders') }}</a></li>
+                                    <li><a href="#">{{ __('header.shipping') }}</a></li>
+                                    <li><a href="/wishlist">{{ __('header.wishlist') }}</a></li>
+                                    <li><a href="#">{{ __('header.my_account') }}</a></li>
+                                    <li><a href="#">{{ __('header.order_history') }}</a></li>
+                                    <li><a href="#">{{ __('header.returns') }}</a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                     <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
                         <div class="tp-footer-widget footer-col-3 mb-50">
-                            <h4 class="tp-footer-widget-title">Infomation</h4>
+                            <h4 class="tp-footer-widget-title">{{ __('header.information') }}</h4>
                             <div class="tp-footer-widget-content">
                                 <ul>
-                                    <li><a href="#">Our Story</a></li>
-                                    <li><a href="#">Careers</a></li>
-                                    <li><a href="#">Privacy Policy</a></li>
-                                    <li><a href="#">Terms & Conditions</a></li>
-                                    <li><a href="#">Latest News</a></li>
-                                    <li><a href="#">Contact Us</a></li>
+                                    <li><a href="#">{{ __('header.our_story') }}</a></li>
+                                    <li><a href="#">{{ __('header.careers') }}</a></li>
+                                    <li><a href="#">{{ __('header.privacy_policy') }}</a></li>
+                                    <li><a href="#">{{ __('header.terms_conditions') }}</a></li>
+                                    <li><a href="#">{{ __('header.latest_news') }}</a></li>
+                                    <li><a href="#">{{ __('header.contact_us') }}</a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                     <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
                         <div class="tp-footer-widget footer-col-4 mb-50">
-                            <h4 class="tp-footer-widget-title">Talk To Us</h4>
+                            <h4 class="tp-footer-widget-title">{{ __('header.talk_to_us') }}</h4>
                             <div class="tp-footer-widget-content">
                                 <div class="tp-footer-talk mb-20">
-                                    <span>Got Questions? Call us</span>
+                                    <span>{{ __('header.got_questions_call_us') }}</span>
                                     <h4><a href="tel:{{ global_info('contact.phone_primary') }}">{{ global_info('contact.phone_primary') }}</a></h4>
                                 </div>
                                 <div class="tp-footer-contact">
@@ -144,7 +144,7 @@
                     <div class="row align-items-center">
                         <div class="col-md-6">
                             <div class="tp-footer-copyright">
-                                <p>© 2025 All Rights Reserved | <a href="/">{{ global_info('brand.name') }}</a>.</p>
+                                <p>{{ __('header.all_rights_reserved') }} | <a href="/">{{ global_info('brand.name') }}</a>.</p>
                             </div>
                         </div>
                         {{-- <div class="col-md-6">

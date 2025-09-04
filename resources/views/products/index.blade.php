@@ -73,7 +73,7 @@
                                 <li><a href="#">Grocery <span>14</span></a></li> --}}
 
                                 @foreach ($categories as $category)
-                                    <li><a href="/products?category={{ $category->name }}">{{ $category->name }}</a></li>
+                                    <li><a href="/products?category={{ $category->id }}">{{ $category->name }}</a></li>
                                  @endforeach
                             </ul>
                         </div>
@@ -448,7 +448,7 @@
                                                 <li><a href="#">Phones <span>05</span></a></li>
                                                 <li><a href="#">Grocery <span>14</span></a></li> --}}
                                                 @foreach ($categories as $category)
-                                                    <li><a href="/products?category={{ $category->name }}">{{ $category->name }}<span>{{ $category->count }}</span></a></li>
+                                                    <li><a href="/products?category={{ $category->id }}">{{ $category->name }}<span>{{ $category->count }}</span></a></li>
                                                 @endforeach
                                             </ul>
                                         </div>

@@ -21,7 +21,7 @@
                <div class="offcanvas__category pb-40">
                   <button class="tp-offcanvas-category-toggle">
                      <i class="fa-solid fa-bars"></i>
-                     All Categories
+                     {{ __('header.all_categories') }}
                   </button>
                   <div class="tp-category-mobile-menu">
 
@@ -42,13 +42,13 @@
                   </div>
                </div>
                <div class="offcanvas__btn">
-                  <a href="/contact" class="tp-btn-2 tp-btn-border-2">Contact Us</a>
+                  <a href="/contact" class="tp-btn-2 tp-btn-border-2">{{ __('header.contact_us') }}</a>
                </div>
             </div>
             <div class="offcanvas__bottom">
                <div class="offcanvas__footer d-flex align-items-center justify-content-between">
                   <div class="offcanvas__currency-wrapper currency">
-                     <span class="offcanvas__currency-selected-currency tp-currency-toggle" id="tp-offcanvas-currency-toggle">Currency : DZD</span>
+                     <span class="offcanvas__currency-selected-currency tp-currency-toggle" id="tp-offcanvas-currency-toggle">{{ __('header.currency') }} : DZD</span>
                      <ul class="offcanvas__currency-list tp-currency-list">
                         <li data-currency="DZD">DZD</li>
                         <li data-currency="EUR">EUR</li>
@@ -61,11 +61,11 @@
                            <img src="assets/img/icon/language-flag.png" alt="">
                         </div>
                         <div class="offcanvas__lang-wrapper">
-                           <span class="offcanvas__lang-selected-lang tp-lang-toggle" id="tp-offcanvas-lang-toggle">English</span>
+                           <span class="offcanvas__lang-selected-lang tp-lang-toggle" id="tp-offcanvas-lang-toggle">{{ \App\Helpers\LocaleHelper::getCurrentLocaleName() }}</span>
                            <ul class="offcanvas__lang-list tp-lang-list">
-                              <li data-lang="English">English</li>
-                              <li data-lang="French">French</li>
-                              <li data-lang="العربية">العربية</li>
+                                 <li data-lang="en">English</li>
+                                 <li data-lang="fr">French</li>
+                                 <li data-lang="ar">العربية</li>
                            </ul>
                         </div>
                      </div>

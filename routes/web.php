@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
@@ -13,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/contact', [App\Http\Controllers\HomeController::class, 'contact'])->name('contact');
+
+// Language switching route
+Route::post('/language/switch', [LanguageController::class, 'switch'])->name('language.switch');
 
 Route::get('/cart', [App\Http\Controllers\OrderController::class, 'cart'])->name('cart');
 Route::get('/wishlist', [App\Http\Controllers\OrderController::class, 'wishlist'])->name('wishlist');

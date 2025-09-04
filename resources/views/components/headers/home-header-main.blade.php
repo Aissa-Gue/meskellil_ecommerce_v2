@@ -55,7 +55,7 @@
                                     </div>
                                     <div class="tp-header-login-content d-none d-xl-block mt-3">
                                        <h5 class="tp-header-login-title">{{ Auth::user()->name }}</h5>
-                                       <span>My Account</span>
+                                       <span>{{ __('header.my_account') }}</span>
                                     </div>
                                  </a>
                               @else

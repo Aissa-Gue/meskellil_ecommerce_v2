@@ -5,6 +5,7 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="Mesk Ellil E-commerce">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Fonts -->
@@ -66,5 +67,6 @@
         <script src="{{asset('assets/js/ajax-form.js')}}"></script>
         <script src="{{asset('assets/js/main.js')}}"></script>
         <script src="{{asset('assets/js/ecommerce-storage.js')}}"></script>
+        <script src="{{asset('assets/js/language-switcher-rtl.js')}}"></script>
     </body>
 </html>

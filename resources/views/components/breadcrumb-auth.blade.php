@@ -3,8 +3,8 @@
     <div class="container">
         <div class="row">
             <div class="col-xxl-12">
-                <div class="breadcrumb__content p-relative z-index-1">
-                    <h3 class="breadcrumb__title">{{ $breadcrumbData['title'] ?? 'Authentication' }}</h3>
+                {{-- <div class="breadcrumb__content p-relative z-index-1">
+                    <h3 class="breadcrumb__title">{{ $breadcrumbData['title'] ?? __('header.authentication') }}</h3>
                     <div class="breadcrumb__list">
                         @if(isset($breadcrumbData['breadcrumbs']) && is_array($breadcrumbData['breadcrumbs']))
                             @foreach($breadcrumbData['breadcrumbs'] as $index => $breadcrumb)
@@ -15,11 +15,11 @@
                                 @endif
                             @endforeach
                         @else
-                            <span><a href="{{ route('home') }}">Home</a></span>
-                            <span>{{ $breadcrumbData['title'] ?? 'Authentication' }}</span>
+                            <span><a href="{{ route('home') }}">{{ __('header.home') }}</a></span>
+                            <span>{{ $breadcrumbData['title'] ?? __('header.authentication') }}</span>
                         @endif
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>

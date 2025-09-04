@@ -46,6 +46,45 @@ class Product extends Model
     {
         return $this->belongsTo(Category::class);
     }
+    // /**
+    //  * Get the full URL for an image field
+    //  *
+    //  * @param string|null $value
+    //  * @retuxrn string|null
+    //  */
+    // protected function getImageUrl($value)
+    // {
+    //     return $value ? asset('storage/' . $value) : null;
+    // }
+
+    // /**
+    //  * Accessors for image fields
+    //  */
+    // public function getImage1Attribute($value)
+    // {
+    //     return $this->getImageUrl($value);
+    // }
+
+    // public function getImage2Attribute($value)
+    // {
+    //     return $this->getImageUrl($value);
+    // }
+
+    // public function getImage3Attribute($value)
+    // {
+    //     return $this->getImageUrl($value);
+    // }
+
+    // public function getImage4Attribute($value)
+    // {
+    //     return $this->getImageUrl($value);
+    // }
+
+    // public function getImage5Attribute($value)
+    // {
+    //     return $this->getImageUrl($value);
+    // }
+
     public function orderLines()
     {
         return $this->hasMany(OrderProduct::class);

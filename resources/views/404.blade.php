@@ -22,10 +22,10 @@
                               alt="">
                          </div>
 
-                         <h3 class="tp-error-title">Oops! Page not found</h3>
-                         <p>Whoops, this is embarassing. Looks like the page you were looking for wasn't found.</p>
+                         <h3 class="tp-error-title">{{ __('header.oops_page_not_found') }}</h3>
+                         <p>{{ __('header.page_not_found_message') }}</p>
 
-                         <a href="/" class="tp-error-btn">Back to Home</a>
+                         <a href="/" class="tp-error-btn">{{ __('header.back_to_home') }}</a>
                          </div>
                     </div>
                     </div>

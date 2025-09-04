@@ -4,14 +4,14 @@
              <div class="cartmini__top-wrapper">
                  <div class="cartmini__top p-relative">
                      <div class="cartmini__top-title">
-                         <h4>Shopping cart</h4>
+                         <h4>{{ __('header.shopping_cart') }}</h4>
                      </div>
                      <div class="cartmini__close">
                          <button type="button" class="cartmini__close-btn cartmini-close-btn"><i class="fal fa-times"></i></button>
                      </div>
                  </div>
                  <div class="cartmini__shipping">
-                  <p> Free Shipping for all orders over <span>$50</span></p>
+                  <p> {{ __('header.free_shipping_for_all_orders_over') }} <span>$50</span></p>
                   <div class="progress">
                      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" data-width="70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
                    </div>                   
@@ -37,18 +37,18 @@
                  <!-- if no item in cart -->
                  <div class="cartmini__empty text-center d-none">
                      <img src="assets/img/product/cartmini/empty-cart.png" alt="">
-                     <p>Your Cart is empty</p>
-                     <a href="shop.html" class="tp-btn">Go to Shop</a>
+                     <p>{{ __('header.your_cart_is_empty') }}</p>
+                     <a href="shop.html" class="tp-btn">{{ __('header.go_to_shop') }}</a>
                  </div>
              </div>
              <div class="cartmini__checkout">
                  <div class="cartmini__checkout-title mb-30">
-                     <h4>Subtotal:</h4>
+                     <h4>{{ __('header.subtotal') }}:</h4>
                      <span>$113.00</span>
                  </div>
                  <div class="cartmini__checkout-btn">
-                     <a href="/cart" class="tp-btn mb-10 w-100"> view cart</a>
-                     <a href="/checkout" class="tp-btn tp-btn-border w-100"> checkout</a>
+                     <a href="/cart" class="tp-btn mb-10 w-100"> {{ __('header.view_cart') }}</a>
+                     <a href="/checkout" class="tp-btn tp-btn-border w-100"> {{ __('header.checkout') }}</a>
                  </div>
              </div>
          </div>
