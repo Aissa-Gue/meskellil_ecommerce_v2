@@ -11,6 +11,13 @@ class HomeController extends Controller
 {
     public function index(ProductService $productService)
     {
+        // Load slider data from JSON file
+        $sliderDataPath = public_path('data/slider-data.json');
+        $sliderData = [];
+        if (file_exists($sliderDataPath)) {
+            $sliderData = json_decode(file_get_contents($sliderDataPath), true);
+        }
+
         // Fake a request with filters
         $newestProductsFilter = new Request([
             'filter' => [
@@ -95,7 +102,33 @@ class HomeController extends Controller
                 ->get();
         }
 
-        return view('home', compact(['newestProducts', 'featuredProducts', 'bestSellingProducts', 'discountedProducts', 'products', 'categories', 'categoryProducts']));
+        // Get banner products for banner_area (2 featured products with high discounts)
+        $bannerProducts = \App\Models\Product::where('is_active', true)
+            ->where('discount', '>', 15) // Products with more than 15% discount
+            ->with(['brand', 'category'])
+            ->orderByDesc('discount')
+            ->limit(2)
+            ->get();
+
+        // If no discounted products, get featured products instead
+        if ($bannerProducts->count() < 2) {
+            $bannerProducts = $featuredProducts->take(2);
+        }
+
+        // Get promotional banner products for product_banner_area (3 products for slider)
+        $promotionalProducts = \App\Models\Product::where('is_active', true)
+            ->where('discount', '>', 0)
+            ->with(['brand', 'category'])
+            ->orderByDesc('discount')
+            ->limit(3)
+            ->get();
+
+        // If no promotional products, get newest products instead
+        if ($promotionalProducts->count() < 3) {
+            $promotionalProducts = $newestProducts->take(3);
+        }
+
+        return view('home', compact(['newestProducts', 'featuredProducts', 'bestSellingProducts', 'discountedProducts', 'products', 'categories', 'categoryProducts', 'sliderData', 'bannerProducts', 'promotionalProducts']));
     }
 
     public function contact()

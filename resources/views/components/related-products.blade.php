@@ -12,10 +12,14 @@
         <div class="row">
             <div class="tp-product-related-slider">
                 <div class="tp-product-related-slider-active swiper-container  mb-10">
+                    {{-- @foreach($discountedProducts as $product)
+                        @include('components.product.product_card', ['product' => $product])
+                    @endforeach --}}
+                    
                     <div class="swiper-wrapper">
                         @forelse($products as $product)
                         <div class="swiper-slide">
-                            <div class="tp-product-item-3 tp-product-style-primary mb-50">
+                            {{-- <div class="tp-product-item-3 tp-product-style-primary mb-50">
                                 <div class="tp-product-thumb-3 mb-15 fix p-relative z-index-1">
                                     <a href="{{ route('products.show', $product) }}">
                                         <img src="{{ asset($product->main_image) }}" alt="{{ $product->name }}">
@@ -115,8 +119,10 @@
                                         @endif
                                     </div>
                                 </div>
-                            </div>
-                        </div>
+                            </div> --}}
+                            @include('components.product.product_card', ['product' => $product])
+                        </div>                        
+                        
                         @empty
                         <div class="col-12 text-center">
                             <p>No products found.</p>

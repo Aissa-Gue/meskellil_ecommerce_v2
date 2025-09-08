@@ -1,0 +1,82 @@
+{
+  "slides": [
+    {
+      "id": 1,
+      "background_class": "green-dark-bg",
+      "background_color": null,
+      "starting_price": "$45.00",
+      "title": "Délicieux Gâteaux Artisanaux 2024",
+      "discount_percentage": "25",
+      "discount_text": "off this week",
+      "main_image": "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800&h=600&fit=crop&crop=center",
+      "main_image_alt": "Gâteaux artisanaux",
+      "shop_url": "/products/3",
+      "shape_images": {
+        "shape_1": "/assets/img/slider/shape/slider-shape-1.png",
+        "shape_2": "/assets/img/slider/shape/slider-shape-2.png",
+        "shape_3": "/assets/img/slider/shape/slider-shape-3.png",
+        "shape_4": "/assets/img/slider/shape/slider-shape-4.png"
+      }
+    },
+    {
+      "id": 2,
+      "background_class": "green-dark-bg",
+      "background_color": null,
+      "starting_price": "$25.00",
+      "title": "Emballages Écologiques Premium",
+      "discount_percentage": "15",
+      "discount_text": "off this week",
+      "main_image": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800&h=600&fit=crop&crop=center",
+      "main_image_alt": "Emballages écologiques",
+      "shop_url": "/products/5",
+      "shape_images": {
+        "shape_1": "/assets/img/slider/shape/slider-shape-1.png",
+        "shape_2": "/assets/img/slider/shape/slider-shape-2.png",
+        "shape_3": "/assets/img/slider/shape/slider-shape-3.png",
+        "shape_4": "/assets/img/slider/shape/slider-shape-4.png"
+      }
+    },
+    {
+      "id": 3,
+      "background_class": "is-light",
+      "background_color": "#FFF8E7",
+      "starting_price": "$35.00",
+      "title": "Collection Pâtisserie Française",
+      "discount_percentage": "20",
+      "discount_text": "off this week",
+      "main_image": "https://images.unsplash.com/photo-1486427944299-d1955d23e34d?w=800&h=600&fit=crop&crop=center",
+      "main_image_alt": "Pâtisserie française",
+      "shop_url": "/products/3",
+      "shape_images": {
+        "shape_1": "/assets/img/slider/shape/slider-shape-1.png",
+        "shape_2": "/assets/img/slider/shape/slider-shape-2.png",
+        "shape_3": "/assets/img/slider/shape/slider-shape-3.png",
+        "shape_4": "/assets/img/slider/shape/slider-shape-4.png"
+      }
+    },
+    {
+      "id": 4,
+      "background_class": "green-dark-bg",
+      "background_color": null,
+      "starting_price": "$15.00",
+      "title": "Boîtes Cadeaux Personnalisées",
+      "discount_percentage": "30",
+      "discount_text": "off this week",
+      "main_image": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=800&h=600&fit=crop&crop=center",
+      "main_image_alt": "Boîtes cadeaux personnalisées",
+      "shop_url": "/products/1",
+      "shape_images": {
+        "shape_1": "/assets/img/slider/shape/slider-shape-1.png",
+        "shape_2": "/assets/img/slider/shape/slider-shape-2.png",
+        "shape_3": "/assets/img/slider/shape/slider-shape-3.png",
+        "shape_4": "/assets/img/slider/shape/slider-shape-4.png"
+      }
+    }
+  ],
+  "settings": {
+    "show_arrows": true,
+    "show_dots": true,
+    "autoplay": true,
+    "autoplay_delay": 5000
+  }
+}

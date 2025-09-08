@@ -15,19 +15,18 @@
         @include('components.area.feature_area')
         @include('components.area.product_area')
         @include('components.area.banner_area')
-        {{--
-        @include('components.product_deal_area')
-        @include('components.banners_with_products_area')
-        --}}
+
+        {{-- @include('components.area.product_deal_area')
+        @include('components.area.banners_with_products_area') --}}
+        
         @include('components.area.product_banner_area')
         @include('components.area.product_new_arrival_area')
 
-        {{--
-        @include('components.product_sm_area')
-        @include('components.blog_area')
-        @include('components.instagram_area')
-        @include('components.newsletter')
-         --}}
+        {{-- @include('components.area.product_sm_area')
+        @include('components.area.blog_area')
+        @include('components.area.instagram_area')
+        @include('components.area.newsletter') --}}
+         
 
         @include('components.product-quick-view-modal')
     </main>

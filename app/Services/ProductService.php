@@ -58,6 +58,19 @@ class ProductService
                 AllowedFilter::callback('discount_greater_than', function ($query, $value) {
                         $query->where('discount', '>', $value);
                 }),
+                AllowedFilter::callback('color', function ($query, $value) {
+                    if (is_array($value)) {
+                        $query->where(function ($q) use ($value) {
+                            foreach ($value as $color) {
+                                $q->orWhereJsonContains('caracteristics->color', $color)
+                                  ->orWhere('caracteristics', 'like', '%"color":"' . $color . '"%');
+                            }
+                        });
+                    } else {
+                        $query->whereJsonContains('caracteristics->color', $value)
+                              ->orWhere('caracteristics', 'like', '%"color":"' . $value . '"%');
+                    }
+                }),
                 AllowedFilter::custom('created_after_date', new CreatedAfterDateFilter(), 'created_at'),
             ])
             ->allowedSorts([

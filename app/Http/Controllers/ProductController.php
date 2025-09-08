@@ -42,13 +42,36 @@ class ProductController extends Controller
             )
         ]);
 
-        // Get products with filters
+        // Handle sorting
+        $sortParam = $this->getSortParameter($request->get('sort'));
+        if ($sortParam) {
+            $request->merge(['sort' => $sortParam]);
+        }
+
+        // Get products with filters and sorting
         $products = $productService->getFilteredProducts($request)->paginate(20);
 
-        // Get categories with product counts
-        $categories = Category::withCount('products')->get();
+        // Get filter data from database
+        $filterData = $this->getFilterData();
 
-        return view('products.index', compact('products', 'categories', 'breadcrumbData'));
+        // Handle AJAX requests
+        if ($request->ajax()) {
+            return response()->json([
+                'html' => view('products.partials.product-grid', compact('products'))->render(),
+                'list_html' => view('products.partials.product-list', compact('products'))->render(),
+                'pagination_html' => view('components.pagination', ['paginator' => $products])->render(),
+                'results_html' => '<p>Showing ' . ($products->firstItem() ?? 0) . '–' . ($products->lastItem() ?? 0) . ' of ' . $products->total() . ' results</p>',
+                'pagination' => [
+                    'from' => $products->firstItem(),
+                    'to' => $products->lastItem(),
+                    'total' => $products->total(),
+                    'current_page' => $products->currentPage(),
+                    'last_page' => $products->lastPage(),
+                ]
+            ]);
+        }
+
+        return view('products.index', compact('products', 'breadcrumbData') + $filterData);
     }
 
     public function show(Product $product)
@@ -87,6 +110,7 @@ class ProductController extends Controller
             ->where('is_active', true)
             ->limit(8)
             ->get();
+
         return view('products.show', compact('product', 'relatedProducts', 'breadcrumbData'));
     }
 
@@ -252,6 +276,82 @@ class ProductController extends Controller
         }
 
         return $products->values(); // reset keys
+    }
+
+    /**
+     * Convert frontend sort parameter to backend sort parameter
+     */
+    private function getSortParameter($sortValue): ?string
+    {
+        $sortMap = [
+            'price_asc' => 'price1',
+            'price_desc' => '-price1',
+            'newest' => '-created_at',
+            'on_sale' => '-discount',
+            'name_asc' => 'name',
+            'name_desc' => '-name',
+        ];
+
+        return $sortMap[$sortValue] ?? null;
+    }
+
+    /**
+     * Get dynamic filter data from database
+     */
+    private function getFilterData(): array
+    {
+        // Get categories with product counts
+        $categories = Category::withCount(['products' => function ($query) {
+            $query->where('is_active', true);
+        }])->get();
+
+        // Get brands with product counts
+        $brands = \App\Models\Brand::withCount(['products' => function ($query) {
+            $query->where('is_active', true);
+        }])->get();
+
+        // Get price range
+        $priceRange = Product::where('is_active', true)
+            ->selectRaw('MIN(price1) as min, MAX(price1) as max')
+            ->first();
+
+        // Get predefined colors (you can move this to a config file or database table)
+        $colors = [
+            ['name' => 'Red', 'slug' => 'red', 'hex' => '#FF401F', 'count' => $this->getColorCount('Red')],
+            ['name' => 'Dark Blue', 'slug' => 'dark_blue', 'hex' => '#4666FF', 'count' => $this->getColorCount('Dark Blue')],
+            ['name' => 'Orange', 'slug' => 'orange', 'hex' => '#FF9E2C', 'count' => $this->getColorCount('Orange')],
+            ['name' => 'Purple', 'slug' => 'purple', 'hex' => '#B615FD', 'count' => $this->getColorCount('Purple')],
+            ['name' => 'Yellow', 'slug' => 'yellow', 'hex' => '#FFD747', 'count' => $this->getColorCount('Yellow')],
+            ['name' => 'Green', 'slug' => 'green', 'hex' => '#41CF0F', 'count' => $this->getColorCount('Green')],
+        ];
+
+        // Get status counts
+        $statusCounts = [
+            'on_sale' => Product::where('is_active', true)->where('discount', '>', 0)->count(),
+            'in_stock' => Product::where('is_active', true)->where('stock', '>', 0)->count(),
+        ];
+
+        return [
+            'categories' => $categories,
+            'brands' => $brands,
+            'priceRange' => [
+                'min' => $priceRange->min ?? 0,
+                'max' => $priceRange->max ?? 1000
+            ],
+            'colors' => $colors,
+            'statusCounts' => $statusCounts,
+        ];
+    }
+
+    /**
+     * Get count of products by color (assuming color is stored in caracteristics)
+     */
+    private function getColorCount(string $color): int
+    {
+        return Product::where('is_active', true)
+            ->whereJsonContains('caracteristics->color', $color)
+            ->orWhere('caracteristics', 'like', '%"color":"' . $color . '"%')
+            ->count();
     }
 
     private function fetchProduct($id)

@@ -164,4 +164,33 @@ return [
     'chocolate_rich_flavors' => 'Chocolat et saveurs riches',
     'latest_technology_added' => 'Dernière technologie ajoutée',
     'perfume_collection_2023' => 'Collection Parfum 2023',
+    
+    // Slider content
+    'starting_at' => 'À partir de',
+    'exclusive_offer' => 'Offre exclusive',
+    'default_slider_title' => 'Bienvenue dans notre magasin',
+    
+    // Dynamic banner content
+    'off_all_store' => 'de réduction sur tout le magasin',
+    'off' => 'de réduction',
+    'featured_product' => 'Produit Vedette',
+    'featured_collection' => 'Collection Vedette',
+    
+    // Product filtering
+    'price_filter' => 'Filtre de Prix',
+    'product_status' => 'Statut du Produit',
+    'on_sale' => 'En Promotion',
+    'in_stock' => 'En Stock',
+    'filter_by_color' => 'Filtrer par Couleur',
+    'filter_by_brand' => 'Filtrer par Marque',
+    'clear_filters' => 'Effacer les Filtres',
+    'filter' => 'Filtrer',
+    'showing' => 'Affichage',
+    'of' => 'de',
+    'results' => 'résultats',
+    'default_sorting' => 'Tri par Défaut',
+    'sort_by_name' => 'Trier par Nom',
+    'sort_by_price_low_high' => 'Trier par Prix: Croissant',
+    'sort_by_price_high_low' => 'Trier par Prix: Décroissant',
+    'sort_by_latest' => 'Trier par Plus Récent',
 ];

@@ -166,4 +166,33 @@ return [
     'chocolate_rich_flavors' => 'Chocolate & Rich Flavors',
     'latest_technology_added' => 'Latest Technology Added',
     'perfume_collection_2023' => 'Perfume Collection 2023',
+    
+    // Slider content
+    'starting_at' => 'Starting at',
+    'exclusive_offer' => 'Exclusive offer',
+    'default_slider_title' => 'Welcome to Our Store',
+    
+    // Dynamic banner content
+    'off_all_store' => 'off all store',
+    'off' => 'off',
+    'featured_product' => 'Featured Product',
+    'featured_collection' => 'Featured Collection',
+    
+    // Product filtering
+    'price_filter' => 'Price Filter',
+    'product_status' => 'Product Status',
+    'on_sale' => 'On Sale',
+    'in_stock' => 'In Stock',
+    'filter_by_color' => 'Filter by Color',
+    'filter_by_brand' => 'Filter by Brand',
+    'clear_filters' => 'Clear Filters',
+    'filter' => 'Filter',
+    'showing' => 'Showing',
+    'of' => 'of',
+    'results' => 'results',
+    'default_sorting' => 'Default Sorting',
+    'sort_by_name' => 'Sort by Name',
+    'sort_by_price_low_high' => 'Sort by Price: Low to High',
+    'sort_by_price_high_low' => 'Sort by Price: High to Low',
+    'sort_by_latest' => 'Sort by Latest',
 ];

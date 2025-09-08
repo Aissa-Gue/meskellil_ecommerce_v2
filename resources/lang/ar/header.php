@@ -162,4 +162,28 @@ return [
     'chocolate_rich_flavors' => 'الشوكولاتة والنكهات الغنية',
     'latest_technology_added' => 'أحدث التقنيات المضافة',
     'perfume_collection_2023' => 'مجموعة العطور 2023',
+    
+    // Dynamic banner content
+    'off_all_store' => 'خصم على كامل المتجر',
+    'off' => 'خصم',
+    'featured_product' => 'منتج مميز',
+    'featured_collection' => 'مجموعة مميزة',
+    
+    // Product filtering
+    'price_filter' => 'فلتر السعر',
+    'product_status' => 'حالة المنتج',
+    'on_sale' => 'في التخفيضات',
+    'in_stock' => 'متوفر في المخزون',
+    'filter_by_color' => 'فلتر حسب اللون',
+    'filter_by_brand' => 'فلتر حسب العلامة التجارية',
+    'clear_filters' => 'مسح الفلاتر',
+    'filter' => 'فلتر',
+    'showing' => 'عرض',
+    'of' => 'من',
+    'results' => 'نتائج',
+    'default_sorting' => 'الترتيب الافتراضي',
+    'sort_by_name' => 'ترتيب حسب الاسم',
+    'sort_by_price_low_high' => 'ترتيب حسب السعر: من الأقل للأعلى',
+    'sort_by_price_high_low' => 'ترتيب حسب السعر: من الأعلى للأقل',
+    'sort_by_latest' => 'ترتيب حسب الأحدث',
 ];

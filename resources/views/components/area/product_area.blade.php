@@ -68,7 +68,9 @@
                   <div class="tab-pane fade show active" id="new-tab-pane" role="tabpanel" aria-labelledby="new-tab" tabindex="0">
                      <div class="row">
                         @foreach($products as $product)
-                           @include('components.product.product_card', ['product' => $product])
+                           <div class="col-xl-3 col-lg-3 col-sm-6">
+                              @include('components.product.product_card', ['product' => $product])
+                           </div>
                         @endforeach
                         </div>
                      </div>
@@ -77,7 +79,9 @@
                      <div class="tab-pane fade" id="featured-tab-pane" role="tabpanel" aria-labelledby="featured-tab" tabindex="0">
                         <div class="row">
                            @foreach($featuredProducts as $product)
-                              @include('components.product.product_card', ['product' => $product])
+                              <div class="col-xl-3 col-lg-3 col-sm-6">
+                                 @include('components.product.product_card', ['product' => $product])
+                              </div>
                            @endforeach
                         </div>
                      </div>
@@ -86,7 +90,9 @@
                      <div class="tab-pane fade" id="topsell-tab-pane" role="tabpanel" aria-labelledby="topsell-tab" tabindex="0">
                         <div class="row">
                            @foreach($bestSellingProducts as $product)
-                              @include('components.product.product_card', ['product' => $product])
+                              <div class="col-xl-3 col-lg-3 col-sm-6">
+                                 @include('components.product.product_card', ['product' => $product])
+                              </div>
                            @endforeach
                         </div>
                      </div>
@@ -95,7 +101,9 @@
                      <div class="tab-pane fade" id="discounted-tab-pane" role="tabpanel" aria-labelledby="discount-tab" tabindex="0">
                         <div class="row">
                            @foreach($discountedProducts as $product)
-                              @include('components.product.product_card', ['product' => $product])
+                              <div class="col-xl-3 col-lg-3 col-sm-6">
+                                 @include('components.product.product_card', ['product' => $product])
+                              </div>
                            @endforeach
                         </div>
                      </div>
