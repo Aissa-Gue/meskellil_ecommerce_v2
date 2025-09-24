@@ -23,6 +23,9 @@ class DatabaseSeeder extends Seeder
 
         // Seed wilayas and communes first
         $this->call(WilayaCommuneSeeder::class);
+        
+        // Seed slider images
+        $this->call(SliderImageSeeder::class);
 
         // --- Users ---
         $users = collect([

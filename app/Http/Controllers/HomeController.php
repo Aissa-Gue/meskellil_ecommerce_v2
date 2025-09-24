@@ -11,12 +11,8 @@ class HomeController extends Controller
 {
     public function index(ProductService $productService)
     {
-        // Load slider data from JSON file
-        $sliderDataPath = public_path('data/slider-data.json');
-        $sliderData = [];
-        if (file_exists($sliderDataPath)) {
-            $sliderData = json_decode(file_get_contents($sliderDataPath), true);
-        }
+        // Load slider images from database
+        $sliderImages = \App\Models\SliderImage::active()->ordered()->get();
 
         // Fake a request with filters
         $newestProductsFilter = new Request([
@@ -128,7 +124,7 @@ class HomeController extends Controller
             $promotionalProducts = $newestProducts->take(3);
         }
 
-        return view('home', compact(['newestProducts', 'featuredProducts', 'bestSellingProducts', 'discountedProducts', 'products', 'categories', 'categoryProducts', 'sliderData', 'bannerProducts', 'promotionalProducts']));
+        return view('home', compact(['newestProducts', 'featuredProducts', 'bestSellingProducts', 'discountedProducts', 'products', 'categories', 'categoryProducts', 'sliderImages', 'bannerProducts', 'promotionalProducts']));
     }
 
     public function contact()

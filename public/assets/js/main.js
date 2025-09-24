@@ -733,6 +733,11 @@
 		loop: true,
 		rtl: rtl_setting,
 		effect : 'fade',
+		autoplay: {
+			delay: 7000, // 7 seconds
+			disableOnInteraction: false,
+			pauseOnMouseEnter: true,
+		},
 		// Navigation arrows
 		navigation: {
 			nextEl: ".tp-slider-button-next",

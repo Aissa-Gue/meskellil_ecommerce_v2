@@ -1,88 +1,87 @@
 <!-- slider area start -->
+<style>
+    .slider-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.2) 100%);
+        z-index: 1;
+    }
+    .tp-slider-item {
+        position: relative;
+        min-height: 600px;
+        display: flex;
+        align-items: center;
+    }
+    .tp-slider-content {
+        position: relative;
+        z-index: 2;
+    }
+    .tp-slider-title {
+        color: white;
+        font-size: 3rem;
+        font-weight: bold;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        margin-bottom: 1rem;
+    }
+    .tp-slider-subtitle {
+        color: white;
+        font-size: 1.5rem;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        margin-bottom: 1.5rem;
+    }
+</style>
+
 <section class="tp-slider-area p-relative z-index-1">
     <div class="tp-slider-active tp-slider-variation swiper-container">
         <div class="swiper-wrapper">
-            @if(isset($sliderData['slides']) && count($sliderData['slides']) > 0)
-                @foreach($sliderData['slides'] as $slide)
-                    <div class="tp-slider-item tp-slider-height d-flex align-items-center swiper-slide {{ $slide['background_class'] ?? '' }}"
-                         @if(isset($slide['background_color'])) data-bg-color="{{ $slide['background_color'] }}" @endif>
-                        <div class="tp-slider-shape">
-                            @if(isset($slide['shape_images']))
-                                <img class="tp-slider-shape-1" src="{{ $slide['shape_images']['shape_1'] ?? 'assets/img/slider/shape/slider-shape-1.png' }}" alt="slider-shape">
-                                <img class="tp-slider-shape-2" src="{{ $slide['shape_images']['shape_2'] ?? 'assets/img/slider/shape/slider-shape-2.png' }}" alt="slider-shape">
-                                <img class="tp-slider-shape-3" src="{{ $slide['shape_images']['shape_3'] ?? 'assets/img/slider/shape/slider-shape-3.png' }}" alt="slider-shape">
-                                <img class="tp-slider-shape-4" src="{{ $slide['shape_images']['shape_4'] ?? 'assets/img/slider/shape/slider-shape-4.png' }}" alt="slider-shape">
-                            @endif
-                        </div>
+            @if(isset($sliderImages) && count($sliderImages) > 0)
+                @foreach($sliderImages as $slide)
+                    <div class="tp-slider-item tp-slider-height swiper-slide" style="background-image: url('{{ $slide->image_url }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+                        {{-- <div class="slider-overlay"></div>
                         <div class="container">
                             <div class="row align-items-center">
-                                <div class="col-xl-5 col-lg-6 col-md-6">
-                                    <div class="tp-slider-content p-relative z-index-1">
-                                        <span>{{ __('header.starting_at') }} <b>{{ $slide['starting_price'] ?? '$0.00' }}</b></span>
-                                        <h3 class="tp-slider-title">{{ $slide['title'] ?? 'Default Title' }}</h3>
-                                        <p>{{ __('header.exclusive_offer') }}
-                                            <span>-{{ $slide['discount_percentage'] ?? '0' }}%
-                                               <svg width="94" height="20" viewBox="0 0 94 20" fill="none"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                  <path
-                                                      d="M74.8576 4.63367L78.6048 5.11367C80.9097 5.35155 82.8309 5.75148 84.4483 5.97993L86.6581 6.31091L88.4262 6.63948C89.4684 6.81761 90.2699 6.9312 90.8805 6.99186C93.3213 7.24888 92.7011 6.63674 92.8183 6.12534C92.9355 5.61394 93.7175 5.37081 91.3267 4.45886C90.73 4.24001 89.9345 3.97481 88.8826 3.65818L87.1034 3.12577L84.8643 2.63282C83.236 2.28025 81.2402 1.82307 78.8684 1.52138L75.0177 0.981633C73.6188 0.823014 72.1417 0.730003 70.5389 0.582533C63.0297 0.0282543 55.4847 0.193022 48.0068 1.07459C39.9065 2.04304 31.9328 3.87384 24.2213 6.53586C18.0824 8.61764 12.1674 11.3089 6.56479 14.5692C4.88189 15.5255 3.25403 16.5756 1.68892 17.7145C0.568976 18.5077 -0.00964231 18.9932 0.0547097 19.0858C0.388606 19.6584 10.6194 13.1924 25.151 8.99361C32.789 6.72748 40.6283 5.20536 48.5593 4.44848C55.8569 3.76455 63.1992 3.69678 70.5082 4.24591L74.8223 4.62335"
-                                                      fill="currentColor"/>
-                                               </svg>
-                                            </span>
-                                            {{ $slide['discount_text'] ?? 'off this week' }}
-                                        </p>
-
-                                        <div class="tp-slider-btn">
-                                            <a href="{{ $slide['shop_url'] ?? '/shop' }}" class="tp-btn tp-btn-2 tp-btn-white">{{ __('header.shop_now') }}
-                                                <svg width="17" height="14" viewBox="0 0 17 14" fill="none"
-                                                     xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M16 6.99976L1 6.99976" stroke="currentColor" stroke-width="1.5"
-                                                          stroke-linecap="round" stroke-linejoin="round"/>
-                                                    <path d="M9.9502 0.975414L16.0002 6.99941L9.9502 13.0244"
-                                                          stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                                          stroke-linejoin="round"/>
-                                                </svg>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-7 col-lg-6 col-md-6">
-                                    <div class="tp-slider-thumb text-end">
-                                        <img src="{{ $slide['main_image'] ?? 'assets/img/slider/default-slider.png' }}" alt="{{ $slide['main_image_alt'] ?? 'slider-img' }}">
+                                <div class="col-xl-12">
+                                    <div class="tp-slider-content p-relative z-index-1 text-center">
+                                        @if($slide->title)
+                                            <h1 class="tp-slider-title">{{ $slide->title }}</h1>
+                                        @endif
+                                        @if($slide->subtitle)
+                                            <p class="tp-slider-subtitle">{{ $slide->subtitle }}</p>
+                                        @endif
+                                        @if($slide->link_url)
+                                            <div class="tp-slider-btn mt-4">
+                                                <a href="{{ $slide->link_url }}" class="tp-btn tp-btn-2 tp-btn-white">{{ __('header.shop_now') }}
+                                                    <svg width="17" height="14" viewBox="0 0 17 14" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M16 6.99976L1 6.99976" stroke="currentColor" stroke-width="1.5"
+                                                              stroke-linecap="round" stroke-linejoin="round"/>
+                                                        <path d="M9.9502 0.975414L16.0002 6.99941L9.9502 13.0244"
+                                                              stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                                              stroke-linejoin="round"/>
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 @endforeach
             @else
                 <!-- Fallback slide if no data is available -->
-                <div class="tp-slider-item tp-slider-height d-flex align-items-center swiper-slide green-dark-bg">
-                    <div class="tp-slider-shape">
-                        <img class="tp-slider-shape-1" src="assets/img/slider/shape/slider-shape-1.png" alt="slider-shape">
-                        <img class="tp-slider-shape-2" src="assets/img/slider/shape/slider-shape-2.png" alt="slider-shape">
-                        <img class="tp-slider-shape-3" src="assets/img/slider/shape/slider-shape-3.png" alt="slider-shape">
-                        <img class="tp-slider-shape-4" src="assets/img/slider/shape/slider-shape-4.png" alt="slider-shape">
-                    </div>
+                <div class="tp-slider-item tp-slider-height swiper-slide" style="background-image: url('https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=1920&h=600&fit=crop&crop=center'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+                    <div class="slider-overlay"></div>
                     <div class="container">
                         <div class="row align-items-center">
-                            <div class="col-xl-5 col-lg-6 col-md-6">
-                                <div class="tp-slider-content p-relative z-index-1">
-                                    <span>{{ __('header.starting_at') }} <b>$45.00</b></span>
-                                    <h3 class="tp-slider-title">{{ __('header.default_slider_title', ['default' => 'Welcome to Our Store']) }}</h3>
-                                    <p>{{ __('header.exclusive_offer') }}
-                                        <span>-25%
-                                           <svg width="94" height="20" viewBox="0 0 94 20" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                              <path
-                                                  d="M74.8576 4.63367L78.6048 5.11367C80.9097 5.35155 82.8309 5.75148 84.4483 5.97993L86.6581 6.31091L88.4262 6.63948C89.4684 6.81761 90.2699 6.9312 90.8805 6.99186C93.3213 7.24888 92.7011 6.63674 92.8183 6.12534C92.9355 5.61394 93.7175 5.37081 91.3267 4.45886C90.73 4.24001 89.9345 3.97481 88.8826 3.65818L87.1034 3.12577L84.8643 2.63282C83.236 2.28025 81.2402 1.82307 78.8684 1.52138L75.0177 0.981633C73.6188 0.823014 72.1417 0.730003 70.5389 0.582533C63.0297 0.0282543 55.4847 0.193022 48.0068 1.07459C39.9065 2.04304 31.9328 3.87384 24.2213 6.53586C18.0824 8.61764 12.1674 11.3089 6.56479 14.5692C4.88189 15.5255 3.25403 16.5756 1.68892 17.7145C0.568976 18.5077 -0.00964231 18.9932 0.0547097 19.0858C0.388606 19.6584 10.6194 13.1924 25.151 8.99361C32.789 6.72748 40.6283 5.20536 48.5593 4.44848C55.8569 3.76455 63.1992 3.69678 70.5082 4.24591L74.8223 4.62335"
-                                                  fill="currentColor"/>
-                                           </svg>
-                                        </span>
-                                        off this week
-                                    </p>
-
-                                    <div class="tp-slider-btn">
+                            <div class="col-xl-12">
+                                <div class="tp-slider-content p-relative z-index-1 text-center">
+                                    <h1 class="tp-slider-title">{{ __('header.default_slider_title', ['default' => 'Welcome to Our Store']) }}</h1>
+                                    <p class="tp-slider-subtitle">{{ __('header.exclusive_offer') }} -25% off this week</p>
+                                    <div class="tp-slider-btn mt-4">
                                         <a href="/shop" class="tp-btn tp-btn-2 tp-btn-white">{{ __('header.shop_now') }}
                                             <svg width="17" height="14" viewBox="0 0 17 14" fill="none"
                                                  xmlns="http://www.w3.org/2000/svg">
@@ -94,11 +93,6 @@
                                             </svg>
                                         </a>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-7 col-lg-6 col-md-6">
-                                <div class="tp-slider-thumb text-end">
-                                    <img src="assets/img/slider/default-slider.png" alt="slider-img">
                                 </div>
                             </div>
                         </div>
