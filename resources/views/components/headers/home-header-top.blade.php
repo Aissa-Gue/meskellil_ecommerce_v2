@@ -26,14 +26,14 @@
                                        <li data-lang="ar">العربية</li>
                                  </ul>
                               </div>
-                              <div class="tp-header-top-menu-item tp-header-currency">
+                              {{-- <div class="tp-header-top-menu-item tp-header-currency">
                                  <span class="tp-header-currency-toggle" id="tp-header-currency-toggle">DZD</span>
                                  <ul class="tp-header-currency-list">
                                     <li data-currency="DZD">DZD</li>
                                     <li data-currency="EUR">EUR</li>
                                     <li data-currency="USD">USD</li>
                                  </ul>
-                              </div>
+                              </div> --}}
                               <div class="tp-header-top-menu-item tp-header-setting">
                                  @auth
                                     <span class="tp-header-setting-toggle" id="tp-header-setting-toggle">{{ __('header.setting') }}</span>

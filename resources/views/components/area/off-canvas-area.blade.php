@@ -47,6 +47,7 @@
             </div>
             <div class="offcanvas__bottom">
                <div class="offcanvas__footer d-flex align-items-center justify-content-between">
+                  {{-- Currency changer commented out
                   <div class="offcanvas__currency-wrapper currency">
                      <span class="offcanvas__currency-selected-currency tp-currency-toggle" id="tp-offcanvas-currency-toggle">{{ __('header.currency') }} : DZD</span>
                      <ul class="offcanvas__currency-list tp-currency-list">
@@ -55,6 +56,7 @@
                         <li data-currency="USD">USD</li>
                      </ul>
                   </div>
+                  --}}
                   <div class="offcanvas__select language">
                      <div class="offcanvas__lang d-flex align-items-center justify-content-md-end">
                         <div class="offcanvas__lang-img mr-15">
