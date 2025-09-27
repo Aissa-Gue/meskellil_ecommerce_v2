@@ -265,7 +265,7 @@ li,
   --tp-text-4: #7D7F82;
   --tp-text-5: #888A8C;
   --tp-text-6: #90969B;
-  --tp-theme-primary: #0989FF;
+  --tp-theme-primary: #AB1720;
   --tp-theme-secondary: #821F40;
   --tp-theme-brown: #BD844C;
   --tp-theme-green: #678E61;
@@ -1067,6 +1067,9 @@ div.demo img {
   transition: all 0.3s 0s ease-out;
   opacity: 0;
   visibility: hidden;
+}
+.tp-theme-color-btn.tp-color-settings-btn[data-color="#AB1720"] {
+  background-color: #AB1720;
 }
 .tp-theme-color-btn.tp-color-settings-btn[data-color="#0989FF"] {
   background-color: #0989FF;
@@ -3882,7 +3885,8 @@ div.demo img {
   z-index: -1;
 }
 .tp-section-title svg path {
-  stroke: var(--tp-pink-3);
+  /* stroke: var(--tp-pink-3); */
+  stroke: var(--tp-theme-primary);
 }
 .tp-section-title-sm {
   font-size: 24px;
@@ -6309,7 +6313,7 @@ body .ui-tooltip {
   line-height: 20px;
   text-align: center;
   border-radius: 50%;
-  background-color: var(--tp-pink-1);
+  background-color: var(--tp-theme-primary);
   color: var(--tp-common-white);
   font-size: 12px;
   font-weight: 700;
@@ -11175,7 +11179,8 @@ div.tp-blog-thumb img {
 .tp-feature-icon span {
   display: inline-block;
   font-size: 24px;
-  color: var(--tp-pink-1);
+  /* color: var(--tp-pink-1); */
+  color: var(--tp-theme-primary);
   min-width: 30px;
 }
 .tp-feature-title {
@@ -20110,7 +20115,7 @@ product all slider
   color: var(--tp-common-black);
 }
 .tp-collection-offer-wrapper p span {
-  color: #0989FF;
+  color: #AB1720;
 }
 .tp-collection-countdown .tp-product-countdown {
   background: var(--tp-common-white);

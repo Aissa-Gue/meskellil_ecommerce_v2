@@ -11,8 +11,52 @@ class HomeController extends Controller
 {
     public function index(ProductService $productService)
     {
-        // Load slider images from database
-        $sliderImages = \App\Models\SliderImage::active()->ordered()->get();
+        // // Load slider images from database by type
+        // $sliderImages = \App\Models\SliderImage::byType(\App\Models\SliderImage::TYPE_SLIDER)
+        //     ->active()
+        //     ->ordered()
+        //     ->get();
+
+        // // Load banner images by type
+        // $bannerTopImages = \App\Models\SliderImage::byType(\App\Models\SliderImage::TYPE_BANNER_TOP)
+        //     ->active()
+        //     ->ordered()
+        //     ->get();
+
+        // $bannerSmallImages = \App\Models\SliderImage::byType(\App\Models\SliderImage::TYPE_BANNER_SMALL)
+        //     ->active()
+        //     ->ordered()
+        //     ->get();
+
+        // $bannerMediumImages = \App\Models\SliderImage::byType(\App\Models\SliderImage::TYPE_BANNER_MEDIUM)
+        //     ->active()
+        //     ->ordered()
+        //     ->get();
+
+        // $bannerProductImages = \App\Models\SliderImage::byType(\App\Models\SliderImage::TYPE_BANNER_PRODUCT)
+        //     ->active()
+        //     ->ordered()
+        //     ->get();
+
+        // Fetch everything in a single query
+        $allImages = \App\Models\SliderImage::active()
+        ->ordered()
+        ->whereIn('type', [
+            \App\Models\SliderImage::TYPE_SLIDER,
+            \App\Models\SliderImage::TYPE_BANNER_TOP,
+            \App\Models\SliderImage::TYPE_BANNER_SMALL,
+            \App\Models\SliderImage::TYPE_BANNER_MEDIUM,
+            \App\Models\SliderImage::TYPE_BANNER_PRODUCT,
+        ])
+        ->get()
+        ->groupBy('type');
+
+        // Preserve your original variable names
+        $sliderImages       = $allImages->get(\App\Models\SliderImage::TYPE_SLIDER, collect());
+        $bannerTopImages    = $allImages->get(\App\Models\SliderImage::TYPE_BANNER_TOP, collect());
+        $bannerSmallImages  = $allImages->get(\App\Models\SliderImage::TYPE_BANNER_SMALL, collect());
+        $bannerMediumImages = $allImages->get(\App\Models\SliderImage::TYPE_BANNER_MEDIUM, collect());
+        $bannerProductImages= $allImages->get(\App\Models\SliderImage::TYPE_BANNER_PRODUCT, collect());
 
         // Fake a request with filters
         $newestProductsFilter = new Request([
@@ -124,7 +168,7 @@ class HomeController extends Controller
             $promotionalProducts = $newestProducts->take(3);
         }
 
-        return view('home', compact(['newestProducts', 'featuredProducts', 'bestSellingProducts', 'discountedProducts', 'products', 'categories', 'categoryProducts', 'sliderImages', 'bannerProducts', 'promotionalProducts']));
+        return view('home', compact(['newestProducts', 'featuredProducts', 'bestSellingProducts', 'discountedProducts', 'products', 'categories', 'categoryProducts', 'sliderImages', 'bannerTopImages', 'bannerSmallImages', 'bannerMediumImages', 'bannerProductImages', 'bannerProducts', 'promotionalProducts']));
     }
 
     public function contact()

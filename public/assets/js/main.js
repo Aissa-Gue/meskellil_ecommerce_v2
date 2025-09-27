@@ -378,9 +378,14 @@
 					</button>
 				 </div>
 				 <div class="row row-cols-4 gy-2 gx-2">
+				 	<div class="col">
+					   <div class="tp-theme-color-item tp-color-active">
+						  <button class="tp-theme-color-btn tp-color-settings-btn d-none" data-color-default="#AB1720" type="button" data-color="#AB1720"></button>
+						  <button class="tp-theme-color-btn tp-color-settings-btn" type="button" data-color="#AB1720"></button>
+					   </div>
+					</div>
 					<div class="col">
 					   <div class="tp-theme-color-item tp-color-active">
-						  <button class="tp-theme-color-btn tp-color-settings-btn d-none" data-color-default="#0989FF" type="button" data-color="#0989FF"></button>
 						  <button class="tp-theme-color-btn tp-color-settings-btn" type="button" data-color="#0989FF"></button>
 					   </div>
 					</div>
@@ -752,11 +757,32 @@
 		},
 	});
 
-	mainSlider.on('slideChangeTransitionStart', function (realIndex) {
+	mainSlider.on('slideChangeTransitionStart', function () {
+        // Update theme based on active slide
+        const activeSlide = document.querySelector('#mainSlider .swiper-slide-active');
+        const wrapper = document.getElementById('mainSliderWrapper');
+        
+        if (activeSlide && wrapper) {
+            const theme = activeSlide.getAttribute('data-theme') || 'cakes';
+            wrapper.setAttribute('data-theme', theme);
+        }
+        
+        // Handle light/dark mode if needed
         if ($('.swiper-slide.swiper-slide-active, .tp-slider-item .is-light').hasClass('is-light')) {
             $('.tp-slider-variation').addClass('is-light');
         } else {
             $('.tp-slider-variation').removeClass('is-light');
+        }
+    });
+    
+    // Initialize theme on first load
+    $(document).ready(function() {
+        const activeSlide = document.querySelector('#mainSlider .swiper-slide-active');
+        const wrapper = document.getElementById('mainSliderWrapper');
+        
+        if (activeSlide && wrapper) {
+            const theme = activeSlide.getAttribute('data-theme') || 'cakes';
+            wrapper.setAttribute('data-theme', theme);
         }
     });
 

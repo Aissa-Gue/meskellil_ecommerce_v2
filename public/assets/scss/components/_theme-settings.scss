@@ -237,7 +237,9 @@
             }
 
             &.#{$theme-prifix}-color-settings-btn{
-                            
+                &[data-color="#AB1720"]{
+                    background-color: #AB1720;
+                }
                 &[data-color="#0989FF"]{
                     background-color: #0989FF;
                 }

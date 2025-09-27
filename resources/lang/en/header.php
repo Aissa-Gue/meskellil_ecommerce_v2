@@ -195,4 +195,11 @@ return [
     'sort_by_price_low_high' => 'Sort by Price: Low to High',
     'sort_by_price_high_low' => 'Sort by Price: High to Low',
     'sort_by_latest' => 'Sort by Latest',
+    
+    // Banner specific translations
+    'special_offer' => 'Special Offer',
+    'new_arrivals' => 'New Arrivals',
+    'limited_time_offer' => 'Limited Time Offer',
+    'premium_products' => 'Premium Products',
+    'product_banner' => 'Product Banner',
 ];

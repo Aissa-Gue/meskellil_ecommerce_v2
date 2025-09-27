@@ -193,4 +193,15 @@ return [
     'sort_by_price_low_high' => 'Trier par Prix: Croissant',
     'sort_by_price_high_low' => 'Trier par Prix: Décroissant',
     'sort_by_latest' => 'Trier par Plus Récent',
+    
+    // Slider content
+    'starting_at' => 'À partir de',
+    'exclusive_offer' => 'Offre exclusive',
+    'default_slider_title' => 'Bienvenue dans notre magasin',
+    
+    // Banner specific translations
+    'special_offer' => 'Offre spéciale',
+    'limited_time_offer' => 'Offre à durée limitée',
+    'premium_products' => 'Produits premium',
+    'product_banner' => 'Bannière produit',
 ];

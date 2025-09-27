@@ -63,7 +63,7 @@
                                 </div>
                                 --}}
                                 <div class="tp-header-top-menu-item tp-header-setting">
-                                    <span class="tp-header-setting-toggle" id="tp-header-setting-toggle">{{ __('header.setting') }}</span>
+                                    {{-- <span class="tp-header-setting-toggle" id="tp-header-setting-toggle">{{ __('header.setting') }}</span>
                                     <ul>
                                         <li>
                                             <a href="/profile">{{ __('header.my_profile') }}</a>
@@ -80,7 +80,32 @@
                                                 <button type="submit" class="tp-plain-link" style="background:none;border:none;padding:0;color:inherit;cursor:pointer;">{{ __('header.logout') }}</button>
                                             </form>
                                         </li>
+                                    </ul> --}}
+
+                                    @auth
+                                    <span class="tp-header-setting-toggle" id="tp-header-setting-toggle">{{ __('header.setting') }}</span>
+                                    <ul>
+                                        <li>
+                                            <a href="{{ route('profile.show') }}">{{ __('header.my_profile') }}</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('wishlist') }}">{{ __('header.wishlist') }}</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('cart') }}">{{ __('header.cart') }}</a>
+                                        </li>
+                                        <li>
+                                            <form method="POST" action="{{ route('logout') }}">
+                                                @csrf
+                                                <button type="submit" class="tp-plain-link" style="background:none;border:none;padding:0;color:inherit;cursor:pointer;">{{ __('header.logout') }}</button>
+                                            </form>
+                                        </li>
                                     </ul>
+                                    @else
+                                    <div class=" tp-header-welcome">
+                                        <a href="{{ route('login') }}" class="tp-header-contact-icon"><span class="tp-header-contact-icon">{{ __('header.login') }}</span></a>
+                                    </div>
+                                    @endauth
                                 </div>
                             </div>
                         </div>

@@ -186,4 +186,15 @@ return [
     'sort_by_price_low_high' => 'ترتيب حسب السعر: من الأقل للأعلى',
     'sort_by_price_high_low' => 'ترتيب حسب السعر: من الأعلى للأقل',
     'sort_by_latest' => 'ترتيب حسب الأحدث',
+    
+    // Slider content
+    'starting_at' => 'بداية من',
+    'exclusive_offer' => 'عرض حصري',
+    'default_slider_title' => 'مرحباً بك في متجرنا',
+    
+    // Banner specific translations
+    'special_offer' => 'عرض خاص',
+    'limited_time_offer' => 'عرض لفترة محدودة',
+    'premium_products' => 'منتجات مميزة',
+    'product_banner' => 'بانر المنتج',
 ];
