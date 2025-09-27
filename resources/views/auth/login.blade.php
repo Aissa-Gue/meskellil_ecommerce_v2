@@ -53,7 +53,7 @@
           </div>
           <div class="tp-login-social mb-10 d-flex flex-wrap align-items-center justify-content-center">
                <div class="tp-login-option-item has-google">
-               <a href="#">
+               <a href="{{ route('google.login') }}">
                     <img src="{{ asset('assets/img/icon/login/google.svg') }}" alt="">
                     {{ __('header.sign_in_with_google') }}
                </a>

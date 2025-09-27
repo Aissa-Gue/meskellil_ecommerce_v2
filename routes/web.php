@@ -44,6 +44,10 @@ Route::middleware('guest')->group(function () {
     Route::post('forgot-password', [App\Http\Controllers\PasswordController::class, 'sendResetLinkEmail'])->name('password.email');
     Route::get('reset-password/{token}', [App\Http\Controllers\PasswordController::class, 'showResetForm'])->name('password.reset');
     Route::post('reset-password', [App\Http\Controllers\PasswordController::class, 'reset'])->name('password.update');
+
+
+    Route::get('auth/google', [App\Http\Controllers\GoogleController::class, 'redirect'])->name('google.login');
+    Route::get('auth/google/callback', [App\Http\Controllers\GoogleController::class, 'callback']);
 });
 
 // Logout route - only accessible by authenticated users

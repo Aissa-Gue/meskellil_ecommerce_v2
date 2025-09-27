@@ -16,14 +16,15 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('password')->nullable();
 
             $table->string('phone')->nullable()->index();
             $table->enum('type', ['gros', 'details'])->default('details')->index();
             $table->enum('status', ['pending', 'active', 'disabled'])->default('pending')->index();
             $table->string('address')->nullable();
             $table->string('avatar')->nullable();
-            $table->foreignId('commune_id')->constrained();
+            $table->string('google_id')->nullable();
+            $table->foreignId('commune_id')->nullable()->constrained();
             $table->rememberToken();
             $table->timestamps();
         });
