@@ -28,14 +28,21 @@
                         <div class="tp-footer-widget footer-col-2 mb-50">
                             <h4 class="tp-footer-widget-title">{{ __('header.my_account') }}</h4>
                             <div class="tp-footer-widget-content">
-                                <ul>
-                                    <li><a href="#">{{ __('header.track_orders') }}</a></li>
-                                    <li><a href="#">{{ __('header.shipping') }}</a></li>
-                                    <li><a href="/wishlist">{{ __('header.wishlist') }}</a></li>
-                                    <li><a href="#">{{ __('header.my_account') }}</a></li>
-                                    <li><a href="#">{{ __('header.order_history') }}</a></li>
-                                    <li><a href="#">{{ __('header.returns') }}</a></li>
-                                </ul>
+                                @auth
+                                    <ul>
+                                        <li><a href="{{ route('profile.show') }}#orders">{{ __('header.track_orders') }}</a></li>
+                                        <li><a href="{{ route('wishlist') }}">{{ __('header.wishlist') }}</a></li>
+                                        <li><a href="{{ route('profile.show') }}#profile">{{ __('header.my_account') }}</a></li>
+                                        <li><a href="{{ route('profile.show') }}#orders">{{ __('header.order_history') }}</a></li>
+                                    </ul>
+                                @else
+                                    <div class="tp-footer-login-btn mb-20">
+                                        <a href="{{ route('login') }}" class="tp-btn tp-btn-2 tp-btn-blue">
+                                            {{ __('header.login') }}
+                                        </a>
+                                    </div>
+                                    <p style="opacity: 0.7; font-size: 14px;">{{ __('header.login_to_access_account_features') }}</p>
+                                @endauth
                             </div>
                         </div>
                     </div>
@@ -44,12 +51,14 @@
                             <h4 class="tp-footer-widget-title">{{ __('header.information') }}</h4>
                             <div class="tp-footer-widget-content">
                                 <ul>
-                                    <li><a href="#">{{ __('header.our_story') }}</a></li>
-                                    <li><a href="#">{{ __('header.careers') }}</a></li>
-                                    <li><a href="#">{{ __('header.privacy_policy') }}</a></li>
-                                    <li><a href="#">{{ __('header.terms_conditions') }}</a></li>
-                                    <li><a href="#">{{ __('header.latest_news') }}</a></li>
-                                    <li><a href="#">{{ __('header.contact_us') }}</a></li>
+                                    <li><a href="{{ route('pages.our-story') }}">{{ __('header.our_story') }}</a></li>
+                                    <li><a href="{{ route('pages.privacy-policy') }}">{{ __('header.privacy_policy') }}</a></li>
+                                    <li><a href="{{ route('pages.terms-conditions') }}">{{ __('header.terms_conditions') }}</a></li>
+                                    {{-- <li><a href="#">{{ __('header.latest_news') }}</a></li> --}}
+                                    <li><a href="{{ route('contact') }}">{{ __('header.contact_us') }}</a></li>
+                                    @auth
+                                        <li><a href="{{ route('profile.show') }}#information">{{ __('header.personal_details') }}</a></li>
+                                    @endauth
                                 </ul>
                             </div>
                         </div>

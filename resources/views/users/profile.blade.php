@@ -401,4 +401,77 @@
      </main>
 
     @include('components.footer')
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Function to activate tab based on URL fragment
+            function activateTabFromHash() {
+                const hash = window.location.hash.substring(1); // Remove the # symbol
+                
+                if (hash) {
+                    // Map URL fragments to actual tab IDs
+                    const tabMap = {
+                        'profile': 'nav-profile',
+                        'information': 'nav-information', 
+                        'address': 'nav-address',
+                        'orders': 'nav-order',
+                        'password': 'nav-password'
+                    };
+                    
+                    const targetTabId = tabMap[hash];
+                    
+                    if (targetTabId) {
+                        // Find the tab button and content
+                        const tabButton = document.getElementById(targetTabId + '-tab');
+                        const tabContent = document.getElementById(targetTabId);
+                        
+                        if (tabButton && tabContent) {
+                            // Remove active class from all tabs
+                            document.querySelectorAll('.nav-link').forEach(tab => {
+                                tab.classList.remove('active');
+                                tab.setAttribute('aria-selected', 'false');
+                            });
+                            
+                            document.querySelectorAll('.tab-pane').forEach(pane => {
+                                pane.classList.remove('show', 'active');
+                            });
+                            
+                            // Activate the target tab
+                            tabButton.classList.add('active');
+                            tabButton.setAttribute('aria-selected', 'true');
+                            tabContent.classList.add('show', 'active');
+                        }
+                    }
+                }
+            }
+            
+            // Activate tab on page load
+            activateTabFromHash();
+            
+            // Listen for hash changes (when user clicks browser back/forward)
+            window.addEventListener('hashchange', activateTabFromHash);
+            
+            // Update URL when tab is clicked
+            document.querySelectorAll('[data-bs-toggle="tab"]').forEach(tabButton => {
+                tabButton.addEventListener('click', function() {
+                    const targetId = this.getAttribute('data-bs-target').substring(1); // Remove #
+                    
+                    // Map tab IDs back to URL fragments
+                    const urlMap = {
+                        'nav-profile': 'profile',
+                        'nav-information': 'information',
+                        'nav-address': 'address', 
+                        'nav-order': 'orders',
+                        'nav-password': 'password'
+                    };
+                    
+                    const urlFragment = urlMap[targetId];
+                    if (urlFragment) {
+                        // Update URL without page reload
+                        history.pushState(null, null, '#' + urlFragment);
+                    }
+                });
+            });
+        });
+    </script>
 @endsection

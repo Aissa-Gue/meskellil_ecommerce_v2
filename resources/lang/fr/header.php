@@ -122,6 +122,8 @@ return [
     'talk_to_us' => 'Parlez-nous',
     'got_questions_call_us' => 'Vous avez des questions ? Appelez-nous',
     'all_rights_reserved' => '© 2025 Tous droits réservés',
+    'login_to_access_account_features' => 'Connectez-vous pour accéder aux fonctionnalités du compte',
+    'personal_details' => 'Détails personnels',
     
     // Newsletter
     'sale_20_off_all_store' => 'Vente 20% de réduction sur tout le magasin',

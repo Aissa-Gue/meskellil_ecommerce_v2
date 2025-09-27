@@ -113,6 +113,8 @@ return [
     'talk_to_us' => 'Talk To Us',
     'got_questions_call_us' => 'Got Questions? Call us',
     'all_rights_reserved' => ' 2025 All Rights Reserved',
+    'login_to_access_account_features' => 'Login to access account features',
+    'personal_details' => 'Personal Details',
     
     // Banner texts
     'sale_20_off_all_store' => 'Sale 20% off all store',

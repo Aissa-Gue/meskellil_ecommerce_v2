@@ -113,6 +113,8 @@ return [
     'talk_to_us' => 'تحدث إلينا',
     'got_questions_call_us' => 'لديك أسئلة؟ اتصل بنا',
     'all_rights_reserved' => '© 2025 جميع الحقوق محفوظة',
+    'login_to_access_account_features' => 'قم بتسجيل الدخول للوصول إلى ميزات الحساب',
+    'personal_details' => 'التفاصيل الشخصية',
     
     // Newsletter
     'sale_20_off_all_store' => 'تخفيض 20% على جميع المتجر',
