@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('client_id')->nullable()->constrained('users')->nullOnDelete();
             $table->string('client_name')->nullable();
             $table->string('client_phone')->nullable()->index();
+            $table->foreignId('wilaya_id')->constrained();
             $table->foreignId('commune_id')->constrained();
 
             $table->enum('payment_status', ['full_paid', 'partial_paid', 'pending'])->default('pending')->index();
@@ -26,7 +27,9 @@ return new class extends Migration
             $table->enum('order_status', ['pending', 'confirmed', 'processing', 'shipped', 'delivered', 'canceled'])
                 ->default('pending')->index();
 
+            $table->decimal('shipping_price', 12, 2)->nullable()->index();
             $table->decimal('total_price', 12, 2)->default(0);
+
             $table->text('notes')->nullable();
 
             $table->timestamps();

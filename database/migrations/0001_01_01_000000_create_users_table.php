@@ -19,11 +19,12 @@ return new class extends Migration
             $table->string('password')->nullable();
 
             $table->string('phone')->nullable()->index();
-            $table->enum('type', ['gros', 'details'])->default('details')->index();
+            $table->enum('type', ['admin', 'gros', 'details'])->default('details')->index();
             $table->enum('status', ['pending', 'active', 'disabled'])->default('pending')->index();
             $table->string('address')->nullable();
             $table->string('avatar')->nullable();
             $table->string('google_id')->nullable();
+            $table->foreignId('wilaya_id')->nullable()->constrained();
             $table->foreignId('commune_id')->nullable()->constrained();
             $table->rememberToken();
             $table->timestamps();

@@ -156,7 +156,15 @@ class EcommerceStorage {
 
     addToCart(product) {
         const cart = this.getCart();
-        const existingItem = cart.find(item => item.id === product.id);
+        //const existingItem = cart.find(item => item.id === product.id);
+        // Find by all identifying properties (id + selected variants)
+        const existingItem = cart.find(item =>
+            item.id === product.id &&
+            item.color === product.color &&
+            item.shape === product.shape &&
+            item.size === product.size &&
+            item.taste === product.taste
+        );
 
         if (existingItem) {
             existingItem.quantity += 1;
@@ -170,6 +178,7 @@ class EcommerceStorage {
 
         this.setItem(this.storageKeys.cart, cart);
         this.updateCartUI();
+        this.updateCartMini();
         this.showNotification('Product added to cart!', 'success');
     }
 
@@ -178,6 +187,7 @@ class EcommerceStorage {
         const updatedCart = cart.filter(item => item.id !== productId);
         this.setItem(this.storageKeys.cart, updatedCart);
         this.updateCartUI();
+        this.updateCartMini();
         this.showNotification('Product removed from cart!', 'info');
     }
 
@@ -192,6 +202,7 @@ class EcommerceStorage {
                 item.quantity = quantity;
                 this.setItem(this.storageKeys.cart, cart);
                 this.updateCartUI();
+                this.updateCartMini();
             }
         }
     }
@@ -213,6 +224,7 @@ class EcommerceStorage {
     clearCart() {
         this.setItem(this.storageKeys.cart, []);
         this.updateCartUI();
+        this.updateCartMini();
         this.showNotification('Cart cleared!', 'info');
     }
 
@@ -313,6 +325,48 @@ class EcommerceStorage {
         });
     }
 
+    updateCartMini() {
+        const cart = window.meskellilStorage ? window.meskellilStorage.getCart() : [];
+        const container = document.querySelector('.cartmini__widget');
+        container.innerHTML = '';
+
+        cart.forEach(item => {
+            const itemDiv = document.createElement('div');
+            itemDiv.className = 'cartmini__widget-item';
+            itemDiv.innerHTML = `
+            <div class="cartmini__thumb">
+              <a href="/products/${item.id}">
+                 <img src="${item.image || 'assets/img/product/product-1.jpg'}" alt="">
+              </a>
+            </div>
+            <div class="cartmini__content">
+              <h5 class="cartmini__title"><a href="/products/${item.id}">${item.name}</a></h5>
+              <div class="cartmini__price-wrapper">
+                 <span class="cartmini__price">${item.price}</span>
+                 <span class="cartmini__quantity">x${item.quantity}</span>
+              </div>
+            </div>
+            <a href="#" class="cartmini__del" data-product-id="${item.id}"><i class="fa-regular fa-xmark"></i></a>
+        `;
+            container.appendChild(itemDiv);
+        });
+
+        // Handle delete item
+        container.querySelectorAll('.cartmini__del').forEach(btn => {
+            btn.onclick = function (e) {
+                e.preventDefault();
+                const productId = parseInt(this.getAttribute('data-product-id'));
+                window.meskellilStorage.removeFromCart(productId);
+                renderCartMini(); // re-run to update UI
+            };
+        });
+
+        // Handle subtotal
+        const subtotalSpan = document.querySelector('.cartmini__checkout-title span');
+        const subtotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+        subtotalSpan.textContent = `${subtotal.toFixed(2)}`;
+    }
+
     updateCurrencyUI() {
         const currency = this.getCurrency();
 
@@ -334,6 +388,7 @@ class EcommerceStorage {
     updateUI() {
         this.updateWishlistUI();
         this.updateCartUI();
+        this.updateCartMini();
         this.updateCurrencyUI();
         this.updateLanguageUI();
     }
@@ -377,9 +432,9 @@ class EcommerceStorage {
 
         // Add to cart buttons
         document.addEventListener('click', (e) => {
-            if (e.target.closest('.tp-product-add-cart-btn')) {
+            if (e.target.closest('.addToCartBtn')) {
                 e.preventDefault();
-                const btn = e.target.closest('.tp-product-add-cart-btn');
+                const btn = e.target.closest('.addToCartBtn');
                 const productId = btn.getAttribute('data-product-id');
 
                 if (productId) {
@@ -448,11 +503,15 @@ class EcommerceStorage {
     // ==================== UTILITY METHODS ====================
 
     getProductData(button) {
-        const productItem = button.closest('.tp-product-item, .tp-product-item-3');
+        const productItem = button.closest('.tp-product-item, .tp-product-item-3, .tp-product-details-area');
         if (!productItem) return null;
 
-        const name = productItem.querySelector('.tp-product-title a, .tp-product-title-3 a')?.textContent.trim();
-        const priceElement = productItem.querySelector('.tp-product-price, .tp-product-price-3');
+        const name = productItem.querySelector('.tp-product-title a, .tp-product-title-3 a, .tp-product-details-title')?.textContent.trim();
+        const color = productItem.querySelector('input[name="color"]:checked')?.value ?? null;
+        const shape = productItem.querySelector('input[name="shape"]:checked')?.value ?? null;
+        const size = productItem.querySelector('input[name="size"]:checked')?.value ?? null;
+        const taste = productItem.querySelector('input[name="taste"]:checked')?.value ?? null;
+        const priceElement = productItem.querySelector('.tp-product-price, .tp-product-price-3, .tp-product-details-price.new-price');
         const price = this.extractPrice(priceElement);
         const image = productItem.querySelector('img')?.src;
 
@@ -466,7 +525,11 @@ class EcommerceStorage {
             id: parseInt(id),
             name: name || 'Unknown Product',
             price: price || 0,
-            image: image || ''
+            image: image || '',
+            color: color || null,
+            shape: shape || null,
+            size: size || null,
+            taste: taste || null
         };
     }
 

@@ -6,6 +6,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Kossa\AlgerianCities\Commune;
+use Kossa\AlgerianCities\Wilaya;
 
 class User extends Authenticatable
 {
@@ -22,6 +24,8 @@ class User extends Authenticatable
         'email',
         'password',
         'phone',
+        'wilaya_id',
+        'commune_id',
         'address',
         'avatar',
         'google_id',
@@ -51,4 +55,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function wilaya() { return $this->belongsTo(Wilaya::class, 'wilaya_id'); }
+    public function commune() { return $this->belongsTo(Commune::class, 'commune_id'); }
+    public function orders()
+    {
+        return $this->hasMany(Order::class, 'client_id');
+    }
 }

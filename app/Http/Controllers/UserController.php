@@ -61,7 +61,7 @@ class UserController extends Controller
     {
         // show authenticated user's profile when visiting /profile
         $user = auth()->user();
-        
+
         $breadcrumbData = [
             'title' => 'My Profile',
             'bgColor' => '#F8F9FA',
@@ -90,6 +90,8 @@ class UserController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email,'.$user->id,
             'phone' => 'nullable|string|max:50',
+            'wilaya_id' => 'required|exists:wilayas,id',
+            'commune_id' => 'required|exists:communes,id',
             'address' => 'nullable|string|max:1024',
             'avatar' => 'nullable|image|max:2048',
         ]);

@@ -70,7 +70,16 @@
                          </div>
                       </div>
                       <div class="tp-product-details-add-to-cart mb-15 w-100">
-                         <button class="tp-product-details-add-to-cart-btn w-100" id="quick-view-add-to-cart">Loading...</button>
+                         <button class="tp-product-details-add-to-cart-btn w-100 addToCartBtn" id="quick-view-add-to-cart"
+                                 data-product-id=""
+                                 data-product-name=""
+                                 data-product-color=""
+                                 data-product-shape=""
+                                 data-product-size=""
+                                 data-product-taste=""
+                                 data-product-price=""
+                                 data-product-image=""
+                         >Loading...</button>
                       </div>
                    </div>
                    <button class="tp-product-details-buy-now-btn w-100" id="quick-view-buy-now">Loading...</button>
@@ -139,7 +148,6 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('quick-view-category').textContent = product.category?.name || 'Uncategorized';
         document.getElementById('quick-view-stock').textContent = product.stock > 0 ? 'In Stock' : 'Out of Stock';
         document.getElementById('quick-view-stock').className = product.stock > 0 ? 'tp-product-details-stock mb-10 text-success' : 'tp-product-details-stock mb-10 text-danger';
-
         // Update description
         const description = product.description ?
             (product.description.length > 100 ?
@@ -153,26 +161,47 @@ document.addEventListener('DOMContentLoaded', function() {
         if (product.has_discount) {
             priceHtml = `
                 <span class="tp-product-details-price old-price">$${parseFloat(product.main_price).toFixed(2)}</span>
-                <span class="tp-product-details-price new-price">$${parseFloat(product.discounted_price).toFixed(2)}</span>
+                <span class="tp-product-details-price new-price">$${parseFloat(product.price).toFixed(2)}</span>
             `;
         } else {
-            priceHtml = `<span class="tp-product-details-price new-price">$${parseFloat(product.main_price).toFixed(2)}</span>`;
+            priceHtml = `<span class="tp-product-details-price new-price">$${parseFloat(product.price).toFixed(2)}</span>`;
         }
         document.getElementById('quick-view-price').innerHTML = priceHtml;
 
-        // Update variations
+
+        // Update variations from product variants (show only unique options per attribute!)
         let variationsHtml = '';
-        if (product.size) {
-            variationsHtml = `
-                <div class="tp-product-details-variation-item">
-                    <h4 class="tp-product-details-variation-title">Size :</h4>
-                    <div class="tp-product-details-variation-list">
-                        <button type="button" class="color tp-color-variation-btn active">
-                            <span>${product.size}</span>
-                        </button>
-                    </div>
+        if (product.variants && product.variants.length > 0) {
+            // Unique values for each variant
+            const getUniques = attr => [...new Set(product.variants.map(v => v[attr]).filter(Boolean))];
+
+            const sizes = getUniques('size');
+            const colors = getUniques('color');
+            const shapes = getUniques('shape');
+            const tastes = getUniques('taste');
+
+            // Helper to generate radio group markup
+            function radioGroup(name, values, label) {
+                if (values.length === 0) return '';
+                return `
+            <div class="tp-product-details-variation-item">
+                <h4 class="tp-product-details-variation-title">${label} :</h4>
+                <div class="d-flex">
+                    ${values.map((val, i) => `
+                        <div class="form-check m-2">
+                            <input class="form-check-input" type="radio" name="${name}" id="${name}_${i}" value="${val}" ${i === 0 ? "checked" : ""}>
+                            <label class="form-check-label" for="${name}_${i}">${val}</label>
+                        </div>
+                    `).join('')}
                 </div>
-            `;
+            </div>
+        `;
+            }
+
+            variationsHtml += radioGroup('color', colors, 'Color');
+            variationsHtml += radioGroup('shape', shapes, 'Shape');
+            variationsHtml += radioGroup('size', sizes, 'Size');
+            variationsHtml += radioGroup('taste', tastes, 'Taste');
         }
         document.getElementById('quick-view-variations').innerHTML = variationsHtml;
 
@@ -182,6 +211,16 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('quick-view-add-to-cart').disabled = !isInStock;
         document.getElementById('quick-view-buy-now').textContent = isInStock ? 'Buy Now' : 'Out of Stock';
         document.getElementById('quick-view-buy-now').disabled = !isInStock;
+
+        //Update data of AddToCartBtn
+        const addToCartBtn = document.getElementById('quick-view-add-to-cart');
+        addToCartBtn.textContent = isInStock ? 'Add To Cart' : 'Out of Stock';
+        addToCartBtn.disabled = !isInStock;
+        // Set base product attributes
+        addToCartBtn.setAttribute('data-product-id', product.id);
+        addToCartBtn.setAttribute('data-product-name', product.name || '');
+        addToCartBtn.setAttribute('data-product-image', product.main_image || '');
+        addToCartBtn.setAttribute('data-product-price', product.price || 0);
 
         // Update images
         updateQuickViewImages(product);
@@ -247,5 +286,35 @@ document.addEventListener('DOMContentLoaded', function() {
             contentContainer.appendChild(contentTab);
         });
     }
+
+    // Add to Cart button event:
+    document.getElementById('quick-view-add-to-cart').addEventListener('click', function() {
+        const productId = this.getAttribute('data-product-id');
+        const quantity = document.querySelector('.tp-cart-input').value;
+
+        // Get selected variant values from radio buttons
+        const selectedColor = document.querySelector('input[name="color"]:checked')?.value || null;
+        const selectedShape = document.querySelector('input[name="shape"]:checked')?.value || null;
+        const selectedSize = document.querySelector('input[name="size"]:checked')?.value || null;
+        const selectedTaste = document.querySelector('input[name="taste"]:checked')?.value || null;
+
+        // Prepare product object for cart
+        const productData = {
+            id: productId,
+            quantity: parseInt(quantity) || 1,
+            color: selectedColor,
+            shape: selectedShape,
+            size: selectedSize,
+            taste: selectedTaste
+            // ...other product info as needed
+        };
+
+        // Use your storage class
+        if (window.meskellilStorage) {
+            window.meskellilStorage.addToCart(productData);
+        }
+
+        // Optionally close the modal, etc.
+    });
 });
 </script>

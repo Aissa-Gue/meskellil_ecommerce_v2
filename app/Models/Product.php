@@ -9,19 +9,21 @@ use Illuminate\Support\Facades\Log;
 class Product extends Model
 {
     protected $fillable = [
+        'reference',
         'name',
+        'description',
         'size',
         'brand_id',
         'category_id',
         'use_case',
-        'description',
-        'caracteristics',
-        'reference',
+        'characteristics',
         'price1',
         'price2',
         'stock',
         'discount',
+        'is_featured',
         'is_new',
+
         'image1',
         'image2',
         'image3',
@@ -31,9 +33,10 @@ class Product extends Model
     ];
 
     protected $casts = [
+        'is_featured' => 'boolean',
         'is_new' => 'boolean',
         'is_active' => 'boolean',
-        'caracteristics' => 'array',
+        'characteristics' => 'array',
         'price1' => 'decimal:2',
         'price2' => 'decimal:2',
     ];
@@ -42,6 +45,7 @@ class Product extends Model
     {
         return $this->belongsTo(Brand::class);
     }
+
     public function category()
     {
         return $this->belongsTo(Category::class);
@@ -85,6 +89,10 @@ class Product extends Model
     //     return $this->getImageUrl($value);
     // }
 
+    public function productVariants()
+    {
+        return $this->hasMany(ProductVariant::class);
+    }
     public function orderLines()
     {
         return $this->hasMany(OrderProduct::class);
@@ -95,13 +103,29 @@ class Product extends Model
     {
         return $q->where('is_active', true);
     }
+
+    public function scopeFeatured(Builder $q): Builder
+    {
+        return $q->where('is_featured', true);
+    }
+
     public function scopeNew(Builder $q): Builder
     {
         return $q->where('is_new', true);
     }
+
     public function scopeInStock(Builder $q): Builder
     {
         return $q->where('stock', '>', 0);
+    }
+
+    public function scopeHasVariant(Builder $q, string $variant): bool
+    {
+        if (in_array($variant, ['color', 'shape', 'size', 'taste'])) {
+            return $q->whereHas('productVariants',
+                    fn (Builder $q) => $q->whereNotNull($variant)->where('is_active', true))->count() > 0;
+        }
+        return false;
     }
 
     public function scopeSearch(Builder $q, ?string $term): Builder
@@ -115,30 +139,25 @@ class Product extends Model
     }
 
     /* Helper Methods */
-    public function getMainPriceAttribute()
+    public function getPriceAttribute()
     {
-        return $this->price1 ?? 0;
-    }
-
-    public function getDiscountedPriceAttribute()
-    {
-        if ($this->discount && $this->discount > 0) {
-            return $this->price1 * (1 - $this->discount / 100);
+        if (auth()->check() && auth()->user()->type == 'gros') {
+            return $this->price2;
         }
         return $this->price1;
     }
 
-    public function getHasDiscountAttribute()
+    public function getHasDiscountAttribute(): bool
     {
-        return $this->discount && $this->discount > 0;
+        return !is_null($this->discount) && $this->discount > 0;
     }
 
-    public function getDiscountAmountAttribute()
+    public function getMainPriceAttribute()
     {
         if ($this->has_discount) {
-            return $this->price1 - $this->discounted_price;
+            return $this->price * (1 + $this->discount / 100);
         }
-        return 0;
+        return $this->price;
     }
 
     public function getMainImageAttribute()
@@ -175,7 +194,7 @@ class Product extends Model
         return $images;
     }
 
-    // get images as asset storage 
+    // get images as asset storage
     // as here     // Accessor to add URL prefix to image
     // public function getImageAttribute($value)
     // {
@@ -224,22 +243,22 @@ class Product extends Model
     public function getCharacteristicsArrayAttribute()
     {
         try {
-            if (is_string($this->caracteristics)) {
-                $decoded = json_decode($this->caracteristics, true);
+            if (is_string($this->characteristics)) {
+                $decoded = json_decode($this->characteristics, true);
                 return is_array($decoded) ? $decoded : [];
             }
 
-            if (is_array($this->caracteristics)) {
-                return $this->caracteristics;
+            if (is_array($this->characteristics)) {
+                return $this->characteristics;
             }
 
-            if (is_null($this->caracteristics)) {
+            if (is_null($this->characteristics)) {
                 return [];
             }
 
             // If it's any other type, try to convert it
-            if (is_object($this->caracteristics)) {
-                return (array) $this->caracteristics;
+            if (is_object($this->characteristics)) {
+                return (array)$this->characteristics;
             }
 
             return [];
@@ -247,7 +266,7 @@ class Product extends Model
             // Log the error and return empty array
             Log::error('Error processing product characteristics: ' . $e->getMessage(), [
                 'product_id' => $this->id,
-                'caracteristics' => $this->caracteristics
+                'characteristics' => $this->characteristics
             ]);
             return [];
         }

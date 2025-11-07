@@ -97,12 +97,12 @@ class HomeController extends Controller
                 'price1_min' => 100 // Featured products are higher-priced items
             ]
         ]);
-        
+
         $featuredProducts = $productService->getFilteredProducts($featuredProductsFilter)
             ->orderByDesc('price1')
             ->limit(8)
             ->get();
-            
+
         // If no featured products, get products with stock > 10 (popular items)
         if ($featuredProducts->isEmpty()) {
             $featuredProductsFilter = new Request([
@@ -129,7 +129,7 @@ class HomeController extends Controller
             ->with(['children', 'children.children'])
             ->orderBy('name')
             ->get();
-        $products = $newestProducts;
+        $products = $featuredProducts;
 
         // Get products by category for featured categories
         $featuredCategories = $categories->take(3); // Show first 3 categories

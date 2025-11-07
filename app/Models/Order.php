@@ -4,20 +4,25 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
+use Kossa\AlgerianCities\Commune;
+use Kossa\AlgerianCities\Wilaya;
 
 class Order extends Model
 {
     protected $fillable = [
-        'client_id','client_name','client_phone','commune_id',
+        'client_id','client_name','client_phone','wilaya_id','commune_id',
         'payment_status','payment_method','is_verified','order_status',
-        'total_price','notes'
+        'shipping_price', 'total_price','notes'
     ];
 
     protected $casts = [
         'is_verified' => 'boolean',
+        'shipping_price' => 'decimal:2',
         'total_price' => 'decimal:2',
     ];
 
+    public function wilaya() { return $this->belongsTo(Wilaya::class, 'wilaya_id'); }
+    public function commune() { return $this->belongsTo(Commune::class, 'commune_id'); }
     public function client() { return $this->belongsTo(User::class, 'client_id'); }
     public function items() { return $this->hasMany(OrderProduct::class); }
 

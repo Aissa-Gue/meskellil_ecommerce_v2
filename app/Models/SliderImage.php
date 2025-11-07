@@ -7,8 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class SliderImage extends Model
 {
-    use HasFactory;
-
     const TYPE_SLIDER = 'slider';
     const TYPE_BANNER_TOP = 'banner_top';
     const TYPE_BANNER_SMALL = 'banner_small';

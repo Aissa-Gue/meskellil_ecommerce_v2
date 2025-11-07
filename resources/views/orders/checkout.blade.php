@@ -52,95 +52,56 @@
                         <div class="tp-checkout-bill-area">
                             <h3 class="tp-checkout-bill-title">Billing Details</h3>
 
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul class="px-3">
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+
                             <div class="tp-checkout-bill-form">
                                 <form action="#">
                                     <div class="tp-checkout-bill-inner">
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="tp-checkout-input">
-                                                    <label>First Name <span>*</span></label>
-                                                    <input type="text" placeholder="First Name">
+                                                    <label>Client name <span>*</span></label>
+                                                    <input type="text" name="client_name" id="client_name" value="{{ old('client_name', auth()->user()->name ?? '') }}" placeholder="Client name">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="tp-checkout-input">
-                                                    <label>Last Name <span>*</span></label>
-                                                    <input type="text" placeholder="Last Name">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="tp-checkout-input">
-                                                    <label>Company name (optional)</label>
-                                                    <input type="text" placeholder="Example LTD.">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="tp-checkout-input">
-                                                    <label>Country / Region </label>
-                                                    <input type="text" placeholder="United States (US)">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="tp-checkout-input">
-                                                    <label>Street address</label>
-                                                    <input type="text" placeholder="House number and street name">
-                                                </div>
-
-                                                <div class="tp-checkout-input">
-                                                    <input type="text" placeholder="Apartment, suite, unit, etc. (optional)">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="tp-checkout-input">
-                                                    <label>Town / City</label>
-                                                    <input type="text" placeholder="">
+                                                    <label>Client Phone <span>*</span></label>
+                                                    <input type="text" name="client_phone" id="client_phone" value="{{ old('client_phone', auth()->user()->phone ?? '') }}" placeholder="">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="tp-checkout-input">
-                                                    <label>State / County</label>
-                                                    <select>
-                                                        <option>New York US</option>
-                                                        <option>Berlin Germany</option>
-                                                        <option>Paris France</option>
-                                                        <option>Tokiyo Japan</option>
+                                                    <label for="wilaya_id">Wilaya</label>
+                                                    <select id="wilaya_id" name="wilaya_id">
+                                                        @foreach(\Kossa\AlgerianCities\Wilaya::all() as $wilaya)
+                                                            <option value="{{ $wilaya->id }}"
+                                                                {{ (old('wilaya_id', auth()->user()->wilaya_id ?? '') == $wilaya->id) ? 'selected' : '' }}>
+                                                                {{ $wilaya->name . ' ('.$wilaya->arabic_name. ')' }}
+                                                            </option>
+                                                        @endforeach
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="tp-checkout-input">
-                                                    <label>Postcode ZIP</label>
-                                                    <input type="text" placeholder="">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="tp-checkout-input">
-                                                    <label>Phone <span>*</span></label>
-                                                    <input type="text" placeholder="">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="tp-checkout-input">
-                                                    <label>Email address <span>*</span></label>
-                                                    <input type="email" placeholder="">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="tp-checkout-option-wrapper">
-                                                    <div class="tp-checkout-option">
-                                                        <input id="create_free_account" type="checkbox">
-                                                        <label for="create_free_account">Create an account?</label>
-                                                    </div>
-                                                    <div class="tp-checkout-option">
-                                                        <input id="ship_to_diff_address" type="checkbox">
-                                                        <label for="ship_to_diff_address">Ship to a different address?</label>
-                                                    </div>
+                                                    <label for="commune_id">Commune</label>
+                                                    <select id="commune_id" name="commune_id"></select>
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="tp-checkout-input">
                                                     <label>Order notes (optional)</label>
-                                                    <textarea placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
+                                                    <textarea name="notes" id="notes"
+                                                              placeholder="Notes about your order, e.g. special notes for delivery.">{{old('notes')}}</textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -160,36 +121,33 @@
                                         <h4>Product</h4>
                                         <h4>Total</h4>
                                     </li>
+                                    <!--<li class="tp-order-info-list-desc">Test item * 2 = 200</li>-->
                                 </ul>
                             </div>
 
                             <div class="tp-checkout-summary mt-3">
-                                <div class="d-flex justify-content-between"><span>Subtotal</span><strong id="cart-subtotal">$0.00</strong></div>
-                                <div class="d-flex justify-content-between"><span>Shipping</span><strong id="cart-shipping">$0.00</strong></div>
-                                <div class="d-flex justify-content-between"><span>Total</span><strong id="cart-total">$0.00</strong></div>
-                            </div>
-
-                            <div class="tp-checkout-agree">
-                                <div class="tp-checkout-option">
-                                    <input id="read_all" type="checkbox">
-                                    <label for="read_all">I have read and agree to the website.</label>
+                                <div class="d-flex justify-content-between"><span>Subtotal</span><strong
+                                        id="cart-subtotal">0.00</strong></div>
+                                <div class="d-flex justify-content-between"><span>Shipping</span><strong
+                                        id="cart-shipping">0.00</strong></div>
+                                <div class="d-flex justify-content-between"><span>Total</span><strong id="cart-total">0.00</strong>
                                 </div>
                             </div>
 
                             <!-- hidden form to submit order to server -->
-                            <form id="place-order-form" method="POST" action="/orders">
+                            <form id="place-order-form" method="POST" action="{{route('orders.store')}}">
                                 @csrf
-                                <input type="hidden" name="payment_status" value="pending">
-                                <input type="hidden" name="payment_method" value="cash">
-                                <input type="hidden" name="client_name" id="client_name" value="">
-                                <input type="hidden" name="client_phone" id="client_phone" value="">
-                                <input type="hidden" name="commune_id" id="commune_id" value="">
-                                <input type="hidden" name="is_verified" value="0">
-                                <input type="hidden" name="order_status" value="pending">
-                                <input type="hidden" name="notes" id="order_notes" value="">
+                                <input type="hidden" name="client_name" id="client_name_h">
+                                <input type="hidden" name="client_phone" id="client_phone_h">
+                                <input type="hidden" name="wilaya_id" id="wilaya_id_h">
+                                <input type="hidden" name="commune_id" id="commune_id_h">
+                                <input type="hidden" name="notes" id="notes_h">
 
                                 <div class="tp-checkout-btn-wrapper mt-3">
-                                    <button type="button" id="place-order-btn" class="tp-checkout-btn w-100">Place Order</button>
+                                    <button type="button" id="place-order-btn" onclick="placeOrder()"
+                                            class="tp-checkout-btn w-100">Place
+                                        Order
+                                    </button>
                                 </div>
                             </form>
                         </div>
@@ -202,52 +160,89 @@
 
     @include('components.footer')
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
+
+        // Get current user values from server (Blade)
+        const userWilayaId = "{{ old('wilaya_id', auth()->user()->wilaya_id ?? '') }}";
+        const userCommuneId = "{{ old('commune_id', auth()->user()->commune_id ?? '') }}";
+
+        //Load wilayas and communes
+        function loadCommunes(wilayaId, selectedCommuneId = null) {
+            fetch(`/api/wilayas/${wilayaId}/communes`)
+                .then(r => r.json())
+                .then(data => {
+                    const $sel = $('#commune_id');
+                    $sel.empty();
+                    data.forEach(c => {
+                        $sel.append(`<option value="${c.id}">${c.name} (${c.arabic_name})</option>`);
+                    });
+                    if (selectedCommuneId) {
+                        $sel.val(selectedCommuneId);
+                    }
+                    $sel.niceSelect('update');
+                });
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Set wilaya select, update communeselect
+            $('#wilaya_id').val(userWilayaId).niceSelect('update');
+            loadCommunes(userWilayaId, userCommuneId);
+
+            $('#wilaya_id').on('change', function () {
+                loadCommunes(this.value);
+                updateSummary();
+            });
+
+            setTimeout(function() {
+                // Debug output
+                console.log('Cart on DOMContentLoaded:', window.meskellilStorage ? window.meskellilStorage.getCart() : []);
+                updateSummary();
+            }, 100); // Wait a little for storage to initialize!
+        });
+
         function getCart() {
             return window.meskellilStorage ? window.meskellilStorage.getCart() : [];
         }
 
+
+        function getShippingPrice(wilayaId, callback) {
+            fetch(`/api/wilayas/${wilayaId}/shipping`)
+                .then(r => r.json())
+                .then(data => {
+                    const shippingPrice = Number(data.shipping_price) || 0;
+                    callback(shippingPrice);
+                });
+        }
+
+        // Use this function to update the summary (cart + shipping)
         function updateSummary() {
-            const cart = getCart();
+            const cart = window.meskellilStorage ? window.meskellilStorage.getCart() : [];
             const subtotal = cart.reduce((t, i) => t + (i.price * i.quantity), 0);
-            const shipping = subtotal > 0 ? 5.99 : 0;
-            const total = subtotal + shipping;
+            const wilayaId = $('#wilaya_id').val();
 
-            document.getElementById('cart-subtotal').textContent = `$${subtotal.toFixed(2)}`;
-            document.getElementById('cart-shipping').textContent = `$${shipping.toFixed(2)}`;
-            document.getElementById('cart-total').textContent = `$${total.toFixed(2)}`;
+            getShippingPrice(wilayaId, function (shipping) {
+                const total = subtotal + shipping;
 
-            const list = document.getElementById('order-items-list');
-            // remove previous items except header
-            list.querySelectorAll('.tp-order-info-list-desc').forEach(n => n.remove());
+                $('#cart-subtotal').text(`${subtotal.toFixed(2)}`);
+                $('#cart-shipping').text(`${shipping.toFixed(2)}`);
+                $('#cart-total').text(`${total.toFixed(2)}`);
 
-            cart.forEach(item => {
-                const li = document.createElement('li');
-                li.className = 'tp-order-info-list-desc';
-                li.innerHTML = `<p>${item.name} <span> x ${item.quantity}</span></p><span>$${(item.price * item.quantity).toFixed(2)}</span>`;
-                list.appendChild(li);
+                const list = document.getElementById('order-items-list');
+                // remove previous items except header
+                list.querySelectorAll('.tp-order-info-list-desc').forEach(n => n.remove());
+
+                cart.forEach(item => {
+                    const li = document.createElement('li');
+                    li.className = 'tp-order-info-list-desc';
+                    li.innerHTML = `<p>${item.name} <span> x ${item.quantity}</span></p><span>${(item.price * item.quantity).toFixed(2)}</span>`;
+                    list.appendChild(li);
+                });
             });
         }
 
-        function gatherClientData() {
-            // try to read visible checkout inputs for name/phone/notes
-            const name = document.querySelector('.tp-checkout-bill-form input[type="text"]')?.value || '';
-            const phone = document.querySelector('input[placeholder="Phone"]')?.value || document.querySelector('input[placeholder=""]')?.value || '';
-            const notes = document.querySelector('textarea')?.value || '';
-            return { name, phone, notes };
-        }
-
-        updateSummary();
-
-        document.getElementById('place-order-btn').addEventListener('click', function() {
+        function placeOrder() {
             const cart = getCart();
             if (!cart || cart.length === 0) {
                 alert('Your cart is empty');
-                return;
-            }
-
-            if (!document.getElementById('read_all').checked) {
-                alert('Please accept the terms.');
                 return;
             }
 
@@ -257,19 +252,34 @@
             form.querySelectorAll('input[name^="items"]').forEach(n => n.remove());
 
             cart.forEach((it, idx) => {
-                const pid = document.createElement('input'); pid.type='hidden'; pid.name = `items[${idx}][product_id]`; pid.value = it.id; form.appendChild(pid);
-                const q = document.createElement('input'); q.type='hidden'; q.name = `items[${idx}][qte]`; q.value = it.quantity; form.appendChild(q);
-                const p = document.createElement('input'); p.type='hidden'; p.name = `items[${idx}][price]`; p.value = it.price; form.appendChild(p);
+                const fields = [
+                    { name: "product_id", value: it.id },
+                    { name: "qte", value: it.quantity },
+                    { name: "price", value: it.price },
+                    { name: "shape", value: it.shape },
+                    { name: "size", value: it.size },
+                    { name: "color", value: it.color },
+                    { name: "taste", value: it.taste }
+                ];
+                fields.forEach(f => {
+                    const inp = document.createElement('input');
+                    inp.type = 'hidden';
+                    inp.name = `items[${idx}][${f.name}]`;
+                    inp.value = f.value ?? '';
+                    form.appendChild(inp);
+                });
             });
 
-            const client = gatherClientData();
-            document.getElementById('client_name').value = client.name || 'Guest';
-            document.getElementById('client_phone').value = client.phone || '';
-            document.getElementById('order_notes').value = client.notes || '';
+            // try to read visible checkout inputs for name/phone/notes/wilaya_id/commune_id
+            document.querySelector('#client_name_h').value = document.querySelector('#client_name')?.value || 'Guest';
+            document.querySelector('#client_phone_h').value = document.querySelector('#client_phone')?.value || '';
+            document.querySelector('#wilaya_id_h').value = document.querySelector('#wilaya_id')?.value || '';
+            document.querySelector('#commune_id_h').value = document.querySelector('#commune_id')?.value || '';
+            document.querySelector('#notes_h').value = document.querySelector('#notes')?.value || '';
 
             // submit the form (normal POST) so Laravel handles redirect
             form.submit();
-        });
-    });
+        }
+
     </script>
 @endsection

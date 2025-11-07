@@ -167,7 +167,7 @@ class ProductController extends Controller
             'name' => $product->name,
             'description' => $product->description,
             'main_price' => $product->main_price,
-            'discounted_price' => $product->discounted_price,
+            'price' => $product->price,
             'has_discount' => $product->has_discount,
             'discount' => $product->discount,
             'stock' => $product->stock,
@@ -178,6 +178,18 @@ class ProductController extends Controller
             'brand' => $product->brand,
             'is_new' => $product->is_new,
             'is_active' => $product->is_active,
+            'variants' => $product->productVariants->map(function($variant) {
+                return [
+                    'id' => $variant->id,
+                    'color' => $variant->color,
+                    'shape' => $variant->shape,
+                    'size' => $variant->size,
+                    'taste' => $variant->taste,
+                    'price1' => $variant->price1,
+                    'price2' => $variant->price2,
+                    'price' => $variant->price,
+                ];
+            })
         ]);
     }
 
@@ -210,7 +222,7 @@ class ProductController extends Controller
             'category_id' => 'nullable|exists:categories,id',
             'use_case' => 'nullable|string|max:255',
             'description' => 'nullable|string',
-            'caracteristics' => 'nullable|array',
+            'characteristics' => 'nullable|array',
             'reference' => 'nullable|string|max:255',
             'price1' => 'nullable|numeric|min:0',
             'price2' => 'nullable|numeric|min:0',
@@ -226,20 +238,22 @@ class ProductController extends Controller
         ]);
     }
 
-    private function fetchProducts(array $filters = []): Collection
+    private function fetchProducts(array $filters = [])
     {
         $apiKey = env('GOOGLE_API_KEY');
         $spreadsheetId = env('GOOGLE_SPREADSHEET_ID');
-        $sheetName = "Products";
+        $sheetName = "gestion des produits";
 
         $response = Http::get("https://sheets.googleapis.com/v4/spreadsheets/{$spreadsheetId}/values/{$sheetName}?key={$apiKey}");
         $data = $response->json();
 
         $products = collect();
 
-        if (isset($data['values']) && count($data['values']) > 1) {
-            $headers = $data['values'][0];
-            foreach (array_slice($data['values'], 1) as $row) {
+        if (isset($data['values']) && count($data['values']) > 2 /* because the 1st 2 lines for heading*/) {
+            $headers = $data['values'][1];//row n°2 (heading titles in EN lang)
+            foreach (array_slice($data['values'], 2) as $row) {
+                // Pad the row to match the headers count
+                $row = array_pad($row, count($headers), null);
                 $products->push(array_combine($headers, $row));
             }
         }
@@ -344,13 +358,13 @@ class ProductController extends Controller
     }
 
     /**
-     * Get count of products by color (assuming color is stored in caracteristics)
+     * Get count of products by color (assuming color is stored in characteristics)
      */
     private function getColorCount(string $color): int
     {
         return Product::where('is_active', true)
-            ->whereJsonContains('caracteristics->color', $color)
-            ->orWhere('caracteristics', 'like', '%"color":"' . $color . '"%')
+            ->whereJsonContains('characteristics->color', $color)
+            ->orWhere('characteristics', 'like', '%"color":"' . $color . '"%')
             ->count();
     }
 
@@ -362,9 +376,9 @@ class ProductController extends Controller
     public function indexSheet()
     {
         // Example: filter by category = "Shoes" and brand like "Nike"
-        $products = $this->fetchProducts([
-            ['category', '=', 'Shoes'],
-            ['brand', 'like', 'Nike']
+        return $products = $this->fetchProducts([
+            //['category', '=', 'Shoes'],
+            //['brand', 'like', 'Nike']
         ]);
 
         return view('products.index', compact('products'));

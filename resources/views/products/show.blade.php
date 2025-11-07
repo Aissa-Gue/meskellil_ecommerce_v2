@@ -90,25 +90,105 @@
                                 <div class="tp-product-details-price-wrapper mb-20">
                                     @if($product->has_discount)
                                         <span class="tp-product-details-price old-price">${{ number_format($product->main_price, 2) }}</span>
-                                        <span class="tp-product-details-price new-price">${{ number_format($product->discounted_price, 2) }}</span>
+                                        <span class="tp-product-details-price new-price">${{ number_format($product->price, 2) }}</span>
                                     @else
-                                        <span class="tp-product-details-price new-price">${{ number_format($product->main_price, 2) }}</span>
+                                        <span class="tp-product-details-price new-price">${{ number_format($product->price, 2) }}</span>
                                     @endif
                                 </div>
 
                                 <!-- variations -->
-                                @if($product->size)
                                 <div class="tp-product-details-variation">
-                                    <div class="tp-product-details-variation-item">
-                                        <h4 class="tp-product-details-variation-title">{{ __('header.size') }} :</h4>
+
+                                    <!-- Color -->
+                                    @if($product->hasVariant('color'))
+                                        <div class="tp-product-details-variation-item">
+                                            <h4 class="tp-product-details-variation-title">{{ __('color') }} :</h4>
+                                            <div class="d-flex">
+                                                @foreach($product->productVariants as $index => $productVariant)
+                                                    <div class="form-check mx-2">
+                                                        <input class="form-check-input" type="radio" name="color" id="color_{{ $index }}" value="{{ $productVariant->color }}"
+                                                            {{ $loop->first ? 'checked' : '' }}>
+                                                        <label class="form-check-label" for="color_{{ $index }}">
+                                                            {{$productVariant->color}}
+                                                        </label>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    @endif
+
+                                    <!-- SHAPE -->
+                                    @if($product->hasVariant('shape'))
+                                        <div class="tp-product-details-variation-item">
+                                            <h4 class="tp-product-details-variation-title">{{ __('shape') }} :</h4>
+                                            <div class="d-flex">
+                                                @foreach($product->productVariants as $index => $productVariant)
+                                                    <div class="form-check mx-2">
+                                                        <input class="form-check-input"
+                                                               type="radio"
+                                                               name="shape"
+                                                               id="shape_{{ $index }}"
+                                                               value="{{ $productVariant->shape }}"
+                                                            {{ $loop->first ? 'checked' : '' }}>
+                                                        <label class="form-check-label" for="shape_{{ $index }}">
+                                                            {{ $productVariant->shape }}
+                                                        </label>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    @endif
+
+                                    <!-- SIZE -->
+                                    @if($product->hasVariant('size'))
+                                        <div class="tp-product-details-variation-item">
+                                            <h4 class="tp-product-details-variation-title">{{ __('size') }} :</h4>
+                                            <div class="d-flex">
+                                                @foreach($product->productVariants as $index => $productVariant)
+                                                    <div class="form-check mx-2">
+                                                        <input class="form-check-input" type="radio" name="size" id="size_{{ $index }}" value="{{ $productVariant->size }}"
+                                                            {{ $loop->first ? 'checked' : '' }}>
+                                                        <label class="form-check-label" for="size_{{ $index }}">
+                                                            {{$productVariant->size}}
+                                                        </label>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    @endif
+
+                                    <!-- TASTE -->
+                                    @if($product->hasVariant('taste'))
+                                        <div class="tp-product-details-variation-item">
+                                            <h4 class="tp-product-details-variation-title">{{ __('taste') }} :</h4>
+                                            <div class="d-flex">
+                                                @foreach($product->productVariants as $index => $productVariant)
+                                                    <div class="form-check mx-2">
+                                                        <input class="form-check-input"
+                                                               type="radio"
+                                                               name="taste"
+                                                               id="taste_{{ $index }}"
+                                                               value="{{ $productVariant->taste }}"
+                                                            {{ $loop->first ? 'checked' : '' }}>
+                                                        <label class="form-check-label" for="taste_{{ $index }}">
+                                                            {{ $productVariant->taste }}
+                                                        </label>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    @endif
+
+                                    {{--<div class="tp-product-details-variation-item">
+                                        <h4 class="tp-product-details-variation-title">{{ __('color') }} :</h4>
                                         <div class="tp-product-details-variation-list">
                                             <button type="button" class="color tp-color-variation-btn active">
                                                 <span>{{ $product->size }}</span>
                                             </button>
                                         </div>
-                                    </div>
+                                    </div>--}}
                                 </div>
-                                @endif
+
 
                                 <!-- actions -->
                                 <div class="tp-product-details-action-wrapper">
@@ -125,27 +205,35 @@
                                        </span>
                                                 <input class="tp-cart-input" type="text" value="1">
                                                 <span class="tp-cart-plus">
-                                          <svg width="11" height="12" viewBox="0 0 11 12" fill="none"
-                                               xmlns="http://www.w3.org/2000/svg">
-                                             <path d="M1 6H10" stroke="currentColor" stroke-width="1.5"
-                                                   stroke-linecap="round" stroke-linejoin="round"/>
-                                             <path d="M5.5 10.5V1.5" stroke="currentColor" stroke-width="1.5"
-                                                   stroke-linecap="round" stroke-linejoin="round"/>
-                                          </svg>
-                                       </span>
+                                                  <svg width="11" height="12" viewBox="0 0 11 12" fill="none"
+                                                       xmlns="http://www.w3.org/2000/svg">
+                                                     <path d="M1 6H10" stroke="currentColor" stroke-width="1.5"
+                                                           stroke-linecap="round" stroke-linejoin="round"/>
+                                                     <path d="M5.5 10.5V1.5" stroke="currentColor" stroke-width="1.5"
+                                                           stroke-linecap="round" stroke-linejoin="round"/>
+                                                  </svg>
+                                               </span>
                                             </div>
                                         </div>
                                         <div class="tp-product-details-add-to-cart mb-15 w-100">
-                                            <button class="tp-product-details-add-to-cart-btn w-100"
+                                            <button class="tp-product-details-add-to-cart-btn w-100 addToCartBtn"
+                                                    data-product-id="{{ $product->id }}"
+                                                    data-product-name="{{ $product->name }}"
+                                                    data-product-color=""
+                                                    data-product-shape=""
+                                                    data-product-size=""
+                                                    data-product-taste=""
+                                                    data-product-price="{{ $product->price }}"
+                                                    data-product-image="{{ asset($product->images[0] ?? 'assets/img/product/product-1.jpg') }}"
                                                     {{ $product->stock <= 0 ? 'disabled' : '' }}>
                                                 {{ $product->stock > 0 ? 'Add To Cart' : 'Out of Stock' }}
                                             </button>
                                         </div>
                                     </div>
-                                    <button class="tp-product-details-buy-now-btn w-100"
+                                    <a href="{{route('checkout')}}" class="tp-product-details-buy-now-btn text-center w-100"
                                             {{ $product->stock <= 0 ? 'disabled' : '' }}>
                                         {{ $product->stock > 0 ? 'Buy Now' : 'Out of Stock' }}
-                                    </button>
+                                    </a>
                                 </div>
                                 <div class="tp-product-details-action-sm">
                                     <button type="button" class="tp-product-details-action-sm-btn">
@@ -164,31 +252,34 @@
                                                     d="M12.8384 6.93209C12.5548 6.93209 12.3145 6.71865 12.2911 6.43693C12.2427 5.84618 11.8397 5.34743 11.266 5.1656C10.9766 5.07361 10.8184 4.76962 10.9114 4.48718C11.0059 4.20402 11.3129 4.05023 11.6031 4.13934C12.6017 4.45628 13.3014 5.32371 13.3872 6.34925C13.4113 6.64606 13.1864 6.90622 12.8838 6.92993C12.8684 6.93137 12.8538 6.93209 12.8384 6.93209"
                                                     stroke="currentColor" stroke-width="0.3"/>
                                         </svg>
-                                        {{ __('header.add_wishlist') }}
+                                        {{ __('add to wishlist') }}
                                     </button>
                                 </div>
                                 <div class="tp-product-details-query">
                                     <div class="tp-product-details-query-item d-flex align-items-center">
-                                        <span>{{ __('header.sku') }}:  </span>
+                                        <span>{{ __('sku') }}:  </span>
                                         <p>{{ $product->reference ?: 'N/A' }}</p>
                                     </div>
                                     <div class="tp-product-details-query-item d-flex align-items-center">
-                                        <span>{{ __('header.category') }}:  </span>
-                                        <p>{{ $product->category->name ?? __('header.uncategorized') }}</p>
+                                        <span>{{ __('category') }}:  </span>
+                                        <p>{{ $product->category->name ?? __('uncategorized') }}</p>
                                     </div>
                                     @if($product->brand)
                                     <div class="tp-product-details-query-item d-flex align-items-center">
-                                        <span>{{ __('header.brand') }}: </span>
+                                        <span>{{ __('brand') }}: </span>
                                         <p>{{ $product->brand->name }}</p>
                                     </div>
                                     @endif
                                     @if($product->use_case)
                                     <div class="tp-product-details-query-item d-flex align-items-center">
-                                        <span>Use Case: </span>
+                                        <span>{{__('use case')}} </span>
                                         <p>{{ $product->use_case }}</p>
                                     </div>
                                     @endif
                                 </div>
+
+                                <!-- Share -->
+                                {{--
                                 <div class="tp-product-details-social">
                                     <span>Share: </span>
                                     <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
@@ -202,11 +293,13 @@
                                         <li>Order yours before 2.30pm for same day dispatch</li>
                                     </ul>
                                 </div>
+                                --}}
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
             <div class="tp-product-details-bottom pb-140">
                 <div class="container">
                     <div class="row">
@@ -215,23 +308,65 @@
                                 <nav>
                                     <div class="nav nav-tabs justify-content-center p-relative tp-product-tab"
                                          id="navPresentationTab" role="tablist">
-                                        <button class="nav-link" id="nav-description-tab" data-bs-toggle="tab"
-                                                data-bs-target="#nav-description" type="button" role="tab"
-                                                aria-controls="nav-description" aria-selected="true">Description
-                                        </button>
                                         <button class="nav-link active" id="nav-addInfo-tab" data-bs-toggle="tab"
                                                 data-bs-target="#nav-addInfo" type="button" role="tab"
-                                                aria-controls="nav-addInfo" aria-selected="false">Additional information
+                                                aria-controls="nav-addInfo" aria-selected="true">{{__('characteristics')}}
                                         </button>
-                                        {{-- <button class="nav-link" id="nav-review-tab" data-bs-toggle="tab"
+
+                                        {{--
+                                        <button class="nav-link" id="nav-description-tab" data-bs-toggle="tab"
+                                                data-bs-target="#nav-description" type="button" role="tab"
+                                                aria-controls="nav-description" aria-selected="false">Description
+                                        </button>
+
+                                        <button class="nav-link" id="nav-review-tab" data-bs-toggle="tab"
                                                 data-bs-target="#nav-review" type="button" role="tab"
                                                 aria-controls="nav-review" aria-selected="false">Reviews (2)
-                                        </button> --}}
+                                        </button>
+                                        --}}
 
                                         <span id="productTabMarker" class="tp-product-details-tab-line"></span>
                                     </div>
                                 </nav>
+
+
                                 <div class="tab-content" id="navPresentationTabContent">
+
+                                    <div class="tab-pane fade show active" id="nav-addInfo" role="tabpanel"
+                                         aria-labelledby="nav-addInfo-tab" tabindex="0">
+
+                                        <div class="tp-product-details-additional-info ">
+                                            <div class="row justify-content-center">
+                                                <div class="col-xl-10">
+                                                    @if($product->characteristics_array && count($product->characteristics_array) > 0)
+                                                        <table>
+                                                            <tbody>
+                                                            @foreach($product->characteristics_array as $key => $value)
+                                                                <tr>
+                                                                    <td>{{ ucfirst(str_replace('_', ' ', $key)) }}</td>
+                                                                    <td>
+                                                                        @if(is_array($value))
+                                                                            {{ implode(', ', $value) }}
+                                                                        @else
+                                                                            {{ $value }}
+                                                                        @endif
+                                                                    </td>
+                                                                </tr>
+                                                            @endforeach
+                                                            </tbody>
+                                                        </table>
+                                                    @else
+                                                        <div class="text-center py-5">
+                                                            <h4>No Additional Information Available</h4>
+                                                            <p>This product doesn't have detailed specifications yet.</p>
+                                                        </div>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {{--
                                     <div class="tab-pane fade" id="nav-description" role="tabpanel"
                                          aria-labelledby="nav-description-tab" tabindex="0">
                                         <div class="tp-product-details-desc-wrapper pt-80">
@@ -264,39 +399,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="tab-pane fade show active" id="nav-addInfo" role="tabpanel"
-                                         aria-labelledby="nav-addInfo-tab" tabindex="0">
-
-                                        <div class="tp-product-details-additional-info ">
-                                            <div class="row justify-content-center">
-                                                <div class="col-xl-10">
-                                                    @if($product->characteristics_array && count($product->characteristics_array) > 0)
-                                                    <table>
-                                                        <tbody>
-                                                            @foreach($product->characteristics_array as $key => $value)
-                                                            <tr>
-                                                                <td>{{ ucfirst(str_replace('_', ' ', $key)) }}</td>
-                                                                <td>
-                                                                    @if(is_array($value))
-                                                                        {{ implode(', ', $value) }}
-                                                                    @else
-                                                                        {{ $value }}
-                                                                    @endif
-                                                                </td>
-                                                            </tr>
-                                                            @endforeach
-                                                        </tbody>
-                                                    </table>
-                                                    @else
-                                                    <div class="text-center py-5">
-                                                        <h4>No Additional Information Available</h4>
-                                                        <p>This product doesn't have detailed specifications yet.</p>
-                                                    </div>
-                                                    @endif
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    --}}
                                 </div>
                             </div>
                         </div>

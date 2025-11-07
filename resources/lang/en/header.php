@@ -3,6 +3,8 @@
 return [
     'followers' => 'Followers',
     'free_shipping' => 'FREE Express Shipping On Orders $570+',
+    'on_order_over_99' => 'FREE Shipping',
+    'contact_us_24_hrs_a_day' => 'Contact us 24 hours a day',
     'home' => 'Home',
     'categories' => 'Categories',
     'contact' => 'Contact',
@@ -26,12 +28,12 @@ return [
     'view_all' => 'View All',
     'browse_all_products' => 'Browse All Products',
     'all_products' => 'All Products',
-    
+
     // Product actions
     'add_to_cart' => 'Add to Cart',
     'quick_view' => 'Quick View',
     'add_to_wishlist' => 'Add To Wishlist',
-    
+
     // Additional navigation and content
     'more_products' => 'More Products',
     'hotline' => 'Hotline',
@@ -41,7 +43,7 @@ return [
     'selected_novelty_products' => 'Selected novelty Products',
     'top_rated_products' => 'Top Rated Products',
     'only' => 'Only',
-    
+
     // Categories
     'electric' => 'Electric',
     'tablet_pro_8' => 'Tablet Pro 8',
@@ -63,7 +65,7 @@ return [
     'category' => 'Category',
     'brand' => 'Brand',
     'uncategorized' => 'Uncategorized',
-    
+
     // Authentication forms
     'dont_have_account' => "Don't have an account?",
     'create_free_account' => 'Create a free account',
@@ -91,12 +93,12 @@ return [
     'enter_new_password' => 'Enter the new password you want to set',
     'new_password' => 'New Password',
     'confirm_new_password' => 'Confirm New Password',
-    
+
     // 404 Page
     'oops_page_not_found' => 'Oops! Page not found',
     'page_not_found_message' => 'Whoops, this is embarassing. Looks like the page you were looking for wasn\'t found.',
     'back_to_home' => 'Back to Home',
-    
+
     // Footer
     'my_account' => 'My Account',
     'track_orders' => 'Track Orders',
@@ -115,29 +117,29 @@ return [
     'all_rights_reserved' => ' 2025 All Rights Reserved',
     'login_to_access_account_features' => 'Login to access account features',
     'personal_details' => 'Personal Details',
-    
+
     // Banner texts
     'sale_20_off_all_store' => 'Sale 20% off all store',
     'subscribe_newsletter' => 'Subscribe our Newsletter',
     'enter_your_email' => 'Enter Your Email',
     'subscribe' => 'Subscribe',
-    
+
     // Product area
     'trending_products' => 'Trending Products',
     'new' => 'New',
     'featured' => 'Featured',
     'discounted' => 'Discounted',
     'best_selling' => 'Best Selling',
-    
+
     // Search
     'search_for_products' => 'Search for Products...',
     'select_category' => 'Select Category',
-    
+
     // Blog
     'latest_news_articles' => 'Latest news & articles',
     'view_all_blog' => 'View All Blog',
     'read_more' => 'Read More',
-    
+
     // Features
     'free_delivery' => 'Free Delivary',
     'orders_from_all_item' => 'Orders from all item',
@@ -147,7 +149,7 @@ return [
     'on_every_order_over' => 'On every order over $140.00',
     'support_24_7' => 'Support 24/7',
     'contact_us_24_hours' => 'Contact us 24 hours a day',
-    
+
     // Product Deal
     'deal_of_the_day' => 'Deal of The Day',
     'view_all_deals' => 'View All Deals',
@@ -159,7 +161,7 @@ return [
     'hrs' => 'Hrs',
     'min' => 'Min',
     'sec' => 'Sec',
-    
+
     // Banner
     'shop_now' => 'Shop Now',
     'shop_now_lowercase' => 'Shop now',
@@ -168,18 +170,18 @@ return [
     'chocolate_rich_flavors' => 'Chocolate & Rich Flavors',
     'latest_technology_added' => 'Latest Technology Added',
     'perfume_collection_2023' => 'Perfume Collection 2023',
-    
+
     // Slider content
     'starting_at' => 'Starting at',
     'exclusive_offer' => 'Exclusive offer',
     'default_slider_title' => 'Welcome to Our Store',
-    
+
     // Dynamic banner content
     'off_all_store' => 'off all store',
     'off' => 'off',
     'featured_product' => 'Featured Product',
     'featured_collection' => 'Featured Collection',
-    
+
     // Product filtering
     'price_filter' => 'Price Filter',
     'product_status' => 'Product Status',
@@ -197,7 +199,7 @@ return [
     'sort_by_price_low_high' => 'Sort by Price: Low to High',
     'sort_by_price_high_low' => 'Sort by Price: High to Low',
     'sort_by_latest' => 'Sort by Latest',
-    
+
     // Banner specific translations
     'special_offer' => 'Special Offer',
     'new_arrivals' => 'New Arrivals',

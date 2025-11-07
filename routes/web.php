@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
+Route::get('/test-sheet', [App\Http\Controllers\ProductController::class, 'indexSheet'])->name('test-sheet');
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/contact', [App\Http\Controllers\HomeController::class, 'contact'])->name('contact');
 
@@ -27,7 +28,6 @@ Route::post('/language/switch', [LanguageController::class, 'switch'])->name('la
 Route::get('/cart', [App\Http\Controllers\OrderController::class, 'cart'])->name('cart');
 Route::get('/wishlist', [App\Http\Controllers\OrderController::class, 'wishlist'])->name('wishlist');
 Route::get('/checkout', [App\Http\Controllers\OrderController::class, 'checkout'])->name('checkout');
-Route::get('/order-success', [App\Http\Controllers\OrderController::class, 'order-success'])->name('order-success');
 
 Route::resource('products', ProductController::class)->only(['index', 'show']);
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
@@ -44,7 +44,7 @@ Route::middleware('guest')->group(function () {
     Route::post('login', [App\Http\Controllers\AuthController::class, 'login']);
     Route::get('register', [App\Http\Controllers\AuthController::class, 'showRegisterForm'])->name('register');
     Route::post('register', [App\Http\Controllers\AuthController::class, 'register']);
-    
+
     // Password reset routes
     Route::get('forgot-password', [App\Http\Controllers\PasswordController::class, 'showLinkRequestForm'])->name('password.request');
     Route::post('forgot-password', [App\Http\Controllers\PasswordController::class, 'sendResetLinkEmail'])->name('password.email');
@@ -73,6 +73,14 @@ Route::middleware('auth')->group(function () {
 // Orders: store and show (store used by frontend checkout form)
 Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
 Route::get('/orders/{order}', [OrderController::class, 'show'])->name('orders.show');
+Route::get('/order-success/{order}', [OrderController::class, 'orderSuccess'])->name('orders.success');
+
+Route::get('/api/wilayas', fn() => \Kossa\AlgerianCities\Wilaya::select('id', 'name', 'arabic_name')->get());
+Route::get('/api/wilayas/{wilaya}/communes', fn(\Kossa\AlgerianCities\Wilaya $wilaya) => $wilaya->communes()->select('id', 'name', 'arabic_name')->get());
+Route::get('/api/wilayas/{wilaya_id}/shipping', function($wilaya_id) {
+    $price = \App\Models\WilayaShipping::where('wilaya_id', $wilaya_id)->value('shipping_price');
+    return response()->json(['shipping_price' => $price]);
+});
 
 // route that catches any get request
 Route::get('{any}', function () {

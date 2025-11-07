@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\ProductVariant;
+use App\Models\WilayaShipping;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
@@ -11,6 +13,7 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Models\Order;
 use App\Models\OrderProduct;
+use Kossa\AlgerianCities\Wilaya;
 
 class DatabaseSeeder extends Seeder
 {
@@ -23,13 +26,13 @@ class DatabaseSeeder extends Seeder
 
         // Seed wilayas and communes first
         $this->call(WilayaCommuneSeeder::class);
-        
+
         // Seed slider images
         $this->call(SliderImageSeeder::class);
 
         // --- Users ---
         $users = collect([
-            // ['name' => 'Karim Boulanger', 'email' => 'karim@example.com', 'phone' => '0551001100', 'type' => 'details', 'status' => 'active', 'address' => 'Algiers centre', 'commune_id' => 554],
+            ['name' => 'Admin Manager', 'email' => 'admin@example.com', 'phone' => '0661001100', 'type' => 'admin', 'status' => 'active', 'address' => 'Algiers centre', 'commune_id' => 554],
             ['name' => 'Karim Boulanger', 'email' => 'redouanedaddi316@gmail.com', 'phone' => '0551001100', 'type' => 'details', 'status' => 'active', 'address' => 'Algiers centre', 'commune_id' => 554],
             ['name' => 'Saliha Pâtissière', 'email' => 'saliha@example.com', 'phone' => '0552002200', 'type' => 'details', 'status' => 'active', 'address' => 'Oran centre', 'commune_id' => 1110],
             ['name' => 'Ali Grossiste', 'email' => 'ali@example.com', 'phone' => '0553003300', 'type' => 'gros', 'status' => 'active', 'address' => 'Blida', 'commune_id' => 284],
@@ -61,7 +64,8 @@ class DatabaseSeeder extends Seeder
 
         // --- Products ---
         $products = collect([
-            ['name' => 'Chocolate Cake', 'size' => 'Large', 'brand_id' => $brands[0]->id, 'category_id' => $categories[0]->id, 'use_case' => 'Birthday', 'description' => 'Rich chocolate cream', 'caracteristics' => json_encode([
+            ['name' => 'Chocolate Cake', 'size' => 'Large', 'brand_id' => $brands[0]->id, 'category_id' => $categories[0]->id, 'use_case' => 'Birthday', 'description' => 'Rich chocolate cream',
+                'characteristics' => json_encode([
                 'flavor' => 'chocolate',
                 'weight' => '2.5 kg',
                 'diameter' => '28 cm',
@@ -80,7 +84,7 @@ class DatabaseSeeder extends Seeder
                 'image5' => 'pictures/products/1/1_5.jpg',
             ],
 
-            ['name' => 'Baklava Assortment', 'size' => 'Medium', 'brand_id' => $brands[4]->id, 'category_id' => $categories[4]->id, 'use_case' => 'Family', 'description' => 'Traditional Algerian baklava', 'caracteristics' => json_encode([
+            ['name' => 'Baklava Assortment', 'size' => 'Medium', 'brand_id' => $brands[4]->id, 'category_id' => $categories[4]->id, 'use_case' => 'Family', 'description' => 'Traditional Algerian baklava', 'characteristics' => json_encode([
                 'nuts' => 'almond',
                 'quantity' => '24 pieces',
                 'weight' => '800g',
@@ -100,7 +104,7 @@ class DatabaseSeeder extends Seeder
                 'image5' => 'pictures/products/2/2_5.jpg',
             ],
 
-            ['name' => 'Croissant au Beurre', 'size' => 'Small', 'brand_id' => $brands[2]->id, 'category_id' => $categories[6]->id, 'use_case' => 'Breakfast', 'description' => 'Buttery croissant', 'caracteristics' => json_encode([
+            ['name' => 'Croissant au Beurre', 'size' => 'Small', 'brand_id' => $brands[2]->id, 'category_id' => $categories[6]->id, 'use_case' => 'Breakfast', 'description' => 'Buttery croissant', 'characteristics' => json_encode([
                 'type' => 'butter',
                 'weight' => '65g',
                 'dimensions' => '12x6 cm',
@@ -120,7 +124,7 @@ class DatabaseSeeder extends Seeder
                 'image5' => 'pictures/products/3/3_5.jpg',
             ],
 
-            ['name' => 'Makrout el Louz', 'size' => 'Medium', 'brand_id' => $brands[1]->id, 'category_id' => $categories[4]->id, 'use_case' => 'Wedding', 'description' => 'Almond based sweet', 'caracteristics' => json_encode([
+            ['name' => 'Makrout el Louz', 'size' => 'Medium', 'brand_id' => $brands[1]->id, 'category_id' => $categories[4]->id, 'use_case' => 'Wedding', 'description' => 'Almond based sweet', 'characteristics' => json_encode([
                 'syrup' => 'honey',
                 'main_ingredient' => 'almond paste',
                 'weight' => '500g',
@@ -141,7 +145,7 @@ class DatabaseSeeder extends Seeder
                 'image5' => 'pictures/products/4/4_5.jpg',
             ],
 
-            ['name' => 'Strawberry Cake', 'size' => 'Large', 'brand_id' => $brands[3]->id, 'category_id' => $categories[5]->id, 'use_case' => 'Birthday', 'description' => 'Strawberry whipped cream', 'caracteristics' => json_encode([
+            ['name' => 'Strawberry Cake', 'size' => 'Large', 'brand_id' => $brands[3]->id, 'category_id' => $categories[5]->id, 'use_case' => 'Birthday', 'description' => 'Strawberry whipped cream', 'characteristics' => json_encode([
                 'flavor' => 'strawberry',
                 'weight' => '2.8 kg',
                 'diameter' => '30 cm',
@@ -163,6 +167,26 @@ class DatabaseSeeder extends Seeder
             ],
         ])->map(fn($p) => Product::create($p));
 
+        $variants = collect([
+            // Variants for Chocolate Cake
+            ['product_id' => $products[0]->id, 'color' => 'dark brown', 'shape' => 'round', 'size' => 'Large', 'taste' => 'chocolate', 'price1' => 2500, 'price2' => 2300, 'is_active' => true],
+            ['product_id' => $products[0]->id, 'color' => 'brown', 'shape' => 'heart', 'size' => 'Medium', 'taste' => 'chocolate', 'price1' => 2200, 'price2' => 2000, 'is_active' => true],
+
+            // Variants for Baklava Assortment
+            ['product_id' => $products[1]->id, 'color' => 'golden', 'shape' => 'square', 'size' => 'Medium', 'taste' => 'almond', 'price1' => 1800, 'price2' => 1700, 'is_active' => true],
+            ['product_id' => $products[1]->id, 'color' => 'light brown', 'shape' => 'diamond', 'size' => 'Small', 'taste' => 'walnut', 'price1' => 1500, 'price2' => 1400, 'is_active' => true],
+
+            // Variants for Croissant au Beurre
+            ['product_id' => $products[2]->id, 'color' => 'golden brown', 'shape' => 'crescent', 'size' => 'Small', 'taste' => 'butter', 'price1' => 200, 'price2' => 180, 'is_active' => true],
+
+            // Variants for Makrout el Louz
+            ['product_id' => $products[3]->id, 'color' => 'golden', 'shape' => 'diamond', 'size' => 'Medium', 'taste' => 'almond', 'price1' => 1500, 'price2' => 1400, 'is_active' => true],
+
+            // Variants for Strawberry Cake
+            ['product_id' => $products[4]->id, 'color' => 'pink', 'shape' => 'round', 'size' => 'Large', 'taste' => 'strawberry', 'price1' => 2800, 'price2' => 2600, 'is_active' => true],
+            ['product_id' => $products[4]->id, 'color' => 'red', 'shape' => 'heart', 'size' => 'Medium', 'taste' => 'strawberry', 'price1' => 2500, 'price2' => 2300, 'is_active' => true],
+        ])->map(fn($v) => ProductVariant::create($v));
+
         // --- Orders ---
         $orders = collect([
             ['client_id' => $users[3]->id, 'client_name' => 'Nour Client', 'client_phone' => '0554004400', 'commune_id' => 25, 'payment_status' => 'pending', 'payment_method' => 'cash', 'is_verified' => false, 'order_status' => 'pending', 'total_price' => 2500, 'notes' => 'Deliver in the morning'],
@@ -171,8 +195,48 @@ class DatabaseSeeder extends Seeder
         ])->map(fn($o) => Order::create($o));
 
         // --- Order Products ---
-        OrderProduct::create(['order_id' => $orders[0]->id, 'product_id' => $products[0]->id, 'qte' => 1, 'price' => 2500]);
-        OrderProduct::create(['order_id' => $orders[1]->id, 'product_id' => $products[1]->id, 'qte' => 1, 'price' => 1800]);
-        OrderProduct::create(['order_id' => $orders[2]->id, 'product_id' => $products[2]->id, 'qte' => 10, 'price' => 200]);
+        // Order 1 - includes a variant of Chocolate Cake
+        OrderProduct::create([
+            'order_id' => $orders[0]->id,
+            'product_id' => $products[0]->id,
+            'color' => 'dark brown',
+            'shape' => 'round',
+            'size' => 'Large',
+            'taste' => 'chocolate',
+            'qte' => 1,
+            'price' => 2500,
+        ]);
+        // Order 2 - includes a variant of Baklava Assortment
+        OrderProduct::create([
+            'order_id' => $orders[1]->id,
+            'product_id' => $products[1]->id,
+            'color' => 'golden',
+            'shape' => 'square',
+            'size' => 'Medium',
+            'taste' => 'almond',
+            'qte' => 1,
+            'price' => 1800,
+        ]);
+        // Order 3 - includes multiples of Croissant au Beurre
+        OrderProduct::create([
+            'order_id' => $orders[2]->id,
+            'product_id' => $products[2]->id,
+            'color' => 'golden brown',
+            'shape' => 'crescent',
+            'size' => 'Small',
+            'taste' => 'butter',
+            'qte' => 10,
+            'price' => 200,
+        ]);
+
+
+        // --- Wilaya Shippings ---
+        foreach (Wilaya::all() as $wilaya) {
+            WilayaShipping::create([
+                'wilaya_id' => $wilaya->id,
+                'shipping_price' => 600,
+            ]);
+        }
+
     }
 }

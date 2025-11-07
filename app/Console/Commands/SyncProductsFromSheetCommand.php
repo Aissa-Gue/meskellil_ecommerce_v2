@@ -51,7 +51,7 @@ class SyncProductsFromSheetCommand extends Command
             $item = array_combine($headers, array_pad($row, count($headers), null));
 
             // Expected optional headers in sheet (case-insensitive):
-            // name,size,brand,brand_id,category,category_id,use_case,details,caracteristics(reference json),reference,
+            // name,size,brand,brand_id,category,category_id,use_case,details,characteristics(reference json),reference,
             // price1,price2,stock,discount,is_new,is_active,image1..image5
 
             $name = $item['name'] ?? null;
@@ -77,10 +77,10 @@ class SyncProductsFromSheetCommand extends Command
                 $categoryId = $category->id;
             }
 
-            // Caracteristics: allow JSON in sheet, else try to parse "key1:val1; key2:val2"
+            // characteristics: allow JSON in sheet, else try to parse "key1:val1; key2:val2"
             $caracs = null;
-            if (!empty($item['caracteristics'])) {
-                $c = trim($item['caracteristics']);
+            if (!empty($item['characteristics'])) {
+                $c = trim($item['characteristics']);
                 if (Str::startsWith($c, ['{','['])) {
                     $caracs = json_decode($c, true);
                 } else {
@@ -101,7 +101,7 @@ class SyncProductsFromSheetCommand extends Command
                 'category_id' => $categoryId,
                 'use_case' => $item['use_case'] ?? null,
                 'details' => $item['details'] ?? null,
-                'caracteristics' => $caracs,
+                'characteristics' => $caracs,
                 'reference' => $item['reference'] ?? null,
                 'price1' => isset($item['price1']) ? (float)$item['price1'] : null,
                 'price2' => isset($item['price2']) ? (float)$item['price2'] : null,

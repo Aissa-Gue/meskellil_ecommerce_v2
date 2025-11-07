@@ -62,13 +62,13 @@ class ProductService
                     if (is_array($value)) {
                         $query->where(function ($q) use ($value) {
                             foreach ($value as $color) {
-                                $q->orWhereJsonContains('caracteristics->color', $color)
-                                  ->orWhere('caracteristics', 'like', '%"color":"' . $color . '"%');
+                                $q->orWhereJsonContains('characteristics->color', $color)
+                                  ->orWhere('characteristics', 'like', '%"color":"' . $color . '"%');
                             }
                         });
                     } else {
-                        $query->whereJsonContains('caracteristics->color', $value)
-                              ->orWhere('caracteristics', 'like', '%"color":"' . $value . '"%');
+                        $query->whereJsonContains('characteristics->color', $value)
+                              ->orWhere('characteristics', 'like', '%"color":"' . $value . '"%');
                     }
                 }),
                 AllowedFilter::custom('created_after_date', new CreatedAfterDateFilter(), 'created_at'),

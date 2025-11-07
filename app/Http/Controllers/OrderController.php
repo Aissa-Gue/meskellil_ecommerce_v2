@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use App\Models\OrderProduct;
 use App\Models\Product;
+use App\Models\WilayaShipping;
 use App\Services\OrderService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -85,7 +86,7 @@ class OrderController extends Controller
         return view('orders.checkout')->with(compact('breadcrumbData'));
     }
 
-    public function orderSuccess()
+    public function orderSuccess(Order $order)
     {
         $breadcrumbData = [
             'title' => 'Checkout',
@@ -106,7 +107,7 @@ class OrderController extends Controller
             ]
         ];
 
-        return view('orders.order-success')->with(compact('breadcrumbData'));
+        return view('orders.order-success')->with(compact('breadcrumbData', 'order'));
     }
 
     /***************************************************************/
@@ -182,48 +183,69 @@ class OrderController extends Controller
     {
         $payload = $request->validate([
             'client_id' => 'nullable|exists:users,id',
-            'client_name' => 'nullable|string|max:255',
-            'client_phone' => 'nullable|string|max:50',
-            'commune_id' => 'nullable|exists:communes,id|min:1|max:58',
-            'payment_status' => 'required|in:full_paid,partial_paid,pending',
-            'payment_method' => 'required|in:cash,ccp,bank_transfer',
+            'client_name' => 'required|string|max:255',
+            'client_phone' => 'required|string|max:50',
+            'wilaya_id' => 'required|exists:wilayas,id',
+            'commune_id' => 'required|exists:communes,id',
+            'payment_status' => 'nullable|in:full_paid,partial_paid,pending',
+            'payment_method' => 'nullable|in:cash,ccp,bank_transfer',
             'is_verified' => 'boolean',
             'order_status' => 'in:pending,confirmed,processing,shipped,delivered,canceled',
             'notes' => 'nullable|string',
-            'items' => 'required|array|min:1',
+
+            'items' => 'required|array|min:0',
             'items.*.product_id' => 'required|exists:products,id',
             'items.*.qte' => 'required|integer|min:1',
             'items.*.price' => 'required|numeric|min:0',
+            'items.*.color' => '',
+            'items.*.shape' => '',
+            'items.*.size' => '',
+            'items.*.taste' => '',
         ]);
 
         return DB::transaction(function () use ($payload) {
             $order = Order::create(collect($payload)->except('items')->toArray());
 
             $total = 0;
+            $shippingPrice = WilayaShipping::find($payload['wilaya_id'])->shipping_price;
+
             foreach ($payload['items'] as $line) {
                 $product = Product::find($line['product_id']);
                 OrderProduct::create([
                     'order_id' => $order->id,
                     'product_id' => $product->id,
                     'qte' => $line['qte'],
-                    'price' => $line['price'],
+                    'price' => $product->price,
+                    'shape' => $line['shape'],
+                    'size' => $line['size'],
+                    'color' => $line['color'],
+                    'taste' => $line['taste'],
                 ]);
-                $total += $line['price'] * $line['qte'];
+                $total += $product->price * $line['qte'];
 
                 // optional: decrease stock
                 $product->decrement('stock', $line['qte']);
             }
-            $order->update(['total_price' => $total]);
 
-            return redirect()->route('orders.show', $order);
+            $order->update([
+                'shipping_price' => $shippingPrice,
+                'total_price' => $total
+            ]);
+
+            return redirect()->route('orders.success', ['order' => $order->id]);
         });
     }
 
     public function update(Request $request, Order $order)
     {
         $payload = $request->validate([
-            'payment_status' => 'in:full_paid,partial_paid,pending',
-            'payment_method' => 'in:cash,ccp,bank_transfer',
+            'client_id' => 'nullable|exists:users,id',
+            'client_name' => 'required|string|max:255',
+            'client_phone' => 'required|string|max:50',
+            'wilaya_id' => 'required|exists:wilayas,id',
+            'commune_id' => 'required|exists:communes,id',
+            'payment_status' => 'nullable|in:full_paid,partial_paid,pending',
+            'payment_method' => 'nullable|in:cash,ccp,bank_transfer',
             'is_verified' => 'boolean',
             'order_status' => 'in:pending,confirmed,processing,shipped,delivered,canceled',
             'notes' => 'nullable|string',

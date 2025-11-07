@@ -26,12 +26,12 @@ return [
     'view_all' => 'عرض الكل',
     'browse_all_products' => 'تصفح جميع المنتجات',
     'all_products' => 'جميع المنتجات',
-    
+
     // Product actions
     'add_to_cart' => 'إضافة إلى السلة',
     'quick_view' => 'عرض سريع',
     'add_to_wishlist' => 'إضافة إلى قائمة الرغبات',
-    
+
     // Additional navigation and content
     'more_products' => 'المزيد من المنتجات',
     'hotline' => 'الخط الساخن',
@@ -41,7 +41,7 @@ return [
     'selected_novelty_products' => 'منتجات جديدة مختارة',
     'top_rated_products' => 'المنتجات الأعلى تقييماً',
     'only' => 'فقط',
-    
+
     // Categories
     'electric' => 'كهربائي',
     'tablet_pro_8' => 'تابلت برو 8',
@@ -50,6 +50,7 @@ return [
     'new_arrivals' => 'وصل حديثاً',
     'shopping_cart' => 'عربة التسوق',
     'free_shipping_for_all_orders_over' => 'شحن مجاني لجميع الطلبات التي تزيد عن',
+    'header.on_order_over_99' => 'شحن مجاني لجميع الطلبات التي تزيد عن 5000 دج',
     'your_cart_is_empty' => 'عربة التسوق فارغة',
     'go_to_shop' => 'اذهب للمتجر',
     'subtotal' => 'المجموع الفرعي',
@@ -63,7 +64,7 @@ return [
     'category' => 'الفئة',
     'brand' => 'العلامة التجارية',
     'uncategorized' => 'غير مصنف',
-    
+
     // Authentication forms
     'dont_have_account' => 'ليس لديك حساب؟',
     'create_free_account' => 'إنشاء حساب مجاني',
@@ -91,12 +92,12 @@ return [
     'enter_new_password' => 'أدخل كلمة المرور الجديدة التي تريد تعيينها',
     'new_password' => 'كلمة المرور الجديدة',
     'confirm_new_password' => 'تأكيد كلمة المرور الجديدة',
-    
+
     // 404 Page
     'oops_page_not_found' => 'عذراً! الصفحة غير موجودة',
     'page_not_found_message' => 'عذراً، هذا محرج. يبدو أن الصفحة التي تبحث عنها لم يتم العثور عليها.',
     'back_to_home' => 'العودة للرئيسية',
-    
+
     // Footer
     'my_account' => 'حسابي',
     'track_orders' => 'تتبع الطلبات',
@@ -115,25 +116,25 @@ return [
     'all_rights_reserved' => '© 2025 جميع الحقوق محفوظة',
     'login_to_access_account_features' => 'قم بتسجيل الدخول للوصول إلى ميزات الحساب',
     'personal_details' => 'التفاصيل الشخصية',
-    
+
     // Newsletter
     'sale_20_off_all_store' => 'تخفيض 20% على جميع المتجر',
     'subscribe_newsletter' => 'اشترك في نشرتنا الإخبارية',
     'enter_your_email' => 'أدخل بريدك الإلكتروني',
     'subscribe' => 'اشتراك',
-    
+
     // Product area
     'trending_products' => 'المنتجات الرائجة',
     'new' => 'جديد',
     'featured' => 'مميز',
     'discounted' => 'مخفض',
     'best_selling' => 'الأكثر مبيعاً',
-    
+
     // Blog
     'latest_news_articles' => 'آخر الأخبار والمقالات',
     'view_all_blog' => 'عرض جميع المدونات',
     'read_more' => 'اقرأ المزيد',
-    
+
     // Features
     'free_delivery' => 'توصيل مجاني',
     'orders_from_all_item' => 'طلبات من جميع العناصر',
@@ -143,7 +144,7 @@ return [
     'on_every_order_over' => 'على كل طلب أكثر من 140.00 دولار',
     'support_24_7' => 'دعم 24/7',
     'contact_us_24_hours' => 'اتصل بنا على مدار 24 ساعة',
-    
+
     // Product Deal
     'deal_of_the_day' => 'صفقة اليوم',
     'view_all_deals' => 'عرض جميع الصفقات',
@@ -155,7 +156,7 @@ return [
     'hrs' => 'ساعات',
     'min' => 'دقائق',
     'sec' => 'ثواني',
-    
+
     // Banner
     'shop_now' => 'تسوق الآن',
     'shop_now_lowercase' => 'تسوق الآن',
@@ -164,13 +165,13 @@ return [
     'chocolate_rich_flavors' => 'الشوكولاتة والنكهات الغنية',
     'latest_technology_added' => 'أحدث التقنيات المضافة',
     'perfume_collection_2023' => 'مجموعة العطور 2023',
-    
+
     // Dynamic banner content
     'off_all_store' => 'خصم على كامل المتجر',
     'off' => 'خصم',
     'featured_product' => 'منتج مميز',
     'featured_collection' => 'مجموعة مميزة',
-    
+
     // Product filtering
     'price_filter' => 'فلتر السعر',
     'product_status' => 'حالة المنتج',
@@ -188,12 +189,12 @@ return [
     'sort_by_price_low_high' => 'ترتيب حسب السعر: من الأقل للأعلى',
     'sort_by_price_high_low' => 'ترتيب حسب السعر: من الأعلى للأقل',
     'sort_by_latest' => 'ترتيب حسب الأحدث',
-    
+
     // Slider content
     'starting_at' => 'بداية من',
     'exclusive_offer' => 'عرض حصري',
     'default_slider_title' => 'مرحباً بك في متجرنا',
-    
+
     // Banner specific translations
     'special_offer' => 'عرض خاص',
     'limited_time_offer' => 'عرض لفترة محدودة',

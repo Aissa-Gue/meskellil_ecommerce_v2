@@ -13,20 +13,24 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->string('reference')->unique()->index();
             $table->string('name')->index();
-            $table->string('size')->nullable()->index();
+            $table->text('description')->nullable();
+            $table->string('size')->nullable()->index();//TODO: delete this field later
             $table->foreignId('brand_id')->nullable()->constrained()->nullOnDelete();
             $table->foreignId('category_id')->nullable()->constrained()->nullOnDelete();
             $table->string('use_case')->nullable()->index();
-            $table->text('description')->nullable();
-            $table->json('caracteristics')->nullable();  // store structured attributes as JSON
-            $table->string('reference')->nullable()->index();
-
-             $table->decimal('price1', 12, 2)->nullable()->index();
-            $table->decimal('price2', 12, 2)->nullable()->index();
+            $table->json('characteristics')->nullable();  // store structured attributes as JSON
+            $table->string('notes')->nullable();
             $table->integer('stock')->default(0)->index();
+
+            $table->decimal('price1', 12, 2)->nullable()->index();
+            $table->decimal('price2', 12, 2)->nullable()->index();
             $table->unsignedTinyInteger('discount')->default(0); // 0..100 (%)
+
+            $table->boolean('is_featured')->default(false)->index();
             $table->boolean('is_new')->default(false)->index();
+
 
             $table->string('image1')->nullable();
             $table->string('image2')->nullable();
